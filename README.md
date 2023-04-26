@@ -1,4 +1,4 @@
-# Human Computer Interactions
+# Human Computer Interaction
 
 Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere Spieler und Gruppen zu finden, die ihren Interessen entsprechen (z.B. durch Gengres). Die App integriert Steam, um Spielinformationen zu sammeln und eine nahtlose Verbindung zu ermöglichen. Durch ein Bewertungssystem können Spieler ihre Erfahrungen mit anderen Benutzern teilen und Empfehlungen aussprechen, um eine aktive und freundliche Community aufzubauen. Mit der Funktion "Vorgeschlagene Spieler" werden Spieler auf andere Benutzer aufmerksam gemacht, die ähnliche Vorlieben haben, um neue Freunde und Teams zu finden und eine gute Gaming-Session zu erleben.
 
@@ -25,4 +25,7 @@ Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere S
     <simon.pototzki@stud.h-da.de>
 
 ## To-Do's
-![](https://progress-bar.dev/69/?width=240&suffix=%)
+#### Design Entwurf
+![](https://progress-bar.dev/40/?width=240&suffix=%)
+### Projekt Definition
+![](https://progress-bar.dev/0/?width=240&suffix=%)
