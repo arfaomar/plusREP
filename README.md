@@ -2,4 +2,4 @@
 Eine App die verbindet.
 
 ### Stand der Dinge
-![](https://geps.dev/progress/69)
+![](https://progress-bar.dev/69/?width=240&suffix=%)
