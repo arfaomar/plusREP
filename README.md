@@ -6,7 +6,7 @@ Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere S
 <br>
 [Vorlesung](https://rooms.fbi.h-da.de/r/C20/00.04) (BBB)
 
-[Meilensteine](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/tree/main/milestones)
+[Dokumentation](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/tree/main/milestones)
 
 
 ## Mitwirkende
