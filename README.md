@@ -18,13 +18,13 @@ Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere S
     <br>
     <simon.pototzki@stud.h-da.de>
 
--   [**Max Muster**](@todo) **0815**
+-   [**Justin Uhrig**](@stjuuhrig) **0815**
     <br>
-    <simon.pototzki@stud.h-da.de>
+    <justin.uhrig@stud.h-da.de>
 
--   [**Max Muster**](@todo) **0815**
+-   [**Sebastian Knupfer**](stseknupf) **0815**
     <br>
-    <simon.pototzki@stud.h-da.de>
+    <sebastian.knupfer@stud.h-da.de>
 
 ## To-Do's
 #### Design Entwurf
