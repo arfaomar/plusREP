@@ -5,5 +5,3 @@ Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere S
 
 #### Skizze:
 ![image-1.png](./image-1.png)  
-**`Beschreibung:`** <br>
---Beschreibung hier eingeben--
