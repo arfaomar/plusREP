@@ -24,7 +24,7 @@ Unser Produkt **+rep** beschreibt eine App, die es Spielern ermöglicht andere S
     <br>
     <justin.uhrig@stud.h-da.de>
 
--   [**Sebastian Knupfer**](stseknupf) **1111883**
+-   [**Sebastian Knupfer**](@stseknupf) **1111883**
     <br>
     <sebastian.knupfer@stud.h-da.de><br>
 
