@@ -21,7 +21,7 @@
     Falls Sie keinerlei Zugriff auf “externe” Personen haben, 
     dann kann ein(e) GruppenpartnerIn in die Rolle des Stereotypen schlüpfen (→ nicht bevorzugte Lösung)
 
-<b>F1:</b> Wie sehr können Kompjuter?<br> <b>A1:</b> Ja :D
+<b>F1:</b> Wie sehr können Kompjuter?<br> <b>A1:</b> Ja :D<br>
 Erster Interview Entwurf<br>
 --Welche Erfahrungen hast du mit Mitspielern gemacht?<br>
 --Wenn du neue Mitspieler suchst, wie gehst du vor?<br>
