@@ -22,7 +22,11 @@
     dann kann ein(e) GruppenpartnerIn in die Rolle des Stereotypen schlüpfen (→ nicht bevorzugte Lösung)
 
 <b>F1:</b> Wie sehr können Kompjuter?<br> <b>A1:</b> Ja :D
-
+Erster Interview Entwurf<br>
+--Welche Erfahrungen hast du mit Mitspielern gemacht?<br>
+--Wenn du neue Mitspieler suchst, wie gehst du vor?<br>
+--Gibt es etwas, das dich bei vielen Apps stört?<br>
+--Etwas zu Barrierefreiheit, wenn das in der vorigen Frage nicht drin steckt (inkl Farbenblindheit, ADHS etc)
 
 ### Szenariobeschreibung
 
