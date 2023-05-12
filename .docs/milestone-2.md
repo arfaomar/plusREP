@@ -21,12 +21,24 @@
     Falls Sie keinerlei Zugriff auf “externe” Personen haben, 
     dann kann ein(e) GruppenpartnerIn in die Rolle des Stereotypen schlüpfen (→ nicht bevorzugte Lösung)
 
-<b>F1:</b> Wie sehr können Kompjuter?<br> <b>A1:</b> Ja :D<br>
-Erster Interview Entwurf<br>
---Welche Erfahrungen hast du mit Mitspielern gemacht?<br>
---Wenn du neue Mitspieler suchst, wie gehst du vor?<br>
---Gibt es etwas, das dich bei vielen Apps stört?<br>
---Etwas zu Barrierefreiheit, wenn das in der vorigen Frage nicht drin steckt (inkl Farbenblindheit, ADHS etc)
+
+**F1:** Welche Apps verwenden Sie am meisten?
+
+**F2:** Gibt es etwas, das Sie bei einigen Apps stört?
+
+**F3:** Welche von diesen Apps finden Sie am besten?
+
+**F4:** Wie finden Sie dessen Benutzeroberfläche (positives und negatives) ?
+
+**F5:** Haben Sie vielleicht Vorschläge wie man die Benutzeroberfläche optimieren kann?
+
+**F6:** Wie wichtig ist es Ihnen andere Spieler kennenzulernen und mit Ihnen zu interagieren?
+
+**F7:** Wenn Sie neue Mitspieler suchen, wie gehen Sie vor?
+
+**F8:** Welche Erfahrungen haben Sie mit Mitspielern gemacht?
+
+**F9:** Was müsste eine App können um ihnen dabei zu helfen?
 
 ### Szenariobeschreibung
 
