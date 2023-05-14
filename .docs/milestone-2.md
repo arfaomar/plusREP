@@ -94,6 +94,24 @@ Wir haben 3 Kommilitonen befragt, diese nennen wir auf Grund der Anonymität A, 
 
 ### Szenariobeschreibung
 
+Mein League of Legends Team waren mal wieder nur Noobs, die nur geflamed haben. Also suche ich mir lieber mal ein Team von kompetenten Mitspielern,
+die das Spiel auch ernst nehmen und auch aufsteigen wollen. Auf Reddit ist die Werbung zu nervig, darum gehe ich lieber auf +rep.
+Im Forum finde ich mehrere Posts, die mit LoL getaggt sind. Zwei davon sind Spielersuchen, bei denen es dem OP darum geht, ein seriöses Team aufzubauen.
+Der eine OP hat jedoch eine stark negative Reputation.<br> Die Reputation des zweiten ist zwar auch negativ, aber ich sehe, dass er erst dreimal
+bewertet wurde und zwei davon leicht positiv und nur eine stark negativ war. Also entscheide ich, ihm eine Chance zu geben und nehme ihn in
+meine Kontakte auf.<br> Während ich darauf warte, dass er meine Steamfreundschaftsanfrage annimmt, erstelle ich selbst einen Forumpost, und schreibe,
+dass ich eine kompetente Gruppe aufbauen will. Und weil ich in der Vergangenheit schon die Erfahung gemacht habe, dass es manche Männer stört,
+mit einer Frau zu spielen, schreibe ich auch, dass ich eine Frau bin und sich nur Leute melden zu brauchen, die damit keine Probleme haben.<br>
+Ich tagge den Post mit dem Spiel LoL und mit #Spielersuche, schicke ihn ab und warte auf Reaktionen.
+
 ### Anforderungen
 
-### Quantifizierung
+**Funktionale Anforderung**<br>
+Die App muss es dem Nutzer erlauben, die öffentlichen Posts nach Tags zu filtern.
+
+**Qualitätsanforderung**<br>
+Die App muss den korrekten und aktuellen Steam Nickname anzeigen.
+
+### Transformation/Quantifizierung
+
+Die App muss den Nickname **einmal pro Minute** in der **Steam API abfragen.**
