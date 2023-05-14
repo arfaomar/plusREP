@@ -10,7 +10,9 @@
 
 
 ### Stereotypbeschreibung
-![](https://badhtml.com/img/myface.gif)
+- [Personenbeschreibung Horst](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/tree/main/.docs/horst.pdf)
+- [Personenbeschreibung Thorsten](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/tree/main/.docs/thorsten.pdf)
+- [Personenbeschreibung Kevin](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/tree/main/.docs/kevin.pdf)
 
 ### Interview
 
