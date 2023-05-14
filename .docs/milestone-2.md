@@ -36,9 +36,11 @@
 
 **F7:** Wenn Sie neue Mitspieler suchen, wie gehen Sie vor?
 
-**F8:** Welche Erfahrungen haben Sie mit Mitspielern gemacht?
+**F8** Welche Probleme haben Sie bei der Suche nach Mitspielern, falls vorhanden?
 
-**F9:** Was müsste eine App können um ihnen dabei zu helfen?
+**F9:** Welche Erfahrungen haben Sie mit Mitspielern gemacht?
+
+**F10:** Was müsste eine App können um ihnen dabei zu helfen?
 
 ### Szenariobeschreibung
 
