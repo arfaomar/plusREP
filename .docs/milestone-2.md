@@ -24,17 +24,22 @@ Wir haben 3 Kommilitonen befragt, diese nennen wir auf Grund der Anonymität A, 
     B1: Youtube, Spotify
     C1: Youtube, Instagram, Facebook Messenger, WhatsApp, Discord
 
+**Hypothese: ✓** {+ Da die Benutzung von WhatsApp einfach und schnell abläuft, und man stets verbunden sein möchte und sich austauschen will, entscheidet man sich evtl. für Whatsapp +}
+
 **F2:** Gibt es etwas, das Sie bei einigen Apps stört?
 
     A2: Schlechte Changelogs und zu viel Werbung.
     B2: Zu viel Werbung
     C2: Mangelhafter Datenschutz
 
+**Hypothese: ✗** {- Es werden wahrscheinlich die Menge der Werbung sowie die Notwendigkeit einer Anmeldung kritisiert -}
+
 **F3:** Welche von diesen Apps finden Sie am besten?
     
     A3: Youtube
     B3: Spotify
     C3: Facebook Messenger
+    
 
 **F4:** Wie finden Sie dessen Benutzeroberfläche (positives und negatives) ?
     
