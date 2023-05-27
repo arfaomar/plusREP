@@ -28,7 +28,7 @@
 
 ### Zusammenfassung
 Die Testfälle haben gezeigt, dass die UI so wie wir sie geplant haben, größtenteils intuitiv benutzbar ist.<br>
-Wir haben jedoch im 1. Testfall gemerkt, dass ein Button nicht als solcer zu erkennen war, und werden das in der Implementierung berücksichtigen.<br>
+Wir haben jedoch im 1. Testfall gemerkt, dass ein Button nicht als solcher zu erkennen war, und werden das in der Implementierung berücksichtigen.<br>
 
     
 
