@@ -4,6 +4,7 @@
 ![image.png](./image.png)
 
 ### Screendiagramm
+![Blub](./bruh.png)
 
 ### Papierprototyp
 - **Beschreibung der Testfälle:**
