@@ -2,6 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.PlusRep" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/plusRepPurple</item>
+        <item name="colorPrimaryVariant">@color/plusRepBackground</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/plusRepPurple</item>
+        <item name="colorSecondaryVariant">@color/plusRepPurple</item>
+        <item name="colorOnSecondary">@color/plusRepBackground</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
