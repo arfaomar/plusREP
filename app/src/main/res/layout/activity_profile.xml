@@ -17,5 +17,7 @@
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu"
+        app:labelVisibilityMode="selected"
         android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>
