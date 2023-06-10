@@ -4,19 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/plusRepBackground"
     tools:context=".Settings">
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/plusRepBackground"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemBackground="@color/plusRepBackground"
-        app:itemTextColor="@drawable/selector"
-        app:itemIconTint="@drawable/selector"
-        app:menu="@menu/menu"
-        app:labelVisibilityMode="selected"
-        android:layout_alignParentBottom="true"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu" />
+
+    <EditText
+        android:id="@+id/ScreenName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:background="@color/plusRepBackground"
+        android:ems="10"
+        android:inputType="text"
+        android:labelFor="@+id/ScreenName"
+        android:text="@string/settings_screen_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ScreenName"
+        app:layout_goneMarginTop="0dp"
+        app:layout_goneMarginBottom="0dp">
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/plusRepContainer"
+            android:text="@string/dark_mode"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:thumbTint="@color/plusRepPurple" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:minHeight="20dp"
+            android:layout_height="10dp"/>
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/notifications"
+            android:textColor="@color/white"
+            android:background="@color/plusRepContainer"
+            android:thumbTint="@color/plusRepPurple"
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:minHeight="20dp"
+            android:layout_height="10dp" />
+
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hide_profile"
+            android:textColor="@color/white"
+            android:background="@color/plusRepContainer"
+            android:thumbTint="@color/plusRepPurple"
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="@color/plusRepPurple"
+            android:text="@string/del_account" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
