@@ -7,11 +7,15 @@
         <item name="colorPrimaryVariant">@color/plusRepBackground</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/plusRepPurple</item>
+        <item name="colorSecondary">@color/plusRepBackground</item>
         <item name="colorSecondaryVariant">@color/plusRepPurple</item>
-        <item name="colorOnSecondary">@color/plusRepBackground</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Tertiary brand color. -->
+        <item name="colorTertiaryContainer">@color/plusRepContainer</item>
+        <item name="colorOnTertiaryContainer">@color/white</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/plusRepBackground</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
