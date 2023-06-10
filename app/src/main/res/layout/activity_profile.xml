@@ -51,29 +51,29 @@
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/button3"
+    <ImageButton
+        android:id="@+id/dislikeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/plusRepButtonBackground"
-        android:textColor="@color/plusRepPurple"
-        android:text="Button"
+        android:backgroundTint="@color/plusRepBackground"
+        android:src="@drawable/ic_thumb_down"
         app:layout_constraintBottom_toBottomOf="@+id/avatarRounded"
         app:layout_constraintEnd_toStartOf="@+id/avatarRounded"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/avatarRounded" />
+        app:layout_constraintTop_toTopOf="@+id/avatarRounded"
+        app:tint="@color/white" />
 
-    <Button
-        android:id="@+id/button4"
+    <ImageButton
+        android:id="@+id/likeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/plusRepButtonBackground"
-        android:textColor="@color/plusRepPurple"
-        android:text="Button"
+        android:backgroundTint="@color/plusRepBackground"
+        android:src="@drawable/ic_thumb_up"
         app:layout_constraintBottom_toBottomOf="@+id/avatarRounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/avatarRounded"
-        app:layout_constraintTop_toTopOf="@+id/avatarRounded" />
+        app:layout_constraintTop_toTopOf="@+id/avatarRounded"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/username"
@@ -88,51 +88,47 @@
         app:layout_constraintStart_toStartOf="@+id/avatarRounded"
         app:layout_constraintTop_toBottomOf="@+id/avatarRounded" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:backgroundTint="@color/plusRepBackground"
-            android:text=""
-            android:textAlignment="viewEnd"
-            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/screenTitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="12"
+            android:layout_marginTop="10dp"
             android:text="@string/myProfile_title"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="24sp"
-            android:translationY="12dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editButton"
+            app:layout_constraintHorizontal_bias="0.591"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/button6"
+        <ImageButton
+            android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0"
             android:backgroundTint="@color/plusRepBackground"
-            android:text="Button"
-            android:textColor="@color/white" />
+            android:src="@drawable/ic_edit"
+            app:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/social_area"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
@@ -143,9 +139,9 @@
         app:layout_constraintTop_toBottomOf="@+id/username">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/youtubeButton"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleX=".9"
             android:text="YOUTUBE"
@@ -160,9 +156,9 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/steamButton"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleX=".9"
             android:text="STEAM"
@@ -177,9 +173,9 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/twitchButton"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleX=".9"
             android:text="TWITCH"
@@ -194,10 +190,9 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/discordButton"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:scaleX=".9"
             android:text="DISCORD"
             android:textAlignment="center"
