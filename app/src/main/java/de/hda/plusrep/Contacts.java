@@ -1,6 +1,8 @@
 package de.hda.plusrep;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,12 +10,25 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class Contacts extends AppCompatActivity {
 
+    ArrayList<ContactModel> contactModels;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+
+    // ---------------------- Recycler View Code
+       /* RecyclerView recyclerView = findViewById(R.id.contactsRecView);
+
+        // call setUpContacts from ContactModel once we have data and can create the class
+
+        ContactsAdapter adapter = new ContactsAdapter(this,contactModels);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));*/
+    // ---------------------- End Of Recycler View Code
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
