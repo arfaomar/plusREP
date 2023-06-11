@@ -35,7 +35,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
     public void onBindViewHolder(@NonNull ContactsAdapter.ContactsViewHolder holder, int position) {
         holder.usrName.setText(contactModels.get(position).getName());
         holder.rpScore.setText(contactModels.get(position).getRepScore());
-        holder.image.setImageResource(contactModels.get(position).profilePic);
+        holder.image.setImageResource(contactModels.get(position).getProfilePic());
     }
 
     @Override
