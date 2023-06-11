@@ -2,10 +2,10 @@ package de.hda.plusrep;
 //DUMMY CLASS
 public class ContactModel { //TODO: Find out what User Data the Steam API Provides
     String name;
-    Integer repScore;
+    String repScore;
     int profilePic;
 
-    public ContactModel(String name, Integer repScore, int profilePic) {
+    public ContactModel(String name, String repScore, int profilePic) {
         this.name = name;
         this.repScore = repScore;
         this.profilePic = profilePic;
@@ -15,7 +15,7 @@ public class ContactModel { //TODO: Find out what User Data the Steam API Provid
         return name;
     }
 
-    public Integer getRepScore() {
+    public String getRepScore() {
         return repScore;
     }
 
