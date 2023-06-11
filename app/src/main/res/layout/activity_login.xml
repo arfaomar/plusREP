@@ -11,8 +11,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login with Steam"
-        android:textSize="30sp"
+        android:text="Steam Login"
+        android:drawableRight="@drawable/ic_larger_steam"
+        android:drawableTint="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textAlignment="center"
+        android:textSize="32sp"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,6 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.135"
-        app:srcCompat="@drawable/logoooo" />
+        app:srcCompat="@drawable/plus_rep_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
