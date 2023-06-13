@@ -27,7 +27,7 @@
     <EditText
         android:id="@+id/ScreenName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:autofillHints="name"
         android:background="@color/plusRepBackground"
         android:ems="10"
@@ -65,18 +65,19 @@
             app:cardBackgroundColor="@color/plusRepButtonBackground"
             app:cardCornerRadius="16dp">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/darkModeSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:drawableLeft="@drawable/ic_dark_mode"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/white"
                 android:text="@string/dark_mode"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:thumbTint="@color/plusRepPurple" />
+                app:thumbTint="@color/plusRepPurple" />
         </androidx.cardview.widget.CardView>
 
 
@@ -87,18 +88,19 @@
             app:cardBackgroundColor="@color/plusRepButtonBackground"
             app:cardCornerRadius="16dp">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/notificationsSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:drawableLeft="@drawable/ic_notifications"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/white"
                 android:text="@string/notifications"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:thumbTint="@color/plusRepPurple" />
+                app:thumbTint="@color/plusRepPurple" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -108,10 +110,11 @@
             app:cardBackgroundColor="@color/plusRepButtonBackground"
             app:cardCornerRadius="16dp">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hideProfileSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@drawable/ic_visibility_off"
                 android:drawablePadding="10dp"
@@ -119,7 +122,7 @@
                 android:text="@string/hide_profile"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:thumbTint="@color/plusRepPurple" />
+                app:thumbTint="@color/plusRepPurple" />
         </androidx.cardview.widget.CardView>
 
         <Button
