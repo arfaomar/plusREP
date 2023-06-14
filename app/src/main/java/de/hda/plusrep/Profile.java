@@ -9,13 +9,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class Profile extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,10 @@ public class Profile extends AppCompatActivity {
         BottomNavigationView navbar;
         navbar = findViewById(R.id.bottomNavbar);
         navbar.setSelectedItemId(R.id.profileButton);
+
+        String steamID = getIntent().getStringExtra("steamID");
+        TextView username = findViewById(R.id.username);
+        username.setText("ID: " + steamID);
 
         navbar.setOnItemSelectedListener(item -> {
 
