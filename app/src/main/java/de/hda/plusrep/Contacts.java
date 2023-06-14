@@ -23,7 +23,7 @@ public class Contacts extends AppCompatActivity {
     // ---------------------- Recycler View Code
         RecyclerView recyclerView = findViewById(R.id.contactRecView);
 
-        contactModels.add(new ContactModel("test","69",R.drawable.ic_contacts));
+        contactModels.add(new ContactModel("test","69","https://avatars.steamstatic.com/e1eb3504352089689deb2a873abb462cadba13f6_full.jpg"));
         // call setUpContacts from ContactModel once we have data and can create the class
 
         ContactsAdapter adapter = new ContactsAdapter(this,contactModels);
