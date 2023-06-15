@@ -8,49 +8,27 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import de.hda.plusrep.modules.Navbar;
+
 public class Forum extends AppCompatActivity {
+
+    Intent activeIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().setStatusBarColor(getColor(R.color.black));
 
-        BottomNavigationView navbar;
-        navbar = findViewById(R.id.bottomNavbar);
-        navbar.setSelectedItemId(R.id.forumButton);
 
-        navbar.setOnItemSelectedListener(item -> {
 
-            if (item.getItemId() == R.id.profileButton) {
-                startActivity(new Intent(getApplicationContext(), Profile.class));
-                overridePendingTransition(0,0);
-                //finish();
-                return true;
-            }
+        activeIntent = getIntent();
 
-            if (item.getItemId() == R.id.forumButton) {
 
-                return true;
-            }
-
-            if (item.getItemId() == R.id.contactsButton) {
-                startActivity(new Intent(getApplicationContext(), Contacts.class));
-                overridePendingTransition(0, 0);
-                //finish();
-                return true;
-            }
-
-            if (item.getItemId() == R.id.settingsButton) {
-                startActivity(new Intent(getApplicationContext(), Settings.class));
-                overridePendingTransition(0,0);
-                //finish();
-                return true;
-            }
-
-            return false;
-        });
+        Navbar navbar = new Navbar(this, activeIntent);
+        navbar.createNavbar();
 
     }
 }
