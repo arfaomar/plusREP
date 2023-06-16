@@ -1,6 +1,4 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ^
 .app/src/main/java/de/hda/plusrep/Settings.java,5\c\5cee1958a0a672dad07f80ad2968f0c8129f9134
 [

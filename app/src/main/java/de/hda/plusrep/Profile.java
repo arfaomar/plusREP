@@ -6,9 +6,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+<<<<<<< app/src/main/java/de/hda/plusrep/Profile.java
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+=======
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+>>>>>>> app/src/main/java/de/hda/plusrep/Profile.java
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,6 +45,15 @@ public class Profile extends AppCompatActivity {
         getWindow().setStatusBarColor(getColor(R.color.black));
 
 
+<<<<<<< app/src/main/java/de/hda/plusrep/Profile.java
+        this.setupButtons();
+=======
+        getWindow().setStatusBarColor(getColor(R.color.black)); // Makes the status bar black
+
+        this.setupButtons();
+
+        navbar.setOnItemSelectedListener(item -> {
+>>>>>>> app/src/main/java/de/hda/plusrep/Profile.java
 
         activeIntent = getIntent();
         String steamID = activeIntent.getStringExtra("Login.steamID");
@@ -112,6 +128,7 @@ public class Profile extends AppCompatActivity {
 
     private void update(String steamID) throws JSONException {
 
+<<<<<<< app/src/main/java/de/hda/plusrep/Profile.java
         TextView username = findViewById(R.id.username);
         username.setText(activeIntent.getStringExtra("User." + steamID + ".name"));
 
@@ -124,4 +141,89 @@ public class Profile extends AppCompatActivity {
                 .into(userAvatar);
 
     }
+
+    private void setupButtons() {
+
+        ImageButton likeButton = findViewById(R.id.likeButton);
+        ImageButton dislikeButton = findViewById(R.id.dislikeButton);
+
+        // on setup => rating buttons have opacity of 30%
+        findViewById(R.id.likeButton).setAlpha((float)0.3);
+        findViewById(R.id.dislikeButton).setAlpha((float)0.3);
+
+        final boolean[] disliked = {false};
+        final boolean[] liked = {false};
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                liked[0] = !liked[0];
+                if (liked[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.dislikeButton).setAlpha((float)0.3);
+                    disliked[0] = false;
+                }
+                else v.setAlpha((float)0.5);
+            }
+        });
+        dislikeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                disliked[0] = !disliked[0];
+                if (disliked[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.likeButton).setAlpha((float)0.3);
+                    liked[0] = false;
+                }
+                else v.setAlpha((float)0.5);
+            }
+        });
+    }
+=======
+    private void setupButtons() {
+
+        ImageButton likeButton = findViewById(R.id.likeButton);
+        ImageButton dislikeButton = findViewById(R.id.dislikeButton);
+
+        // on setup => rating buttons have opacity of 30%
+        findViewById(R.id.likeButton).setAlpha((float)0.3);
+        findViewById(R.id.dislikeButton).setAlpha((float)0.3);
+
+        final boolean[] disliked = {false};
+        final boolean[] liked = {false};
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                liked[0] = !liked[0];
+                if (liked[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.dislikeButton).setAlpha((float)0.3);
+                    disliked[0] = false;
+                }
+                else v.setAlpha((float)0.5);
+            }
+        });
+        dislikeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                disliked[0] = !disliked[0];
+                if (disliked[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.likeButton).setAlpha((float)0.3);
+                    liked[0] = false;
+                }
+                else v.setAlpha((float)0.5);
+            }
+        });
+    }
+
+
+>>>>>>> app/src/main/java/de/hda/plusrep/Profile.java
+
+
 }

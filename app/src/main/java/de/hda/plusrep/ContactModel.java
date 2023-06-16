@@ -1,25 +1,25 @@
 package de.hda.plusrep;
 //DUMMY CLASS
 public class ContactModel { //TODO: Find out what User Data the Steam API Provides
-    String name;
+    String personaName;
     String repScore;
-    int profilePic;
+    String avatarURL;
 
-    public ContactModel(String name, String repScore, int profilePic) {
-        this.name = name;
+    public ContactModel(String name, String repScore, String avatarURL) {
+        this.personaName = name;
         this.repScore = repScore;
-        this.profilePic = profilePic;
+        this.avatarURL = avatarURL;
     }
 
     public String getName() {
-        return name;
+        return personaName;
     }
 
     public String getRepScore() {
         return repScore;
     }
 
-    public int getProfilePic() {
-        return profilePic;
+    public String getAvatarURL() {
+        return avatarURL;
     }
 }
