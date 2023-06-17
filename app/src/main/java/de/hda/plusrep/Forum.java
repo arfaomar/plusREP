@@ -1,18 +1,21 @@
 package de.hda.plusrep;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.util.ArrayList;
 
 import de.hda.plusrep.modules.Navbar;
 
 public class Forum extends AppCompatActivity {
 
     Intent activeIntent;
+    ArrayList<ForumPostModel> forumPostModels = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,18 @@ public class Forum extends AppCompatActivity {
 
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
+
+
+        RecyclerView recyclerView = findViewById(R.id.forumRecView);
+        //call setUpForumPostModels here
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
+        ForumAdapter adapter = new ForumAdapter(this,forumPostModels);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }
