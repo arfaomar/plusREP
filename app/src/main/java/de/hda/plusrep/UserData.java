@@ -23,36 +23,28 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         return steamID;
     }
 
-    public Integer getSteamIDInteger() {
+    final public Integer getSteamIDInteger() {
         return Integer.parseInt(this.steamID);
     }
 
-    public HashSet<Integer> getFriendsList() {
+    final public HashSet<Integer> getFriendsList() {
         return friendsList;
     }
 
     public Boolean addFriendToList(@NonNull UserData newFriend) {
 
         Integer friendSteamID = newFriend.getSteamIDInteger();
-
-        boolean friendIsAlreadyInList = this.friendsList.contains(friendSteamID);
-
-        if (!friendIsAlreadyInList){
-            this.friendsList.add(friendSteamID);
-            return true;
-        }
-
-        return false;
+        return this.friendsList.add(friendSteamID);
     }
 
     public Boolean removeFriendFromList(@NonNull UserData friend) {
-        Integer friendSteamID = friend.getSteamIDInteger();
 
+        Integer friendSteamID = friend.getSteamIDInteger();
         return this.friendsList.remove(friendSteamID);
     }
 
-
-    public boolean checkFriendship(@NonNull UserData friend) {
+    public Boolean checkFriendship(@NonNull UserData friend) {
         return friend.friendsList.contains(this.getSteamIDInteger()) && this.friendsList.contains(friend.getSteamIDInteger());
     }
+
 }
