@@ -35,12 +35,8 @@ public class Forum extends AppCompatActivity {
 
 
         RecyclerView recyclerView = findViewById(R.id.forumRecView);
+        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
         //call setUpForumPostModels here
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
         ForumAdapter adapter = new ForumAdapter(this,forumPostModels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
