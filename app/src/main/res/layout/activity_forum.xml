@@ -12,11 +12,11 @@
         android:id="@+id/forumRecView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/forumChipsScrollView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavbar"
@@ -32,4 +32,88 @@
         app:menu="@menu/menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <HorizontalScrollView
+        android:id="@+id/forumChipsScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/forumRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/forumChipsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/csChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="CS:GO"
+                android:textSize="16sp"
+                android:textColor="@drawable/chip_text_forum"
+                app:chipMinTouchTargetSize="48dp"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:checkedIconTint="@drawable/chip_text_forum"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/codChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="CoD"
+                android:textSize="16sp"
+                android:textColor="@drawable/chip_text_forum"
+                app:chipMinTouchTargetSize="48dp"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:checkedIconTint="@drawable/chip_text_forum"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/bfChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="BF4"
+                android:textSize="16sp"
+                android:textColor="@drawable/chip_text_forum"
+                app:chipMinTouchTargetSize="48dp"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:checkedIconTint="@drawable/chip_text_forum"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mcCHip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="Minecraft"
+                android:textSize="16sp"
+                android:textColor="@drawable/chip_text_forum"
+                app:chipMinTouchTargetSize="48dp"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:checkedIconTint="@drawable/chip_text_forum"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/rbChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="Roblox"
+                android:textSize="16sp"
+                android:textColor="@drawable/chip_text_forum"
+                app:chipMinTouchTargetSize="48dp"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:checkedIconTint="@drawable/chip_text_forum"/>
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
