@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import de.hda.plusrep.modules.Navbar;
 
-public class Contacts extends AppCompatActivity {
+public class Contacts extends AppCompatActivity implements ContactsRecViewInterface{
 
     Intent activeIntent;
 
@@ -26,24 +26,25 @@ public class Contacts extends AppCompatActivity {
         getWindow().setStatusBarColor(getColor(R.color.black));
 
 
-
     // ---------------------- Recycler View Code
         RecyclerView recyclerView = findViewById(R.id.contactRecView);
-
         contactModels.add(new ContactModel("test","69","https://avatars.steamstatic.com/e1eb3504352089689deb2a873abb462cadba13f6_full.jpg"));
         // call setUpContacts from ContactModel once we have data and can create the class
-
-        ContactsAdapter adapter = new ContactsAdapter(this,contactModels);
+        ContactsAdapter adapter = new ContactsAdapter(this, contactModels, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     // ---------------------- End Of Recycler View Code
-
-
 
         activeIntent = getIntent();
 
 
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        //Change Activity Here
+        //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
     }
 }

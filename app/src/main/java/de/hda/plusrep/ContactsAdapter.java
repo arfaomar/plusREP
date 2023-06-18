@@ -15,12 +15,15 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactsViewHolder> {
+
+    private final ContactsRecViewInterface contactsRecViewInterface;
     Context context;
     ArrayList<ContactModel> contactModels;
 
-    public ContactsAdapter(Context context, ArrayList<ContactModel> contactModels) {
+    public ContactsAdapter(Context context, ArrayList<ContactModel> contactModels, ContactsRecViewInterface contactsRecViewInterface) {
         this.context = context;
         this.contactModels = contactModels;
+        this.contactsRecViewInterface = contactsRecViewInterface;
     }
 
     @NonNull
@@ -30,7 +33,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.contacts_recycler_view_row, parent,false);
 
-        return new ContactsAdapter.ContactsViewHolder(view);
+        return new ContactsAdapter.ContactsViewHolder(view, contactsRecViewInterface);
     }
 
     @Override
@@ -59,11 +62,24 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         ImageView avatarImageView;
         TextView personaNameTextView;
         TextView repScoreTextView;
-        public ContactsViewHolder(@NonNull View itemView) {
+        public ContactsViewHolder(@NonNull View itemView, ContactsRecViewInterface contactsRecViewInterface) {
             super(itemView);
             avatarImageView = itemView.findViewById(R.id.profilePicImage);
             personaNameTextView = itemView.findViewById(R.id.userNameText);
             repScoreTextView = itemView.findViewById(R.id.userRepscoreText);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (contactsRecViewInterface != null && pos != RecyclerView.NO_POSITION) {
+
+                        contactsRecViewInterface.onItemClick(pos);
+
+                    }
+                }
+            });
+
         }
     }
 
