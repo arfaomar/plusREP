@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 import de.hda.plusrep.modules.Navbar;
 
-public class Forum extends AppCompatActivity {
+public class Forum extends AppCompatActivity implements ForumRecViewInterface{
 
     Intent activeIntent;
     ArrayList<ForumPostModel> forumPostModels = new ArrayList<>();
@@ -37,9 +37,15 @@ public class Forum extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.forumRecView);
         forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX","0"));
         //call setUpForumPostModels here
-        ForumAdapter adapter = new ForumAdapter(this,forumPostModels);
+        ForumAdapter adapter = new ForumAdapter(this,forumPostModels, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        //Change Activity Here
+        //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
     }
 }

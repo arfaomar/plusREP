@@ -12,25 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumHolder> {
+public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHolder> {
+    private final ForumRecViewInterface forumRecViewInterface;
     Context context;
     ArrayList<ForumPostModel> forumPostModels;
-
-    public ForumAdapter(Context context, ArrayList<ForumPostModel> forumPostModels){
+    public ForumAdapter(Context context, ArrayList<ForumPostModel> forumPostModels, ForumRecViewInterface forumRecViewInterface){
         this.context = context;
         this.forumPostModels = forumPostModels;
+        this.forumRecViewInterface = forumRecViewInterface;
     }
 
     @NonNull
     @Override
-    public ForumAdapter.ForumHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ForumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.forum_recycler_view_row, parent, false);
-        return new ForumAdapter.ForumHolder(view);
+        return new ForumViewHolder(view, forumRecViewInterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ForumAdapter.ForumHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ForumViewHolder holder, int position) {
         holder.title.setText(forumPostModels.get(position).getTitle());
         holder.userName.setText(forumPostModels.get(position).getUserName());
     }
@@ -40,15 +41,25 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumHolder>
         return forumPostModels.size();
     }
 
-    public static class ForumHolder extends RecyclerView.ViewHolder {
+    public static class ForumViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         TextView userName;
 
-        public ForumHolder(@NonNull View itemView) {
+        public ForumViewHolder(@NonNull View itemView, ForumRecViewInterface forumRecViewInterface) {
             super(itemView);
             title = itemView.findViewById(R.id.forumPostTitle);
             userName = itemView.findViewById(R.id.forumPostUsername);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (forumRecViewInterface != null && pos != RecyclerView.NO_POSITION ) {
+                        forumRecViewInterface.onItemClick(pos);
+                    }
+                }
+            });
         }
     }
 
