@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/plusRepBackground"
+    tools:context=".Profile">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:itemBackground="@color/plusRepBackground"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editAvatarRounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/plusRepBackground"
+        app:cardCornerRadius="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editHeader"
+        app:layout_constraintVertical_bias="0">
+
+        <ImageView
+            android:id="@+id/editUserAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/plusRepPurple"
+            android:maxWidth="128dp"
+            android:maxHeight="128dp"
+            android:minWidth="128dp"
+            android:minHeight="128dp"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/dislikeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/plusRepBackground"
+        android:src="@drawable/ic_thumb_down"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintBottom_toBottomOf="@+id/editAvatarRounded"
+        app:layout_constraintEnd_toStartOf="@+id/editAvatarRounded"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editAvatarRounded"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/likeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/plusRepBackground"
+        android:src="@drawable/ic_thumb_up"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintBottom_toBottomOf="@+id/editAvatarRounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editAvatarRounded"
+        app:layout_constraintTop_toTopOf="@+id/editAvatarRounded"
+        app:tint="@color/white"/>
+
+    <TextView
+        android:id="@+id/editUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:translationY="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editAvatarRounded"
+        app:layout_constraintEnd_toEndOf="@+id/editAvatarRounded"
+        app:layout_constraintStart_toStartOf="@+id/editAvatarRounded"
+        app:layout_constraintTop_toBottomOf="@+id/editAvatarRounded" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editHeader"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/editScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="@string/myProfile_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/saveButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/plusRepBackground"
+            android:src="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/editSocial_area"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUsername">
+
+        <Button
+            android:id="@+id/youtubeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/plusRepPurple"
+            android:scaleX=".9"
+            android:padding="0dp"
+            android:text="YOUTUBE"
+            android:textAlignment="center"
+            android:textColor="@color/plusRepBackground"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/steamButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/plusRepPurple"
+            android:scaleX=".9"
+            android:padding="0dp"
+            android:text="STEAM"
+            android:textAlignment="center"
+            android:textColor="@color/plusRepBackground"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/twitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/plusRepPurple"
+            android:scaleX=".9"
+            android:padding="0dp"
+            android:text="TWITCH"
+            android:textAlignment="center"
+            android:textColor="@color/plusRepBackground"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/discordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/plusRepPurple"
+            android:scaleX=".9"
+            android:padding="0dp"
+            android:text="DISCORD"
+            android:textAlignment="center"
+            android:textColor="@color/plusRepBackground"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editBiographyCardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        app:cardBackgroundColor="@color/plusRepButtonBackground"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editSocial_area">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/editBiographyScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/editBiographyLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editBiographyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:hint="Your bio"
+                    android:textColorHint="@color/plusRepPurple"
+                    android:text=""
+                    android:textColor="@color/plusRepPurple"/>
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
