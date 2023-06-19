@@ -25,7 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import de.hda.plusrep.modules.Navbar;
-
+import de.hda.plusrep.modules.Postgre;
 
 
 public class Profile extends AppCompatActivity {
@@ -40,6 +40,7 @@ public class Profile extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
+        Postgre db = new Postgre();
 
         this.setupButtons();
 

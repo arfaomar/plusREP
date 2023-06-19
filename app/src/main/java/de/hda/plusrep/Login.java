@@ -29,6 +29,24 @@ public class Login extends AppCompatActivity {
 
 
         setupButtons();
+        devLogin(); // für Testzwecke
+    }
+
+    private void devLogin() {
+
+        Button loginButton = findViewById(R.id.devButton);
+        loginButton.setAlpha(0);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                activeIntent.putExtra("Login.steamID", "76561198106115768");
+                activeIntent.putExtra("Profile.loaded", "FALSE");
+                activeIntent.setIdentifier("SteamAPI");
+                startActivity(activeIntent);
+                overridePendingTransition(0, 0);
+            }
+        });
     }
 
     private void setupButtons() {
