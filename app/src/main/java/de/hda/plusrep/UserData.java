@@ -9,9 +9,12 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
     Integer steamID;
     String personaName;
     String profileURL;
+    String biography;
     String avatarURL;
-    public Integer likeCount = 0;
-    public Integer dislikeCount = 0;
+    Integer likeCount;
+    Integer dislikeCount;
+    Integer discordID;
+
     HashSet<Integer> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
     public UserData(Integer steamID, String personaName, String profileURL, String avatarURL) {
@@ -60,6 +63,36 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
     public void removeDislike() {
         this.dislikeCount--;
     }
+
+
+    public String getPersonaName() {
+        return personaName;
+    }
+
+    public String getProfileURL() {
+        return profileURL;
+    }
+
+    public String getAvatarURL() {
+        return avatarURL;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public Integer getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public Integer getDiscordID() {
+        return discordID;
+    }
+
 
     public Double calculateRepScore(){
         double totalVotes = (double) likeCount + (double) dislikeCount;
