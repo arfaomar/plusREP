@@ -47,6 +47,10 @@ public class Profile extends AppCompatActivity {
         activeIntent = getIntent();
         String steamID = activeIntent.getStringExtra("Login.steamID");
 
+        String bio = activeIntent.getStringExtra("updated Bio");
+        TextView biography = findViewById(R.id.biographyText);
+        biography.setText(bio);
+
         getUserData(steamID);
 
 
@@ -177,8 +181,12 @@ public class Profile extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ActiveIntent = new Intent(Profile.this, EditProfile.class);
-                startActivity(ActiveIntent);
+                TextView bio = findViewById(R.id.biographyText);
+                activeIntent.putExtra("Current Bio", bio.getText().toString());
+                activeIntent.setClass(editButton.getContext(), EditProfile.class);
+                activeIntent.setIdentifier("Profile");
+                startActivity(activeIntent);
+
             }
         });
     }
