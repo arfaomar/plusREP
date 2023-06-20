@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity {
 
 
         this.setupButtons();
+        setupEditButton();
 
         activeIntent = getIntent();
         String steamID = activeIntent.getStringExtra("Login.steamID");
@@ -168,6 +169,18 @@ public class Profile extends AppCompatActivity {
                 .centerCrop()
                 .into(userAvatar);
 
+    }
+
+    private void setupEditButton(){
+        ImageButton editButton = findViewById(R.id.editButton);
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ActiveIntent = new Intent(Profile.this, EditProfile.class);
+                startActivity(ActiveIntent);
+            }
+        });
     }
 
 }
