@@ -3,6 +3,7 @@ package de.hda.plusrep.modules;
 import android.util.Log;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -74,14 +75,13 @@ public class DataHandler {
         Integer likeCount = user.getLikeCount();
         Integer dislikeCount = user.getDislikeCount();
         Integer discordID = user.getDiscordID();
-        String sql = "UPDATE users SET "  + "steamid =" + steamID + ", " +
-                "personaname = '" + personaName + "', " +
+        String sql = "UPDATE users SET "  + "personaname = '" + personaName + "', " +
                 "profileurl = '" + profileURL + "', " +
                 "avatarurl = '" + avatarURL + "', " +
                 "likecount = "+ likeCount + ", " +
                 "dislikecount = "+ dislikeCount + ", " +
                 "biography = '" + biography + "', " +
-                "discordid = "+ discordID + ");";
+                "discordid = "+ discordID + " WHERE steamid = " + steamID +";";
 
         try {
             statement.executeUpdate(sql);
@@ -91,6 +91,51 @@ public class DataHandler {
 
         }
 
+    }
+
+
+    public UserData getUserFromDB(Integer steamID) {
+        String sql = "SELECT * FROM users WHERE steamid = " + steamID + ";";
+        UserData user = null;
+        ResultSet result;
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while (result.next()) {
+
+                String personaName = result.getString("personaname");
+                String profileURL = result.getString("profileurl");
+                String avatarURL = result.getString("avatarurl");
+                Integer likeCount = result.getInt("likecount");
+                Integer dislikeCount = result.getInt("dislikecount");
+                Integer discordID = result.getInt("discordid");
+                String biography = result.getString("biography");
+
+                user = new UserData(steamID, personaName, profileURL, avatarURL, biography, likeCount, dislikeCount, discordID);
+
+            }
+            result.close();
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+        return user;
+
+    }
+
+
+
+
+    @Override
+    protected void finalize() {
+        try {
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+            Log.e("DataHandler -> (CLOSE)"+e.getClass().getName()+":", e.getMessage());
+        }
     }
 
 }

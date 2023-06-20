@@ -24,6 +24,17 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         this.avatarURL = avatarURL;
     }
 
+    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Integer discordID) {
+        this.steamID = steamID;
+        this.personaName = personaName;
+        this.profileURL = profileURL;
+        this.biography = biography;
+        this.avatarURL = avatarURL;
+        this.likeCount = likeCount;
+        this.dislikeCount = dislikeCount;
+        this.discordID = discordID;
+    }
+
     public Integer getSteamID() {
         return steamID;
     }
