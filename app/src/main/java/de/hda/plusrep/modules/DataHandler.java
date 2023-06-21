@@ -2,23 +2,27 @@ package de.hda.plusrep.modules;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import de.hda.plusrep.ForumPostModel;
 import de.hda.plusrep.UserData;
 
 
 public class DataHandler {
-    private static DataHandler dataHandler = new DataHandler();
+    private final static DataHandler dataHandler = new DataHandler();
     Postgre db;
     Connection connection;
     Statement statement;
 
     final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
     final String friendlistColumns = "(steamid,friendsteamid) ";
-    final String forumColumns = "(steamid,postitle,posttext,gameid) ";
+    final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
     final String gametagsColumns = "(gamename) ";
 
     private DataHandler() {
@@ -43,7 +47,7 @@ public class DataHandler {
         return statement;
     }
 
-    public void addUserToDB(UserData user) {
+    public Boolean addUserToDB(@NonNull UserData user) {
 
         Integer steamID = user.getSteamID();
         String personaName = user.getPersonaName();
@@ -61,15 +65,13 @@ public class DataHandler {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(e);
+            return false;
 
         }
-
+        return true;
     }
 
-
-    public void updateUserInDB(UserData user) {
-
+    public Boolean updateUserInDB(@NonNull UserData user) {
         Integer steamID = user.getSteamID();
         String personaName = user.getPersonaName();
         String avatarURL = user.getAvatarURL();
@@ -90,111 +92,182 @@ public class DataHandler {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             Log.e("DataHandler -> (UPDATE)"+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(e);
+            return false;
 
         }
 
+        return true;
     }
 
+    public UserData getUserFromDB(@NonNull Integer steamID) {
 
-    public UserData getUserFromDB(Integer steamID) {
         String sql = "SELECT * FROM users WHERE steamid = " + steamID + ";";
+
         UserData user = null;
         ResultSet result;
+
         try {
 
             result = statement.executeQuery(sql);
 
+            String personaName = null;
+            String profileURL = null;;
+            String avatarURL = null;
+            Integer likeCount = null;
+            Integer dislikeCount = null;
+            Integer discordID = null;
+            String biography = null;
+
             while (result.next()) {
 
-                String personaName = result.getString("personaname");
-                String profileURL = result.getString("profileurl");
-                String avatarURL = result.getString("avatarurl");
-                Integer likeCount = result.getInt("likecount");
-                Integer dislikeCount = result.getInt("dislikecount");
-                Integer discordID = result.getInt("discordid");
-                String biography = result.getString("biography");
-
-                user = new UserData(steamID, personaName, profileURL, avatarURL, biography, likeCount, dislikeCount, discordID);
+                personaName = result.getString("personaname");
+                profileURL = result.getString("profileurl");
+                avatarURL = result.getString("avatarurl");
+                likeCount = result.getInt("likecount");
+                dislikeCount = result.getInt("dislikecount");
+                discordID = result.getInt("discordid");
+                biography = result.getString("biography");
 
             }
+
+            user = new UserData(steamID, personaName, profileURL, avatarURL, biography, likeCount, dislikeCount, discordID);
+
+            result = statement.executeQuery("SELECT friendsteamid FROM friendlist WHERE steamid = " + steamID );
+
+            while (result.next()) {
+                Integer friendSteamID = result.getInt("friendsteamid");
+                user.addFriendToList(friendSteamID);
+
+            }
+
+
+
             result.close();
+
         } catch (SQLException e) {
             Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(e);
+            user = null;
         }
 
         return user;
 
     }
 
-    public void getForumInformationFromDBidk(Integer forumID) {
-        String sql = "SELECT * FROM forum WHERE forumID = " + forumID + ";";
-        String title;
-        String userName;
-        String avatarURL;
-        String content;
-        ResultSet result;
-        try{
-            result = statement.executeQuery(sql);
+    public Boolean addFriendToDB(Integer userSteamID, Integer friendSteamID){
 
-            while(result.next()){
-                title = result.getString("title");
-                userName = result.getString("username");
-                avatarURL = result.getString(("avatarurl"));
-                content = result.getString("content");
-            }
-            result.close();
-        } catch (SQLException e) {
-            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(sql);
-        }
-    }
-
-    public void addUserToDB(UserData user) {
-
-        String title;
-        String userName;
-        String avatarURL;
-        String content;
-        //idk how to get the contents of Forum
-
-        String sql = "INSERT INTO forum " + forumColumns + "VALUES " + "(" + title + ", '" +
-                userName + "', '" + avatarURL + "', '" + content + "');";
+        String sql = "INSERT INTO friendlist " + friendlistColumns + "VALUES " + "(" + userSteamID + ", " + friendSteamID + ");";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(e);
+            return false;
 
         }
-
+        return true;
     }
 
-    public void updateUserInDB(UserData user) {
-
-        String title;
-        String userName;
-        String avatarURL;
-        String content;
-        Integer forumID;
-        //idk how to get the contents of Forum
-
-        String sql = "UPDATE users SET "  + "tile = '" + title + "', " +
-                "username = '" + userName + "', " +
-                "avatarurl = '" + avatarURL + "', " +
-                "content = "+ content + "' WHERE steamid = " + forumID +";";
+    public Boolean deleteUserFromDB(@NonNull Integer steamID) {
+        String sql = "DELETE from users WHERE steamid = " + steamID + ";";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (UPDATE)"+e.getClass().getName()+":", e.getMessage());
-            throw new RuntimeException(e);
+            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            return false;
 
         }
 
+        return true;
     }
+
+    public ArrayList<ForumPostModel> getPostsFromDB() {
+
+        String sql = "SELECT * FROM forum ;";
+
+        Integer steamID;
+        String title;
+        String userName;
+        String content;
+        Integer gameID;
+        String gameName = "";
+
+        ResultSet result;
+        ResultSet gametag = null;
+        Statement temp;
+
+        ArrayList<ForumPostModel> forumPosts = new ArrayList<>();
+
+        try{
+
+            result = statement.executeQuery(sql);
+            temp = connection.createStatement();
+            while(result.next()) {
+
+                steamID = result.getInt("steamid");
+                title = result.getString("posttitle");
+                userName = result.getString("username");
+                content = result.getString("posttext");
+                gameID = result.getInt("gameid");
+
+                gametag = temp.executeQuery("SELECT gamename FROM gametags WHERE gameid = " + gameID + ";");
+
+                while (gametag.next()) {
+                    gameName = gametag.getString("gamename");
+                }
+
+                forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
+
+            }
+
+            gametag.close();
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
+            forumPosts = null;
+        }
+
+        return forumPosts;
+    }
+
+    public Boolean addPostToDB(@NonNull ForumPostModel post) {
+
+        String title = post.getTitle();
+        String userName = post.getUserName();
+        Integer steamID = post.getSteamID();
+        String content = post.getContent();
+        Integer gameTagID = post.getGameTagID();
+        //idk how to get the contents of Forum
+
+        String sql = "INSERT INTO forum " + forumColumns + "VALUES " + "(" + steamID + ", '" + title + "', '" +
+                content + "', " + gameTagID + ", '" + userName + "');";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            return false;
+
+        }
+
+        return true;
+    }
+
+    public Boolean deleteUserPostToDB(@NonNull Integer steamID) {
+        String sql = "DELETE from forum WHERE steamid = " + steamID + ";";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            return false;
+
+        }
+
+        return true;
+    }
+
 
     @Override
     protected void finalize() {

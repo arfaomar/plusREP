@@ -14,7 +14,6 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
     Integer likeCount;
     Integer dislikeCount;
     Integer discordID;
-
     HashSet<Integer> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
     public UserData(Integer steamID, String personaName, String profileURL, String avatarURL) {
@@ -47,6 +46,11 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
 
         Integer friendSteamID = newFriend.getSteamID();
         return this.friendsList.add(friendSteamID);
+    }
+
+    public Boolean addFriendToList(@NonNull Integer newFriendSteamID) {
+
+        return this.friendsList.add(newFriendSteamID);
     }
 
     public Boolean removeFriendFromList(@NonNull UserData friend) {
