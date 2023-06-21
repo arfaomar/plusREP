@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -182,7 +183,9 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TextView bio = findViewById(R.id.biographyText);
+                Button discordButton = findViewById(R.id.discordButton);
                 activeIntent.putExtra("Current Bio", bio.getText().toString());
+                activeIntent.putExtra("Current Discord", discordButton.getText().toString());
                 activeIntent.setClass(editButton.getContext(), EditProfile.class);
                 activeIntent.setIdentifier("Profile");
                 startActivity(activeIntent);

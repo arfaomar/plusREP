@@ -1,18 +1,16 @@
 package de.hda.plusrep;
 
 import static android.widget.TextView.BufferType.EDITABLE;
-import static android.widget.TextView.BufferType.NORMAL;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -43,10 +41,21 @@ public class EditProfile extends AppCompatActivity {
         EditText editText = findViewById(R.id.editBiographyText);
         String currentBio = activeIntent.getStringExtra("Current Bio");
         editText.setText(currentBio, EDITABLE);
+
+        EditText editDiscordText = findViewById(R.id.editDiscordButtonText);
+        Button editDiscordButton = findViewById(R.id.editDiscordButton);
+        String currentDiscord = activeIntent.getStringExtra("Current Discord");
+        if(!"DISCORD".equals(currentDiscord)) {
+            editDiscordText.setText(currentDiscord, EDITABLE);
+        }
+        editDiscordButton.setText(currentDiscord);
     }
 
     private void updateUserData(){
         EditText editText = findViewById(R.id.editBiographyText);
+        Button editDiscordButton = findViewById(R.id.editDiscordButton);
+
         activeIntent.putExtra("updated Bio", editText.getText().toString());
+        activeIntent.putExtra("updated Discord", editDiscordButton.getText().toString());
     }
 }
