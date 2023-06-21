@@ -206,16 +206,16 @@
                 <EditText
                     android:id="@+id/editBiographyText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="top"
                     android:hint="Your bio"
-                    android:textColorHint="@color/plusRepPurple"
                     android:text=""
-                    android:textColor="@color/plusRepPurple"/>
+                    android:textColor="@color/plusRepPurple"
+                    android:textColorHint="@color/plusRepPurple" />
         </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

@@ -43,12 +43,10 @@ public class EditProfile extends AppCompatActivity {
         editText.setText(currentBio, EDITABLE);
 
         EditText editDiscordText = findViewById(R.id.editDiscordButtonText);
-        Button editDiscordButton = findViewById(R.id.editDiscordButton);
         String currentDiscord = activeIntent.getStringExtra("Current Discord");
         if(!"DISCORD".equals(currentDiscord)) {
             editDiscordText.setText(currentDiscord, EDITABLE);
         }
-        editDiscordButton.setText(currentDiscord);
     }
 
     private void updateUserData(){
