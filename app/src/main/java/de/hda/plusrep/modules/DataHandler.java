@@ -11,6 +11,7 @@ import de.hda.plusrep.UserData;
 
 
 public class DataHandler {
+    private static DataHandler dataHandler = new DataHandler();
     Postgre db;
     Connection connection;
     Statement statement;
@@ -20,7 +21,7 @@ public class DataHandler {
     final String forumColumns = "(steamid,postitle,posttext,gameid) ";
     final String gametagsColumns = "(gamename) ";
 
-    public DataHandler() {
+    private DataHandler() {
 
         db = new Postgre();
         connection = db.getExtraConnection();
@@ -35,6 +36,8 @@ public class DataHandler {
         Log.i("DataHandler: ", "Statement creation success");
 
     }
+
+    public static DataHandler getDataHandlerInstance(){ return dataHandler; }
 
     public Statement getStatement() {
         return statement;
