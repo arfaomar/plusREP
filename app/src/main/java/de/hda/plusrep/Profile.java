@@ -24,6 +24,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import de.hda.plusrep.modules.ConnectionHelper;
 import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
 
@@ -40,8 +45,29 @@ public class Profile extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
-        DataHandler testinstance = DataHandler.getDataHandlerInstance();
+        //DataHandler testinstance = DataHandler.getDataHandlerInstance();
         //Log.i("test", testinstance.getUserFromDB(1).getAvatarURL());
+
+        Connection connection;
+        String result="";
+
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connectionHelper.start();
+            connection = connectionHelper.getCon();
+            if (connection != null) {
+                String query = "SELECT gamename from gametags WHERE gameid = 1";
+                Statement st = connection.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while (rs.next()){
+                    result = rs.getString("gamename");
+                    Log.i("Test","Result is: "+result);
+                }
+
+            }
+        } catch (Exception e) {
+
+        }
 
         this.setupButtons();
 
