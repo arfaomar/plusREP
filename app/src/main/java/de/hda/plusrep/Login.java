@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.SteamAPI;
 
 public class Login extends AppCompatActivity {
@@ -21,7 +23,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
-
+        DataHandler testinstance = DataHandler.getDataHandlerInstance();
+        Log.i("test", testinstance.getUserFromDB(1).avatarURL);
 
         activeIntent = new Intent(getApplicationContext(), Profile.class);
         steamAPI = new SteamAPI(getApplicationContext());
