@@ -24,6 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
 
 
@@ -39,6 +40,8 @@ public class Profile extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
+        DataHandler testinstance = DataHandler.getDataHandlerInstance();
+        //Log.i("test", testinstance.getUserFromDB(1).getAvatarURL());
 
         this.setupButtons();
 

@@ -23,9 +23,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
-        DataHandler testinstance = DataHandler.getDataHandlerInstance();
-        Log.i("test", testinstance.getUserFromDB(1).avatarURL);
-
         activeIntent = new Intent(getApplicationContext(), Profile.class);
         steamAPI = new SteamAPI(getApplicationContext());
 

@@ -28,13 +28,13 @@ public class DataHandler {
     private DataHandler() {
 
         db = new Postgre();
-        connection = db.getExtraConnection();
+        connection = db.getConnection();
         Log.i("DataHandler: ", "Connection established");
         try {
             statement = connection.createStatement();
         }
         catch (Exception e) {
-            Log.e( "DataHandler -> "+e.getClass().getName()+": ", e.getMessage() );
+            Log.e( "DataHandler (Create Statement) -> "+e.getClass().getName()+": ", e.getMessage() );
         }
 
         Log.i("DataHandler: ", "Statement creation success");
@@ -137,12 +137,12 @@ public class DataHandler {
             while (result.next()) {
                 Integer friendSteamID = result.getInt("friendsteamid");
                 user.addFriendToList(friendSteamID);
-
+                result.close();
             }
 
 
 
-            result.close();
+
 
         } catch (SQLException e) {
             Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
@@ -214,13 +214,14 @@ public class DataHandler {
 
                 while (gametag.next()) {
                     gameName = gametag.getString("gamename");
+                    gametag.close();
                 }
 
                 forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
 
             }
 
-            gametag.close();
+
             result.close();
 
         } catch (SQLException e) {
