@@ -53,7 +53,7 @@ public class DataHandler {
         Integer likeCount = user.getLikeCount();
         Integer dislikeCount = user.getDislikeCount();
         Integer discordID = user.getDiscordID();
-        String sql = "INSERT INTO USERS " + usersColumns + "VALUES " + "(" + steamID + ", '" +
+        String sql = "INSERT INTO users " + usersColumns + "VALUES " + "(" + steamID + ", '" +
                 personaName + "', '" + avatarURL + "', '" + profileURL + "', '" + biography + "', " +
                 likeCount + ", " + dislikeCount + ", " + discordID + ");";
 
@@ -128,8 +128,73 @@ public class DataHandler {
 
     }
 
+    public void getForumInformationFromDBidk(Integer forumID) {
+        String sql = "SELECT * FROM forum WHERE forumID = " + forumID + ";";
+        String title;
+        String userName;
+        String avatarURL;
+        String content;
+        ResultSet result;
+        try{
+            result = statement.executeQuery(sql);
 
+            while(result.next()){
+                title = result.getString("title");
+                userName = result.getString("username");
+                avatarURL = result.getString(("avatarurl"));
+                content = result.getString("content");
+            }
+            result.close();
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
+            throw new RuntimeException(sql);
+        }
+    }
 
+    public void addUserToDB(UserData user) {
+
+        String title;
+        String userName;
+        String avatarURL;
+        String content;
+        //idk how to get the contents of Forum
+
+        String sql = "INSERT INTO forum " + forumColumns + "VALUES " + "(" + title + ", '" +
+                userName + "', '" + avatarURL + "', '" + content + "');";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            throw new RuntimeException(e);
+
+        }
+
+    }
+
+    public void updateUserInDB(UserData user) {
+
+        String title;
+        String userName;
+        String avatarURL;
+        String content;
+        Integer forumID;
+        //idk how to get the contents of Forum
+
+        String sql = "UPDATE users SET "  + "tile = '" + title + "', " +
+                "username = '" + userName + "', " +
+                "avatarurl = '" + avatarURL + "', " +
+                "content = "+ content + "' WHERE steamid = " + forumID +";";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e("DataHandler -> (UPDATE)"+e.getClass().getName()+":", e.getMessage());
+            throw new RuntimeException(e);
+
+        }
+
+    }
 
     @Override
     protected void finalize() {
