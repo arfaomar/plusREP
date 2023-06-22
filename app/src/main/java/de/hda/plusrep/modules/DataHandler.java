@@ -25,6 +25,11 @@ public class DataHandler {
     private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
     private static final String gametagsColumns = "(gamename) ";
 
+    private static final String dataHandlerOperationInsert = "DataHandler(INSERT)";
+    private static final String dataHandlerOperationUpdate = "DataHandler(UPDATE)";
+    private static final String dataHandlerOperationDelete = "DataHandler(DELETE)";
+    private static final String dataHandlerOperationSelect = "DataHandler(SELECT)";
+
     private DataHandler() {
 
         db = new Postgre();
@@ -34,10 +39,10 @@ public class DataHandler {
             statement = connection.createStatement();
         }
         catch (Exception e) {
-            Log.e( "DataHandler (Create Statement) -> "+e.getClass().getName()+": ", e.getMessage() );
+            Log.e( "DataHandler(Create Statement)", e.getMessage() );
         }
 
-        Log.i("DataHandler: ", "Statement creation success");
+        Log.i("DataHandler", "Statement creation success");
 
     }
 
@@ -64,7 +69,7 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationInsert+ " USER", e.getMessage());
             return false;
 
         }
@@ -91,7 +96,7 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (UPDATE)"+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationUpdate + " USER", e.getMessage());
             return false;
 
         }
@@ -145,7 +150,7 @@ public class DataHandler {
 
 
         } catch (SQLException e) {
-            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationSelect + " USER", e.getMessage());
             user = null;
         }
 
@@ -160,7 +165,7 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationInsert + " (FRIEND)USER", e.getMessage());
             return false;
 
         }
@@ -173,7 +178,7 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationDelete+ " USER", e.getMessage());
             return false;
 
         }
@@ -225,7 +230,7 @@ public class DataHandler {
             result.close();
 
         } catch (SQLException e) {
-            Log.e("DataHandler -> (GET)"+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
             forumPosts = null;
         }
 
@@ -247,7 +252,7 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
             return false;
 
         }
@@ -255,13 +260,13 @@ public class DataHandler {
         return true;
     }
 
-    public Boolean deleteUserPostToDB(@NonNull Integer steamID) {
+    public Boolean deleteUserPostFromDB(@NonNull Integer steamID) {
         String sql = "DELETE from forum WHERE steamid = " + steamID + ";";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e("DataHandler -> (INSERT) "+e.getClass().getName()+":", e.getMessage());
+            Log.e(dataHandlerOperationDelete + " POST", e.getMessage());
             return false;
 
         }
