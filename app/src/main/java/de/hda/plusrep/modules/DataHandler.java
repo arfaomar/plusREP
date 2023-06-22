@@ -15,20 +15,20 @@ import de.hda.plusrep.UserData;
 
 
 public class DataHandler {
-    private final static DataHandler dataHandler = new DataHandler();
+    private static final DataHandler dataHandler = new DataHandler();
     Postgre db;
     Connection connection;
     Statement statement;
 
-    final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
-    final String friendlistColumns = "(steamid,friendsteamid) ";
-    final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
-    final String gametagsColumns = "(gamename) ";
+    private static final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
+    private static final String friendlistColumns = "(steamid,friendsteamid) ";
+    private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
+    private static final String gametagsColumns = "(gamename) ";
 
     private DataHandler() {
 
         db = new Postgre();
-        connection = db.getConnection();
+        connection = db.getCon();
         Log.i("DataHandler: ", "Connection established");
         try {
             statement = connection.createStatement();
@@ -111,7 +111,7 @@ public class DataHandler {
             result = statement.executeQuery(sql);
 
             String personaName = null;
-            String profileURL = null;;
+            String profileURL = null;
             String avatarURL = null;
             Integer likeCount = null;
             Integer dislikeCount = null;

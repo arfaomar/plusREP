@@ -2,48 +2,55 @@ package de.hda.plusrep.modules;
 
 import android.os.StrictMode;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Postgre {
-    private static String ip = "postgres.fbi.h-da.de";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
-    private static String port = "5432";// the port sql server runs on
-    private static String Classes = "net.sourceforge.jtds.jdbc.Driver";// the driver that is required for this connection use                                                                           "org.postgresql.Driver" for connecting to postgresql
-    private static String database = "stomarfaa";// the data base name
-    private static String username = "plusrep";// the user name
-    private static String password = "plusR3p";// the password
-    private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database; // the connection url string
-
-
-
+    private static final String ip = "postgres.fbi.h-da.de";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
+    private static final String port = "5432";// the port sql server runs on
+    private static final String username = "plusrep";// the user name
+    private static final String password = "plusR3p";// the password
+    private static final String database = "stomarfaa";// the data base name
+    private static final String Classes = "org.postgresql.Driver"; // driver for PostgreSQL
+    private static final String url = "jdbc:postgresql://"+ip+":"+port+"/"+database;
     private Connection connection = null;
 
+    public Postgre() {
+        this.start();
+    }
 
 
+    public Connection getCon() {
+        return connection;
+    }
 
-    public  Postgre() {
-
+    public void start() {
+        String logTag = "PostgreDB: ";
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
             Class.forName(Classes);
             connection = DriverManager.getConnection(url, username,password);
-            Log.i("test", "conx");
-
+            Log.i(logTag,"Connected");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-
-        } catch (Exception e) {
+            Log.e(logTag, "Class fail");
+        } catch (SQLException e) {
             e.printStackTrace();
-
+            Log.e(logTag,"Failed to Connect");
         }
     }
 
-    public Connection getConnection() {
-        return connection;
+    @Override
+    protected void finalize() {
+        try {
+            connection.close();
+        } catch (Exception e) {
+            Log.e("PostgreDB:(finalize)", e.getMessage());
+        }
     }
 
 }

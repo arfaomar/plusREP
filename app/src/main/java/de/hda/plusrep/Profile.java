@@ -28,9 +28,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import de.hda.plusrep.modules.ConnectionHelper;
-import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
+import de.hda.plusrep.modules.Postgre;
 
 
 public class Profile extends AppCompatActivity {
@@ -45,29 +44,31 @@ public class Profile extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
+        //TEST---------------------------------------------------------------------
+
         //DataHandler testinstance = DataHandler.getDataHandlerInstance();
         //Log.i("test", testinstance.getUserFromDB(1).getAvatarURL());
 
         Connection connection;
-        String result="";
+        String result= null;
 
         try {
-            ConnectionHelper connectionHelper = new ConnectionHelper();
-            connectionHelper.start();
-            connection = connectionHelper.getCon();
+            Postgre pdb = new Postgre();
+            connection = pdb.getCon();
             if (connection != null) {
                 String query = "SELECT gamename from gametags WHERE gameid = 1";
                 Statement st = connection.createStatement();
                 ResultSet rs = st.executeQuery(query);
                 while (rs.next()){
                     result = rs.getString("gamename");
-                    Log.i("Test","Result is: "+result);
+                    Log.i("PostgreDB: ","Result is: "+result);
                 }
 
             }
         } catch (Exception e) {
 
         }
+        //END OF TEST---------------------------------------------------------------------
 
         this.setupButtons();
 
