@@ -7,6 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -41,6 +46,15 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        FloatingActionButton newPostButton = findViewById(R.id.newPostButton);
+        newPostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeIntent.setIdentifier("openPostCreation");
+                activeIntent.setClass(newPostButton.getContext(), createPost.class);
+                startActivity(activeIntent);
+            }
+        });
     }
 
     @Override
