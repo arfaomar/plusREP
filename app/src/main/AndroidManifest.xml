@@ -16,6 +16,9 @@
         android:theme="@style/Theme.PlusRep"
         tools:targetApi="31">
         <activity
+            android:name=".createPost"
+            android:exported="false" />
+        <activity
             android:name=".EditProfile"
             android:exported="false" />
         <activity
