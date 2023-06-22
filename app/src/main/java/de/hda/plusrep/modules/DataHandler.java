@@ -172,6 +172,21 @@ public class DataHandler {
         return true;
     }
 
+    public Boolean removeFriendFromDB(Integer userSteamID, Integer friendSteamID){
+
+        String sql = "DELETE FROM friendlist WHERE (steamid =" + userSteamID + " AND " + "friendsteamid =" + friendSteamID +
+                ") OR (steamid =" + friendSteamID + " AND " + "friendsteamid =" + userSteamID + ");" ;
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationDelete + " (FRIEND)USER", e.getMessage());
+            return false;
+
+        }
+        return true;
+    }
+
     public Boolean deleteUserFromDB(@NonNull Integer steamID) {
         String sql = "DELETE from users WHERE steamid = " + steamID + ";";
 
