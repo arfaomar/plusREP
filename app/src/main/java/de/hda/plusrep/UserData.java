@@ -9,10 +9,11 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
     Integer steamID;
     String personaName;
     String profileURL;
-    String avatarURL;
-    public Integer likeCount = 0;
-    public Integer dislikeCount = 0;
     String biography;
+    String avatarURL;
+    Integer likeCount;
+    Integer dislikeCount;
+    Integer discordID;
     HashSet<Integer> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
     public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography) {
@@ -21,6 +22,17 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         this.profileURL = profileURL;
         this.avatarURL = avatarURL;
         this.biography = biography;
+    }
+
+    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Integer discordID) {
+        this.steamID = steamID;
+        this.personaName = personaName;
+        this.profileURL = profileURL;
+        this.biography = biography;
+        this.avatarURL = avatarURL;
+        this.likeCount = likeCount;
+        this.dislikeCount = dislikeCount;
+        this.discordID = discordID;
     }
 
     public Integer getSteamID() {
@@ -35,6 +47,11 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
 
         Integer friendSteamID = newFriend.getSteamID();
         return this.friendsList.add(friendSteamID);
+    }
+
+    public Boolean addFriendToList(@NonNull Integer newFriendSteamID) {
+
+        return this.friendsList.add(newFriendSteamID);
     }
 
     public Boolean removeFriendFromList(@NonNull UserData friend) {
@@ -63,13 +80,35 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         this.dislikeCount--;
     }
 
+
+    public String getPersonaName() {
+        return personaName;
+    }
+
+    public String getProfileURL() {
+        return profileURL;
+    }
+
+    public String getAvatarURL() {
+        return avatarURL;
+    }
+
     public String getBiography() {
         return biography;
     }
 
-    public void setBiography(String biography) {
-        this.biography = biography;
+    public Integer getLikeCount() {
+        return likeCount;
     }
+
+    public Integer getDislikeCount() {
+        return dislikeCount;
+    }
+
+    public Integer getDiscordID() {
+        return discordID;
+    }
+
 
     public Double calculateRepScore(){
         double totalVotes = (double) likeCount + (double) dislikeCount;

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Steam Login"
-        android:drawableRight="@drawable/ic_larger_steam"
+        android:drawableEnd="@drawable/ic_larger_steam"
         android:drawableTint="@color/white"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
