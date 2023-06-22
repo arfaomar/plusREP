@@ -2,7 +2,7 @@ package de.hda.plusrep;
 
 public class ForumPostModel {
 
-    Integer steamID;
+    Long steamID;
     String title;
     String userName;
     String content;
@@ -13,7 +13,7 @@ public class ForumPostModel {
         this.userName = userName;
     }
 
-    public ForumPostModel(Integer steamID, String title, String userName, String content, String gameTag, Integer gameTagID) {
+    public ForumPostModel(Long steamID, String title, String userName, String content, String gameTag, Integer gameTagID) {
         this.title = title;
         this.userName = userName;
         this.content = content;
@@ -38,7 +38,7 @@ public class ForumPostModel {
         this.content = content;
     }
 
-    public Integer getSteamID() {
+    public Long getSteamID() {
         return steamID;
     }
 
