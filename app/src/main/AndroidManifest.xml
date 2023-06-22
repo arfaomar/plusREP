@@ -21,6 +21,9 @@
             android:name=".ForumPost"
             android:exported="false" />
         <activity
+            android:name=".createPost"
+            android:exported="false" />
+        <activity
             android:name=".EditProfile"
             android:exported="false" />
         <activity
