@@ -294,7 +294,6 @@ public class DataHandler {
     protected void finalize() {
         try {
             statement.close();
-            connection.close();
         } catch (Exception e) {
             Log.e("DataHandler -> (CLOSE)"+e.getClass().getName()+":", e.getMessage());
         }
