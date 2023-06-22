@@ -54,14 +54,14 @@ public class DataHandler {
 
     public Boolean addUserToDB(@NonNull UserData user) {
 
-        Integer steamID = user.getSteamID();
+        Long steamID = user.getSteamID();
         String personaName = user.getPersonaName();
         String avatarURL = user.getAvatarURL();
         String profileURL = user.getProfileURL();
         String biography = user.getBiography();
         Integer likeCount = user.getLikeCount();
         Integer dislikeCount = user.getDislikeCount();
-        Integer discordID = user.getDiscordID();
+        Long discordID = user.getDiscordID();
         String sql = "INSERT INTO users " + usersColumns + "VALUES " + "(" + steamID + ", '" +
                 personaName + "', '" + profileURL + "', '" + avatarURL + "', " + likeCount + ", " +
                 dislikeCount + ", '" + biography + "', " + discordID + ");";
@@ -76,14 +76,14 @@ public class DataHandler {
     }
 
     public Boolean updateUserInDB(@NonNull UserData user) {
-        Integer steamID = user.getSteamID();
+        Long steamID = user.getSteamID();
         String personaName = user.getPersonaName();
         String avatarURL = user.getAvatarURL();
         String profileURL = user.getProfileURL();
         String biography = user.getBiography();
         Integer likeCount = user.getLikeCount();
         Integer dislikeCount = user.getDislikeCount();
-        Integer discordID = user.getDiscordID();
+        Long discordID = user.getDiscordID();
         String sql = "UPDATE users SET "  + "personaname = '" + personaName + "', " +
                 "profileurl = '" + profileURL + "', " +
                 "avatarurl = '" + avatarURL + "', " +
@@ -103,24 +103,24 @@ public class DataHandler {
         return true;
     }
 
-    public UserData getUserFromDB(@NonNull Integer steamID) {
+    public UserData getUserFromDB(@NonNull Long steamID) {
 
         String sql = "SELECT * FROM users WHERE steamid = " + steamID + ";";
 
         UserData user = null;
         ResultSet result;
 
+        String personaName = null;
+        String profileURL = null;
+        String avatarURL = null;
+        Integer likeCount = null;
+        Integer dislikeCount = null;
+        Long discordID = null;
+        String biography = null;
+
         try {
 
             result = statement.executeQuery(sql);
-
-            String personaName = null;
-            String profileURL = null;
-            String avatarURL = null;
-            Integer likeCount = null;
-            Integer dislikeCount = null;
-            Integer discordID = null;
-            String biography = null;
 
             while (result.next()) {
 
@@ -129,29 +129,42 @@ public class DataHandler {
                 avatarURL = result.getString("avatarurl");
                 likeCount = result.getInt("likecount");
                 dislikeCount = result.getInt("dislikecount");
-                discordID = result.getInt("discordid");
+                discordID = result.getLong("discordid");
                 biography = result.getString("biography");
 
             }
 
-            user = new UserData(steamID, personaName, profileURL, avatarURL, biography, likeCount, dislikeCount, discordID);
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " USER", e.getMessage());
+            return null;
+        }
+
+        user = new UserData(steamID, personaName, profileURL, avatarURL, biography, likeCount, dislikeCount, discordID);
+
+        try {
 
             result = statement.executeQuery("SELECT friendsteamid FROM friendlist WHERE steamid = " + steamID );
 
             while (result.next()) {
-                Integer friendSteamID = result.getInt("friendsteamid");
+                Long friendSteamID = result.getLong("friendsteamid");
                 user.addFriendToList(friendSteamID);
-                result.close();
             }
-        } catch (SQLException e) {
+            result.close();
+
+        } catch(SQLException e) {
             Log.e(dataHandlerOperationSelect + " USER", e.getMessage());
+            return null;
+        }
+
+        //überprüfen ob user mit nullwerten initialisiert falls bei result.get... kein error geschmissen wird
+        if (user.getAvatarURL().isEmpty()) {
             return null;
         }
 
         return user;
     }
 
-    public Boolean addFriendToDB(Integer userSteamID, Integer friendSteamID){
+    public Boolean addFriendToDB(Long userSteamID, Long friendSteamID){
 
         String sql = "INSERT INTO friendlist " + friendlistColumns + "VALUES " + "(" + userSteamID + ", " + friendSteamID + ");";
 
@@ -165,7 +178,7 @@ public class DataHandler {
         return true;
     }
 
-    public Boolean removeFriendFromDB(Integer userSteamID, Integer friendSteamID){
+    public Boolean removeFriendFromDB(Long userSteamID, Long friendSteamID){
 
         String sql = "DELETE FROM friendlist WHERE (steamid =" + userSteamID + " AND " + "friendsteamid =" + friendSteamID +
                 ") OR (steamid =" + friendSteamID + " AND " + "friendsteamid =" + userSteamID + ");" ;
@@ -180,7 +193,7 @@ public class DataHandler {
         return true;
     }
 
-    public Boolean deleteUserFromDB(@NonNull Integer steamID) {
+    public Boolean deleteUserFromDB(@NonNull Long steamID) {
         String sql = "DELETE from users WHERE steamid = " + steamID + ";";
 
         try {
@@ -198,7 +211,7 @@ public class DataHandler {
 
         String sql = "SELECT * FROM forum ;";
 
-        Integer steamID;
+        Long steamID;
         String title;
         String userName;
         String content;
@@ -206,40 +219,45 @@ public class DataHandler {
         String gameName = "";
 
         ResultSet result;
-        ResultSet gametag = null;
+        ResultSet gametag;
         Statement temp;
 
         ArrayList<ForumPostModel> forumPosts = new ArrayList<>();
 
-        try{
+        try {
 
             result = statement.executeQuery(sql);
             temp = connection.createStatement();
             while(result.next()) {
 
-                steamID = result.getInt("steamid");
+                steamID = result.getLong("steamid");
                 title = result.getString("posttitle");
                 userName = result.getString("username");
                 content = result.getString("posttext");
                 gameID = result.getInt("gameid");
 
-                gametag = temp.executeQuery("SELECT gamename FROM gametags WHERE gameid = " + gameID + ";");
 
-                while (gametag.next()) {
-                    gameName = gametag.getString("gamename");
-                    gametag.close();
+                try {
+                    gametag = temp.executeQuery("SELECT gamename FROM gametags WHERE gameid = " + gameID + ";");
+
+                    while (gametag.next()) {
+                        gameName = gametag.getString("gamename");
+                        gametag.close();
+                    }
+                } catch(SQLException e) {
+                    Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+                    return null;
                 }
 
                 forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
 
             }
 
-
             result.close();
 
         } catch (SQLException e) {
             Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
-            forumPosts = null;
+            return null;
         }
 
         return forumPosts;
@@ -249,7 +267,7 @@ public class DataHandler {
 
         String title = post.getTitle();
         String userName = post.getUserName();
-        Integer steamID = post.getSteamID();
+        Long steamID = post.getSteamID();
         String content = post.getContent();
         Integer gameTagID = post.getGameTagID();
         //idk how to get the contents of Forum
@@ -268,7 +286,7 @@ public class DataHandler {
         return true;
     }
 
-    public Boolean deleteUserPostFromDB(@NonNull Integer steamID) {
+    public Boolean deleteUserPostFromDB(@NonNull Long steamID) {
         String sql = "DELETE from forum WHERE steamid = " + steamID + ";";
 
         try {

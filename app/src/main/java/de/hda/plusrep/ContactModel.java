@@ -4,7 +4,7 @@ public class ContactModel { //TODO: Find out what User Data the Steam API Provid
     String personaName;
     String repScore;
     String avatarURL;
-    Integer steamID;
+    Long steamID;
 
     public ContactModel(String name, String repScore, String avatarURL) {
         this.personaName = name;
@@ -12,7 +12,7 @@ public class ContactModel { //TODO: Find out what User Data the Steam API Provid
         this.avatarURL = avatarURL;
     }
 
-    public ContactModel(String personaName, String repScore, String avatarURL, Integer steamID) {
+    public ContactModel(String personaName, String repScore, String avatarURL, Long steamID) {
         this.personaName = personaName;
         this.repScore = repScore;
         this.avatarURL = avatarURL;

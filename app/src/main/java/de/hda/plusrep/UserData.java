@@ -6,17 +6,17 @@ import java.util.HashSet;
 
 public class UserData { //ToDo: fill friendsList with Data from JSON. Probably needs new Method
 
-    Integer steamID;
+    Long steamID;
     String personaName;
     String profileURL;
     String biography;
     String avatarURL;
     Integer likeCount;
     Integer dislikeCount;
-    Integer discordID;
-    HashSet<Integer> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
+    Long discordID;
+    HashSet<Long> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
-    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography) {
+    public UserData(Long steamID, String personaName, String profileURL, String avatarURL, String biography) {
         this.steamID = steamID;
         this.personaName = personaName;
         this.profileURL = profileURL;
@@ -24,7 +24,7 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         this.biography = biography;
     }
 
-    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Integer discordID) {
+    public UserData(Long steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Long discordID) {
         this.steamID = steamID;
         this.personaName = personaName;
         this.profileURL = profileURL;
@@ -35,28 +35,28 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         this.discordID = discordID;
     }
 
-    public Integer getSteamID() {
+    public Long getSteamID() {
         return steamID;
     }
 
-    final public HashSet<Integer> getFriendsList() {
+    final public HashSet<Long> getFriendsList() {
         return friendsList;
     }
 
     public Boolean addFriendToList(@NonNull UserData newFriend) {
 
-        Integer friendSteamID = newFriend.getSteamID();
+        Long friendSteamID = newFriend.getSteamID();
         return this.friendsList.add(friendSteamID);
     }
 
-    public Boolean addFriendToList(@NonNull Integer newFriendSteamID) {
+    public Boolean addFriendToList(@NonNull Long newFriendSteamID) {
 
         return this.friendsList.add(newFriendSteamID);
     }
 
     public Boolean removeFriendFromList(@NonNull UserData friend) {
 
-        Integer friendSteamID = friend.getSteamID();
+        Long friendSteamID = friend.getSteamID();
         return this.friendsList.remove(friendSteamID);
     }
 
@@ -105,7 +105,7 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
         return dislikeCount;
     }
 
-    public Integer getDiscordID() {
+    public Long getDiscordID() {
         return discordID;
     }
 
