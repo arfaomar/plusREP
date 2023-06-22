@@ -63,15 +63,14 @@ public class DataHandler {
         Integer dislikeCount = user.getDislikeCount();
         Integer discordID = user.getDiscordID();
         String sql = "INSERT INTO users " + usersColumns + "VALUES " + "(" + steamID + ", '" +
-                personaName + "', '" + avatarURL + "', '" + profileURL + "', '" + biography + "', " +
-                likeCount + ", " + dislikeCount + ", " + discordID + ");";
+                personaName + "', '" + profileURL + "', '" + avatarURL + "', " + likeCount + ", " +
+                dislikeCount + ", '" + biography + "', " + discordID + ");";
 
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             Log.e(dataHandlerOperationInsert+ " USER", e.getMessage());
             return false;
-
         }
         return true;
     }
@@ -144,18 +143,12 @@ public class DataHandler {
                 user.addFriendToList(friendSteamID);
                 result.close();
             }
-
-
-
-
-
         } catch (SQLException e) {
             Log.e(dataHandlerOperationSelect + " USER", e.getMessage());
-            user = null;
+            return null;
         }
 
         return user;
-
     }
 
     public Boolean addFriendToDB(Integer userSteamID, Integer friendSteamID){

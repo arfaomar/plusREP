@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlusRep"
         tools:targetApi="31">
+        <activity
+            android:name=".ForumPost"
+            android:exported="false" />
         <activity
             android:name=".EditProfile"
             android:exported="false" />
