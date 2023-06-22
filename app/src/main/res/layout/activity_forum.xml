@@ -69,51 +69,65 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="CoD"
-                android:textSize="16sp"
+                android:text="Call of Duty"
                 android:textColor="@drawable/chip_text_forum"
-                app:chipMinTouchTargetSize="48dp"
+                android:textSize="16sp"
+                app:checkedIconTint="@drawable/chip_text_forum"
                 app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:checkedIconTint="@drawable/chip_text_forum"/>
+                app:chipMinTouchTargetSize="48dp" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/bfChip"
+                android:id="@+id/gtaChip"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="BF4"
-                android:textSize="16sp"
+                android:text="GTA V"
                 android:textColor="@drawable/chip_text_forum"
-                app:chipMinTouchTargetSize="48dp"
+                android:textSize="16sp"
+                app:checkedIconTint="@drawable/chip_text_forum"
                 app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:checkedIconTint="@drawable/chip_text_forum"/>
+                app:chipMinTouchTargetSize="48dp" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/mcCHip"
+                android:id="@+id/kind2Chip"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="Minecraft"
-                android:textSize="16sp"
+                android:text="Kindergarten 2"
                 android:textColor="@drawable/chip_text_forum"
-                app:chipMinTouchTargetSize="48dp"
+                android:textSize="16sp"
+                app:checkedIconTint="@drawable/chip_text_forum"
                 app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:checkedIconTint="@drawable/chip_text_forum"/>
+                app:chipMinTouchTargetSize="48dp" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/rbChip"
+                android:id="@+id/destinyChip"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="Roblox"
-                android:textSize="16sp"
+                android:text="Destiny 2"
                 android:textColor="@drawable/chip_text_forum"
-                app:chipMinTouchTargetSize="48dp"
+                android:textSize="16sp"
+                app:checkedIconTint="@drawable/chip_text_forum"
                 app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:checkedIconTint="@drawable/chip_text_forum"/>
+                app:chipMinTouchTargetSize="48dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/bigThinkerChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Big Thinkers  Kindergarten" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/childofMortaChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Children of Morta" />
         </LinearLayout>
     </HorizontalScrollView>
 
