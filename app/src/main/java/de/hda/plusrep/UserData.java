@@ -16,11 +16,12 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
     Integer discordID;
     HashSet<Integer> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
-    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL) {
+    public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography) {
         this.steamID = steamID;
         this.personaName = personaName;
         this.profileURL = profileURL;
         this.avatarURL = avatarURL;
+        this.biography = biography;
     }
 
     public UserData(Integer steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Integer discordID) {
