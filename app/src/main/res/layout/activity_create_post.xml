@@ -87,7 +87,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
-                    android:hint="Title"
+                    android:hint="@string/createPostTitleHint"
                     android:text=""
                     android:textColor="@color/plusRepPurple"
                     android:textColorHint="@color/plusRepPurple" />
@@ -101,7 +101,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="top"
-                    android:hint="Enter a message..."
+                    android:hint="@string/createPostTextHint"
                     android:text=""
                     android:textColor="@color/plusRepPurple"
                     android:textColorHint="@color/plusRepPurple" />
@@ -130,7 +130,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:padding="0dp"
             android:scaleX=".9"
-            android:text="Cancel"
+            android:text="@string/cancelPostButton"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground" />
 
@@ -141,7 +141,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:padding="0dp"
             android:scaleX=".9"
-            android:text="Post"
+            android:text="@string/donePostButton"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground" />
 

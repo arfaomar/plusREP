@@ -32,7 +32,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
-        android:text="Title"
+        android:text="@string/newPostGetTitle"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="12dp"
-            android:text="lol was ist den hier los"
+            android:text="@string/placeholderText1"
             android:textColor="@color/plusRepPurple" />
 
     </androidx.cardview.widget.CardView>
@@ -81,7 +81,7 @@
         android:checked="true"
         android:clickable="false"
         android:minWidth="80dp"
-        android:text="game"
+        android:text="@string/newPostGameButton"
         android:textAlignment="center"
         android:textColor="@color/plusRepButtonBackground"
         android:textSize="16sp"
@@ -115,7 +115,7 @@
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="2dp"
             android:drawableTint="@color/white"
-            android:text="Username"
+            android:text="@string/showPostOPUsername"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp" />
