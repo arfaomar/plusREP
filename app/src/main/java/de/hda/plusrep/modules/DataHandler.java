@@ -165,7 +165,30 @@ public class DataHandler {
         return user;
     }
 
+    public Integer getGameTagIDbyNamefromDB(String gameTagName) {
 
+        String sql = "SELECT gameid FROM gametags WHERE gamename = '" + gameTagName + "';";
+
+        Integer gameID = null;
+        ResultSet result;
+
+        try {
+            result = statement.executeQuery(sql);
+
+            while(result.next()){
+                gameID = result.getInt("gameid");
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            return null;
+
+        }
+
+        return gameID;
+    }
 
     public Boolean addFriendToDB(Long userSteamID, Long friendSteamID){
 
