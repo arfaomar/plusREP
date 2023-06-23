@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">plusRep</string>
+    <string name="app_name" translatable="false">plusRep</string>
     <string name="myProfile_title">My Profile</string>
     <string name="newPost_title">New Post</string>
     <string name="settings_screen_name">Settings</string>
@@ -8,7 +8,7 @@
     <string name="hide_profile">Hide Profile</string>
     <string name="del_account">Delete Account</string>
     <string name="createPostTitleHint">Title</string>
-    <string name="createPostTextHint">Enter a message...</string>
+    <string name="createPostTextHint">Enter a message…</string>
     <string name="cancelPostButton">Cancel</string>
     <string name="donePostButton">Post</string>
     <string name="editUserName">Username</string>
@@ -30,7 +30,7 @@
     <string name="newPostGameButton">game</string>
     <string name="showPostOPUsername">Username</string>
     <string name="SteamLogin">Steam Login</string>
-    <string name="emptySpace"> </string>
+    <string name="emptySpace" translatable="false"> </string>
     <string name="yourProfileUsername">Username</string>
     <string name="placeholderText2">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
     <string name="placeholderUsername1">user x</string>

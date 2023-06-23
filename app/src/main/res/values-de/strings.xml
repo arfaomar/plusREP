@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">plusRep</string>
     <string name="myProfile_title">Mein Profil</string>
     <string name="newPost_title">Neuer Pfosten</string>
     <string name="settings_screen_name">Einstellungen</string>
@@ -30,7 +29,6 @@
     <string name="newPostGameButton">spiel</string>
     <string name="showPostOPUsername">Nutzername</string>
     <string name="SteamLogin">Dampf Einlog</string>
-    <string name="emptySpace"> </string>
     <string name="yourProfileUsername">Nutzername</string>
     <string name="placeholderText2">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
     <string name="placeholderUsername1">nutzer x</string>
