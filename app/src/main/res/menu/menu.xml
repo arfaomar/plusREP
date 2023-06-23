@@ -4,17 +4,17 @@
     <item
         android:id="@+id/profileButton"
         android:icon="@drawable/ic_person"
-        android:title="My Profile" />
+        android:title="@string/navbarProfile" />
     <item
         android:id="@+id/forumButton"
         android:icon="@drawable/ic_forum"
-        android:title="Forum" />
+        android:title="@string/navbarForum" />
     <item
         android:id="@+id/contactsButton"
         android:icon="@drawable/ic_contacts"
-        android:title="Contacts" />
+        android:title="@string/navbarContacts" />
     <item
         android:id="@+id/settingsButton"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+        android:title="@string/navbarSettings" />
 </menu>

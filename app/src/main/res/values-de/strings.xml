@@ -36,5 +36,9 @@
     <string name="placeholderUsername2">xxNutzerxx</string>
     <string name="forumViewPostTitle">Titel</string>
     <string name="readMoreButton">MEHR LESEN</string>
+    <string name="navbarProfile">Mein Profil</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Kontakte</string>
+    <string name="navbarSettings">Einstellungen</string>
 
 </resources>
