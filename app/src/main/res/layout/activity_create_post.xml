@@ -85,18 +85,6 @@
             android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/exitButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/plusRepBackground"
-        android:src="@drawable/ic_save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
-
     <Spinner
         android:id="@+id/chooseTagSpinner"
         android:layout_width="wrap_content"
@@ -105,7 +93,6 @@
         android:layout_marginBottom="28dp"
         android:backgroundTint="@color/plusRepPurple"
         android:entries="@array/dropdown"
-        android:prompt="Choose game"
         app:layout_constraintBottom_toTopOf="@+id/contentHolder"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -120,7 +107,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/cancelPostButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
@@ -129,7 +116,7 @@
             android:textColor="@color/plusRepBackground" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/createPostButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
