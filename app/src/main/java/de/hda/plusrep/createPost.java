@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import de.hda.plusrep.modules.DataHandler;
+
 public class createPost extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private String chosenGame;
@@ -51,8 +53,26 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
             public void onClick(View v) {
                 EditText postTitle = findViewById(R.id.createPostTitleText);
                 EditText postText = findViewById(R.id.createPostText);
-                //to Data
-                //DataHandler
+
+                DataHandler dataHandler = DataHandler.getDataHandlerInstance();
+
+                UserData userData = dataHandler.getUserFromDB(Profile.steamId);
+
+                if (userData == null) {
+                    Log.e("createPost", "User Data is Null");
+                }
+
+                EditText editText = findViewById(R.id.createPostTitleText);
+                String title = editText.getText().toString();
+
+                String userName = userData.getPersonaName();
+
+                editText = findViewById(R.id.createPostText);
+                String content = editText.getText().toString();
+
+                Integer gameTagID = dataHandler.getGameTagIDbyNamefromDB(chosenGame);
+
+                dataHandler.addPostToDB(new ForumPostModel(Profile.steamId, title, userName, content, chosenGame, gameTagID));
 
                 activeIntent.setIdentifier("createPost");
                 activeIntent.setClass(createPostButton.getContext(), Forum.class);

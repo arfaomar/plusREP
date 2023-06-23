@@ -34,6 +34,8 @@ public class Profile extends AppCompatActivity {
 
     Intent activeIntent;
 
+    public static Long steamId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -48,6 +50,8 @@ public class Profile extends AppCompatActivity {
 
         activeIntent = getIntent();
         String steamID = activeIntent.getStringExtra("Login.steamID");
+
+        this.steamId = Long.parseLong(steamID);
 
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
