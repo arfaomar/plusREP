@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import de.hda.plusrep.modules.DataHandler;
 
@@ -21,6 +22,8 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
     private String[] courses = { "CS:GO", "Call of Duty",
             "GTA V", "Kindergarten 2",
             "Destiny 2", "Big Thinkers Kindergarten", "Children of Morta" };
+    DataHandler dataHandler = DataHandler.getDataHandlerInstance();
+    UserData user = dataHandler.getUserFromDB(Profile.steamID);
     Intent activeIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
         setContentView(R.layout.activity_create_post);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
+        activeIntent = getIntent();
 
         Spinner spinner = (Spinner) findViewById(R.id.chooseTagSpinner);
         spinner.setOnItemSelectedListener(this);
@@ -43,9 +47,9 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
         // Apply the adapter to the spinner
         spinner.setAdapter(ad);
 
-        activeIntent = getIntent();
 
-
+        TextView userNameText = findViewById(R.id.createPostUserNameTextView);
+        userNameText.setText(user.getPersonaName());
 
         Button createPostButton = findViewById(R.id.createPostButton);
         createPostButton.setOnClickListener(new View.OnClickListener() {
@@ -54,25 +58,20 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
                 EditText postTitle = findViewById(R.id.createPostTitleText);
                 EditText postText = findViewById(R.id.createPostText);
 
-                DataHandler dataHandler = DataHandler.getDataHandlerInstance();
-
-                UserData userData = dataHandler.getUserFromDB(Profile.steamId);
-
-                if (userData == null) {
+                if (user == null) {
                     Log.e("createPost", "User Data is Null");
                 }
 
                 EditText editText = findViewById(R.id.createPostTitleText);
                 String title = editText.getText().toString();
 
-                String userName = userData.getPersonaName();
-
+                String userName = user.getPersonaName();
                 editText = findViewById(R.id.createPostText);
                 String content = editText.getText().toString();
-
+                editText.setText(user.getPersonaName());
                 Integer gameTagID = dataHandler.getGameTagIDbyNamefromDB(chosenGame);
 
-                dataHandler.addPostToDB(new ForumPostModel(Profile.steamId, title, userName, content, chosenGame, gameTagID));
+                dataHandler.addPostToDB(new ForumPostModel(Profile.steamID, title, userName, content, chosenGame, gameTagID));
 
                 activeIntent.setIdentifier("createPost");
                 activeIntent.setClass(createPostButton.getContext(), Forum.class);

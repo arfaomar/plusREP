@@ -22,7 +22,7 @@ public class DataHandler {
 
     private static final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
     private static final String friendlistColumns = "(steamid,friendsteamid) ";
-    private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
+    private static final String forumColumns = "(steamid,posttitle,posttext,gameid,username) ";
     private static final String gametagsColumns = "(gamename) ";
 
     private static final String dataHandlerOperationInsert = "DataHandler(INSERT)";
@@ -290,7 +290,7 @@ public class DataHandler {
 
     public Integer getGameTagIDbyNamefromDB(String gameTagName) {
 
-        String sql = "SELECT gameid FROM gametags WHERE gamename = " + gameTagName + ";";
+        String sql = "SELECT gameid FROM gametags WHERE gamename = '" + gameTagName + "';";
 
         Integer gameID = null;
         ResultSet result;
