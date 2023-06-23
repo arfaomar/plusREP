@@ -17,13 +17,6 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
 
     private HashSet<Long> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
-    public UserData(Long steamID, String personaName, String profileURL, String avatarURL, String biography) {
-        this.steamID = steamID;
-        this.personaName = personaName;
-        this.profileURL = profileURL;
-        this.avatarURL = avatarURL;
-        this.biography = biography;
-    }
 
     public UserData(Long steamID, String personaName, String profileURL, String avatarURL, String biography, Integer likeCount, Integer dislikeCount, Long discordID) {
         this.steamID = steamID;
