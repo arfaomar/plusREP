@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
-public class createPost extends AppCompatActivity {
+public class createPost extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private String chosenGame;
+    private String[] courses = { "CS:GO", "Call of Duty",
+            "GTA V", "Kindergarten 2",
+            "Destiny 2", "Big Thinkers Kindergarten", "Children of Morta" };
     Intent activeIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +27,23 @@ public class createPost extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
+        Spinner spinner = (Spinner) findViewById(R.id.chooseTagSpinner);
+        spinner.setOnItemSelectedListener(this);
+        ArrayAdapter ad
+                = new ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                courses);
+        // Specify the layout to use when the list of choices appears
+        ad.setDropDownViewResource(
+                android.R.layout
+                        .simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(ad);
+
         activeIntent = getIntent();
+
+
 
         Button createPostButton = findViewById(R.id.createPostButton);
         createPostButton.setOnClickListener(new View.OnClickListener() {
@@ -27,8 +51,8 @@ public class createPost extends AppCompatActivity {
             public void onClick(View v) {
                 EditText postTitle = findViewById(R.id.createPostTitleText);
                 EditText postText = findViewById(R.id.createPostText);
-                activeIntent.putExtra("Post Title", postTitle.getText().toString());
-                activeIntent.putExtra("Post Text", postText.getText().toString());
+                //to Data
+                //DataHandler
 
                 activeIntent.setIdentifier("createPost");
                 activeIntent.setClass(createPostButton.getContext(), Forum.class);
@@ -45,5 +69,15 @@ public class createPost extends AppCompatActivity {
                 startActivity(activeIntent);
             }
         });
+    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+        chosenGame = parent.getItemAtPosition(pos).toString();
+        Log.i("choseGame", chosenGame);
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

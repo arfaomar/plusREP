@@ -92,7 +92,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="@color/plusRepPurple"
-        android:entries="@array/dropdown"
         app:layout_constraintBottom_toTopOf="@+id/contentHolder"
         app:layout_constraintEnd_toEndOf="parent" />
 
