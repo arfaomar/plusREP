@@ -107,7 +107,7 @@ public class DataHandler {
 
         String sql = "SELECT * FROM users WHERE steamid = " + steamID + ";";
 
-        UserData user = null;
+        UserData user;
         ResultSet result;
 
         String personaName = null;
@@ -143,7 +143,7 @@ public class DataHandler {
 
         try {
 
-            result = statement.executeQuery("SELECT friendsteamid FROM friendlist WHERE steamid = " + steamID );
+            result = statement.executeQuery("SELECT friendsteamid FROM friendlist WHERE steamid = " + steamID + ";");
 
             while (result.next()) {
                 Long friendSteamID = result.getLong("friendsteamid");
@@ -157,12 +157,15 @@ public class DataHandler {
         }
 
         //überprüfen ob user mit nullwerten initialisiert falls bei result.get... kein error geschmissen wird
-        if (user.getAvatarURL().isEmpty()) {
+        if (user.getPersonaName() == null) {
+            Log.e(dataHandlerOperationSelect + " USER", " DATA OF USER IS NULL");
             return null;
         }
 
         return user;
     }
+
+
 
     public Boolean addFriendToDB(Long userSteamID, Long friendSteamID){
 
@@ -242,8 +245,8 @@ public class DataHandler {
 
                     while (gametag.next()) {
                         gameName = gametag.getString("gamename");
-                        gametag.close();
                     }
+                    gametag.close();
                 } catch(SQLException e) {
                     Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
                     return null;

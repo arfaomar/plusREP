@@ -6,15 +6,16 @@ import java.util.HashSet;
 
 public class UserData { //ToDo: fill friendsList with Data from JSON. Probably needs new Method
 
-    Long steamID;
-    String personaName;
-    String profileURL;
-    String biography;
-    String avatarURL;
-    Integer likeCount;
-    Integer dislikeCount;
-    Long discordID;
-    HashSet<Long> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
+    private Long steamID;
+    private String personaName;
+    private String profileURL;
+    private String biography;
+    private String avatarURL;
+    private Integer likeCount;
+    private Integer dislikeCount;
+    private Long discordID;
+
+    private HashSet<Long> friendsList = new HashSet<>(); //We are using a HashSet because it's the best collection for random access
 
     public UserData(Long steamID, String personaName, String profileURL, String avatarURL, String biography) {
         this.steamID = steamID;
@@ -41,6 +42,10 @@ public class UserData { //ToDo: fill friendsList with Data from JSON. Probably n
 
     final public HashSet<Long> getFriendsList() {
         return friendsList;
+    }
+
+    public void setFriendsList(HashSet<Long> friendsList) {
+        this.friendsList = friendsList;
     }
 
     public Boolean addFriendToList(@NonNull UserData newFriend) {

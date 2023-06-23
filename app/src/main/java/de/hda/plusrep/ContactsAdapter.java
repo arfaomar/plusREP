@@ -41,9 +41,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         holder.personaNameTextView.setText(contactModels.get(position).getName());
         holder.repScoreTextView.setText(contactModels.get(position).getRepScore());
         Glide.with(context).load(contactModels.get(position).getAvatarURL())
-                .placeholder(R.drawable.ic_person)
-                .error(R.drawable.ic_launcher_foreground)
-                .override(240, 240)
+                .placeholder(R.drawable.ic_fail_image)
+                .error(R.drawable.ic_fail_image)
+                .override(64, 64)
                 .centerCrop()
                 .into(holder.avatarImageView);
 

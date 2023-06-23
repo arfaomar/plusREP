@@ -8,13 +8,12 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
 
 public class Forum extends AppCompatActivity implements ForumRecViewInterface{
@@ -40,8 +39,9 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
 
 
         RecyclerView recyclerView = findViewById(R.id.forumRecView);
-        forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX"));
+        //forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX"));
         //call setUpForumPostModels here
+        setUpForumPostModels();
         ForumAdapter adapter = new ForumAdapter(this,forumPostModels, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,4 +62,12 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         //Change Activity Here
         //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
     }
+
+    private void setUpForumPostModels(){
+
+        DataHandler dataHandler = DataHandler.getDataHandlerInstance();
+        forumPostModels = dataHandler.getPostsFromDB();
+
+    }
+
 }

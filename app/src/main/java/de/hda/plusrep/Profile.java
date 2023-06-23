@@ -3,7 +3,9 @@ package de.hda.plusrep;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,12 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import de.hda.plusrep.modules.Navbar;
-import de.hda.plusrep.modules.Postgre;
 
 
 public class Profile extends AppCompatActivity {
@@ -45,37 +42,17 @@ public class Profile extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setStatusBarColor(getColor(R.color.black));
 
-        //TEST---------------------------------------------------------------------
-
-        //DataHandler testinstance = DataHandler.getDataHandlerInstance();
-        //Log.i("test", testinstance.getUserFromDB(1).getAvatarURL());
-
-        Connection connection;
-        String result= null;
-
-        try {
-            Postgre pdb = new Postgre();
-            connection = pdb.getCon();
-            if (connection != null) {
-                String query = "SELECT gamename from gametags WHERE gameid = 1";
-                Statement st = connection.createStatement();
-                ResultSet rs = st.executeQuery(query);
-                while (rs.next()){
-                    result = rs.getString("gamename");
-                    Log.i("PostgreDB: ","Result is: "+result);
-                }
-
-            }
-        } catch (Exception e) {
-
-        }
-        //END OF TEST---------------------------------------------------------------------
 
         this.setupButtons();
         setupEditButton();
 
         activeIntent = getIntent();
         String steamID = activeIntent.getStringExtra("Login.steamID");
+
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putLong("currentUser", Long.parseLong(steamID));
+        editor.apply();
 
         String bio = activeIntent.getStringExtra("updated Bio");
         TextView biography = findViewById(R.id.biographyText);
