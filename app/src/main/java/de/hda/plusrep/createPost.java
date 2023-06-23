@@ -83,7 +83,7 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
         cancelPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeIntent.setIdentifier("createPost");
+                activeIntent.setIdentifier("Forum");
                 activeIntent.setClass(cancelPostButton.getContext(), Forum.class);
                 startActivity(activeIntent);
             }
