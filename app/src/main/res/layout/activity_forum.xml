@@ -117,17 +117,29 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/bigThinkerChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/BigThinkersKindergarten" />
+                android:layout_marginHorizontal="5dp"
+                android:textColor="@drawable/chip_text_forum"
+                android:textSize="16sp"
+                android:text="@string/BigThinkersKindergarten"
+                app:checkedIconTint="@drawable/chip_text_forum"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:chipMinTouchTargetSize="48dp"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/childofMortaChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/ChildrenOfMorta" />
+                android:layout_marginHorizontal="5dp"
+                android:textColor="@drawable/chip_text_forum"
+                android:textSize="16sp"
+                android:text="@string/ChildrenOfMorta"
+                app:checkedIconTint="@drawable/chip_text_forum"
+                app:chipBackgroundColor="@drawable/chip_color_forum"
+                app:chipMinTouchTargetSize="48dp"/>
         </LinearLayout>
     </HorizontalScrollView>
 
