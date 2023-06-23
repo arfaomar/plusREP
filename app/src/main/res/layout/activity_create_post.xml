@@ -10,7 +10,7 @@
     tools:context=".createPost">
 
     <EditText
-        android:id="@+id/createPostTitleEditText"
+        android:id="@+id/createPostTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
@@ -39,11 +39,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/createPostTitleEditText">
+        app:layout_constraintTop_toBottomOf="@id/createPostTitleText">
 
 
         <EditText
-            android:id="@+id/createPostContentEditText"
+            android:id="@+id/createPostText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
@@ -57,7 +57,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/userNameTextViewHolder"
+        android:id="@+id/createPostUserNameTextViewHolder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -70,13 +70,13 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/userNameTextView"
+            android:id="@+id/createPostUserNameTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginVertical="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
-            android:drawableLeft="@drawable/ic_person"
+            app:drawableLeftCompat="@drawable/ic_person"
             android:drawablePadding="2dp"
             android:drawableTint="@color/white"
             android:text="@string/showPostOPUsername"
@@ -87,8 +87,8 @@
 
     <Spinner
         android:id="@+id/chooseTagSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="@color/plusRepPurple"
@@ -112,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/plusRepPurple"
             android:text="@string/cancelPostButton"
             android:textColor="@color/plusRepBackground" />
 
@@ -121,6 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/plusRepPurple"
             android:text="@string/donePostButton"
             android:textColor="@color/plusRepBackground" />
     </LinearLayout>
