@@ -2,130 +2,140 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/plusRepBackground"
+    android:minWidth="40dp"
+    android:minHeight="40dp"
     tools:context=".createPost">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/createPostHeader"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+    <EditText
+        android:id="@+id/createPostTitleEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/newPost_title"
+        android:textColor="@color/white"
+        android:textColorHint="@color/plusRepPurple"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/createPostTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:text="@string/newPost_title"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/createPostCardView"
-        android:layout_width="match_parent"
+        android:id="@+id/contentHolder"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="150dp"
+        android:minHeight="100dp"
         app:cardBackgroundColor="@color/plusRepButtonBackground"
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createPostHeader">
+        app:layout_constraintTop_toBottomOf="@id/createPostTitleEditText">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/createPostScrollView"
+
+        <EditText
+            android:id="@+id/createPostContentEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-            <LinearLayout
-                android:id="@+id/createPostLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/createPostTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/createPostTitleHint"
-                    android:text=""
-                    android:textColor="@color/plusRepPurple"
-                    android:textColorHint="@color/plusRepPurple" />
-
-                <EditText
-                    android:id="@+id/createPostText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginBottom="12dp"
-                    android:gravity="top"
-                    android:hint="@string/createPostTextHint"
-                    android:text=""
-                    android:textColor="@color/plusRepPurple"
-                    android:textColorHint="@color/plusRepPurple" />
-
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/createPostTextHint"
+            android:textColor="@color/plusRepPurple"
+            android:textColorHint="@color/plusRepPurple" />
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/cancelPostButton"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userNameTextViewHolder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/plusRepPurple"
-        android:padding="0dp"
-        android:scaleX=".9"
-        android:text="@string/cancelPostButton"
-        android:textAlignment="center"
-        android:textColor="@color/plusRepBackground"
-        app:layout_constraintEnd_toStartOf="@+id/createPostButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createPostCardView" />
+        android:layout_marginBottom="20dp"
+        android:minWidth="100dp"
+        android:minHeight="32dp"
+        app:cardBackgroundColor="@color/plusRepButtonBackground"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/contentHolder"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/createPostButton"
+        <TextView
+            android:id="@+id/userNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="2dp"
+            android:drawableTint="@color/white"
+            android:text="@string/showPostOPUsername"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/exitButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/plusRepPurple"
-        android:padding="0dp"
-        android:scaleX=".9"
-        android:text="@string/donePostButton"
-        android:textAlignment="center"
-        android:textColor="@color/plusRepBackground"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/plusRepBackground"
+        android:src="@drawable/ic_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.751"
-        app:layout_constraintStart_toEndOf="@+id/cancelPostButton"
-        app:layout_constraintTop_toBottomOf="@+id/createPostCardView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <Spinner
+        android:id="@+id/chooseTagSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/plusRepPurple"
+        android:entries="@array/dropdown"
+        android:prompt="Choose game"
+        app:layout_constraintBottom_toTopOf="@+id/contentHolder"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="@string/cancelPostButton"
+            android:textColor="@color/plusRepBackground" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="@string/donePostButton"
+            android:textColor="@color/plusRepBackground" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
