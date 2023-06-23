@@ -289,6 +289,67 @@ public class DataHandler {
         return true;
     }
 
+    public ArrayList<ForumPostModel> getForumPostbyGameName(String gameName) {
+
+        String sql = "SELECT gameid FROM gametags WHERE gamename =  '" + gameName + "' ;";
+
+        ResultSet result;
+        Integer gameID = null;
+
+        try {
+            result = statement.executeQuery(sql);
+
+            while (result.next()) {
+
+                gameID = result.getInt("gameid");
+
+            }
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+            return null;
+        }
+
+        if (gameID == null) {
+            return null;
+        }
+
+        Long steamID;
+        String title;
+        String userName;
+        String content;
+
+        ArrayList<ForumPostModel> forumPosts = new ArrayList<>();
+
+        sql = "SELECT * FROM forum WHERE gameid = " + gameID + ";";
+
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while(result.next()) {
+
+                steamID = result.getLong("steamid");
+                title = result.getString("posttitle");
+                userName = result.getString("username");
+                content = result.getString("posttext");
+                gameID = result.getInt("gameid");
+
+
+                forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
+
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+            return null;
+        }
+
+        return forumPosts;
+    }
+
     public Boolean deleteUserPostFromDB(@NonNull Long steamID) {
         String sql = "DELETE from forum WHERE steamid = " + steamID + ";";
 
