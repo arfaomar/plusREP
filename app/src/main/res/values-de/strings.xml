@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">plusRep</string>
+    <string name="myProfile_title">Mein Profil</string>
+    <string name="newPost_title">Neuer Pfosten</string>
+    <string name="settings_screen_name">Einstellungen</string>
+    <string name="dark_mode">Dunkle Mode</string>
+    <string name="notifications">Notifikationen</string>
+    <string name="hide_profile">Profil verstecken</string>
+    <string name="del_account">Account löschen</string>
+    <string name="createPostTitleHint">Titel</string>
+    <string name="createPostTextHint">Gib eine Nachricht ein…</string>
+    <string name="cancelPostButton">Abbrechen</string>
+    <string name="donePostButton">Abschicken</string>
+    <string name="editUserName">Nutzername</string>
+    <string name="YOUTUBE">DURÖHRE</string>
+    <string name="STEAM">DAMPF</string>
+    <string name="TWITCH">ZUCK</string>
+    <string name="DISCORD">ZWIETRACHT</string>
+    <string name="getDiscordID">Deine Discord ID</string>
+    <string name="getUserBio">Deine bio</string>
+    <string name="CSGO">CS:GO</string>
+    <string name="COD">Ruf der Pflicht</string>
+    <string name="GTAV">GTA V</string>
+    <string name="Kindergarten2">Kindergarten 2</string>
+    <string name="Destiny2">Schicksal 2</string>
+    <string name="BigThinkersKindergarten">Große Denker  Kindergarten</string>
+    <string name="ChildrenOfMorta">Kinder von Morta</string>
+    <string name="newPostGetTitle">Titel</string>
+    <string name="placeholderText1">lol was ist den hier los</string>
+    <string name="newPostGameButton">spiel</string>
+    <string name="showPostOPUsername">Nutzername</string>
+    <string name="SteamLogin">Dampf Einlog</string>
+    <string name="emptySpace"> </string>
+    <string name="yourProfileUsername">Nutzername</string>
+    <string name="placeholderText2">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
+    <string name="placeholderUsername1">nutzer x</string>
+    <string name="zeroZero">00</string>
+    <string name="placeholderUsername2">xxNutzerxx</string>
+    <string name="forumViewPostTitle">Titel</string>
+    <string name="readMoreButton">MEHR LESEN</string>
+
+</resources>
