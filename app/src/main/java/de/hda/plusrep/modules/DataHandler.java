@@ -22,7 +22,7 @@ public class DataHandler {
 
     private static final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
     private static final String friendlistColumns = "(steamid,friendsteamid) ";
-    private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
+    private static final String forumColumns = "(steamid,posttitle,posttext,gameid,username) ";
     private static final String gametagsColumns = "(gamename) ";
 
     private static final String dataHandlerOperationInsert = "DataHandler(INSERT)";
@@ -273,7 +273,6 @@ public class DataHandler {
         Long steamID = post.getSteamID();
         String content = post.getContent();
         Integer gameTagID = post.getGameTagID();
-        //idk how to get the contents of Forum
 
         String sql = "INSERT INTO forum " + forumColumns + "VALUES " + "(" + steamID + ", '" + title + "', '" +
                 content + "', " + gameTagID + ", '" + userName + "');";
@@ -287,6 +286,31 @@ public class DataHandler {
         }
 
         return true;
+    }
+
+    public Integer getGameTagIDbyNamefromDB(String gameTagName) {
+
+        String sql = "SELECT gameid FROM gametags WHERE gamename = '" + gameTagName + "';";
+
+        Integer gameID = null;
+        ResultSet result;
+
+        try {
+            result = statement.executeQuery(sql);
+
+            while(result.next()){
+                gameID = result.getInt("gameid");
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            return null;
+
+        }
+
+        return gameID;
     }
 
     public Boolean deleteUserPostFromDB(@NonNull Long steamID) {
