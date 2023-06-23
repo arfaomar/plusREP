@@ -18,24 +18,24 @@
     <string name="DISCORD">DISCORD</string>
     <string name="getDiscordID">Your discord ID</string>
     <string name="getUserBio">Your bio</string>
-    <string name="CSGO">CS:GO</string>
+    <string name="CSGO" translatable="false">CS:GO</string>
     <string name="COD">Call of Duty</string>
-    <string name="GTAV">GTA V</string>
-    <string name="Kindergarten2">Kindergarten 2</string>
+    <string name="GTAV" translatable="false">GTA V</string>
+    <string name="Kindergarten2" translatable="false">Kindergarten 2</string>
     <string name="Destiny2">Destiny 2</string>
-    <string name="BigThinkersKindergarten">Big Thinkers  Kindergarten</string>
-    <string name="ChildrenOfMorta">Children of Morta</string>
+    <string name="BigThinkersKindergarten" translatable="false">Big Thinkers  Kindergarten</string>
+    <string name="ChildrenOfMorta" translatable="false">Children of Morta</string>
     <string name="newPostGetTitle">Title</string>
-    <string name="placeholderText1">lol was ist den hier los</string>
+    <string name="placeholderText1" translatable="false">lol was ist den hier los</string>
     <string name="newPostGameButton">game</string>
     <string name="showPostOPUsername">Username</string>
     <string name="SteamLogin">Steam Login</string>
     <string name="emptySpace" translatable="false"> </string>
     <string name="yourProfileUsername">Username</string>
-    <string name="placeholderText2">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
-    <string name="placeholderUsername1">user x</string>
-    <string name="zeroZero">00</string>
-    <string name="placeholderUsername2">xxUserxx</string>
+    <string name="placeholderText2" translatable="false">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
+    <string name="placeholderUsername1" translatable="false">user x</string>
+    <string name="zeroZero" translatable="false">00</string>
+    <string name="placeholderUsername2" translatable="false">xxUserxx</string>
     <string name="forumViewPostTitle">Title</string>
     <string name="readMoreButton">READ MORE</string>
     <string name="navbarProfile">My Profile</string>
