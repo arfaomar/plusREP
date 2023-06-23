@@ -57,7 +57,7 @@
         android:id="@+id/editUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="@string/editUserName"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:translationY="18sp"
@@ -121,7 +121,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:scaleX=".9"
             android:padding="0dp"
-            android:text="YOUTUBE"
+            android:text="@string/YOUTUBE"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -133,7 +133,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:scaleX=".9"
             android:padding="0dp"
-            android:text="STEAM"
+            android:text="@string/STEAM"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -145,7 +145,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:scaleX=".9"
             android:padding="0dp"
-            android:text="TWITCH"
+            android:text="@string/TWITCH"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -157,7 +157,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:scaleX=".9"
             android:padding="0dp"
-            android:text="DISCORD"
+            android:text="@string/DISCORD"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -198,7 +198,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
-                    android:hint="Your discord ID"
+                    android:hint="@string/getDiscordID"
                     android:text=""
                     android:textColor="@color/plusRepPurple"
                     android:textColorHint="@color/plusRepPurple" />
@@ -212,7 +212,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
                     android:gravity="top"
-                    android:hint="Your bio"
+                    android:hint="@string/getUserBio"
                     android:text=""
                     android:textColor="@color/plusRepPurple"
                     android:textColorHint="@color/plusRepPurple" />

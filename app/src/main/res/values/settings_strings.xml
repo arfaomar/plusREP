@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="settings_screen_name">Settings</string>
-    <string name="dark_mode">Dark Mode</string>
-    <string name="notifications">Notifications</string>
-    <string name="hide_profile">Hide Profile</string>
-    <string name="del_account">Delete Account</string>
-</resources>
