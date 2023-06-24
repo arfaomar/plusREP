@@ -50,96 +50,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/csChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/forumChipsChipGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:text="@string/CSGO"
-                android:textSize="16sp"
-                android:textColor="@drawable/chip_text_forum"
-                app:chipMinTouchTargetSize="48dp"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:checkedIconTint="@drawable/chip_text_forum"/>
+                app:singleLine="true"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/codChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:text="@string/COD"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/csChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="0dp"
+                    android:text="@string/CSGO"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/gtaChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:text="@string/GTAV"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/codChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/COD"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/kind2Chip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:text="@string/Kindergarten2"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/gtaChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/GTAV"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/destinyChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:text="@string/Destiny2"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/kind2Chip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Kindergarten2"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/bigThinkerChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                android:text="@string/BigThinkersKindergarten"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/destinyChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Destiny2"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/childofMortaChip"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:textColor="@drawable/chip_text_forum"
-                android:textSize="16sp"
-                android:text="@string/ChildrenOfMorta"
-                app:checkedIconTint="@drawable/chip_text_forum"
-                app:chipBackgroundColor="@drawable/chip_color_forum"
-                app:chipMinTouchTargetSize="48dp"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/bigThinkerChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BigThinkersKindergarten"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/childofMortaChip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ChildrenOfMorta"
+                    android:textColor="@drawable/chip_text_forum"
+                    android:textSize="16sp"
+                    app:checkedIconTint="@drawable/chip_text_forum"
+                    app:chipBackgroundColor="@drawable/chip_color_forum"
+                    app:chipMinTouchTargetSize="48dp" />
+            </com.google.android.material.chip.ChipGroup>
+
         </LinearLayout>
     </HorizontalScrollView>
 
