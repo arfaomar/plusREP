@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myProfile_title">Mon Profil</string>
+    <string name="newPost_title">Nouvelle Publication</string>
+    <string name="settings_screen_name">Paramètres</string>
+    <string name="dark_mode">Mode Sombre</string>
+    <string name="notifications">Notifications</string>
+    <string name="hide_profile">Masquer mon Profil</string>
+    <string name="del_account">Supprimer mon Compte</string>
+    <string name="createPostTitleHint">Titre</string>
+    <string name="createPostTextHint">Écrivez votre message</string>
+    <string name="cancelPostButton">Annuler</string>
+    <string name="donePostButton">Publier</string>
+    <string name="editUserName">Pseudonyme</string>
+    <string name="getDiscordID">Votre Discord ID</string>
+    <string name="getUserBio">Votre bio</string>
+    <string name="newPostGetTitle">Titre</string>
+    <string name="newPostGameButton">jeu</string>
+    <string name="showPostOPUsername">Pseudonyme</string>
+    <string name="yourProfileUsername">Pseudonyme</string>
+    <string name="forumViewPostTitle">Titre</string>
+    <string name="readMoreButton">VOIR PLUS</string>
+    <string name="navbarProfile">Mon Profil</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Contacts</string>
+    <string name="navbarSettings">Paramètres</string>
+</resources>
