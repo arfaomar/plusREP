@@ -314,24 +314,9 @@ public class DataHandler {
 
     public ArrayList<ForumPostModel> getForumPostbyGameName(String gameName) {
 
-        String sql = "SELECT gameid FROM gametags WHERE gamename =  '" + gameName + "' ;";
-
         ResultSet result;
-        Integer gameID = null;
+        Integer gameID = getGameTagIDbyNamefromDB(gameName);
 
-        try {
-            result = statement.executeQuery(sql);
-
-            while (result.next()) {
-
-                gameID = result.getInt("gameid");
-
-            }
-
-        } catch (SQLException e) {
-            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
-            return null;
-        }
 
         if (gameID == null) {
             return null;
@@ -344,7 +329,7 @@ public class DataHandler {
 
         ArrayList<ForumPostModel> forumPosts = new ArrayList<>();
 
-        sql = "SELECT * FROM forum WHERE gameid = " + gameID + ";";
+        String sql = "SELECT * FROM forum WHERE gameid = " + gameID + ";";
 
         try {
 
