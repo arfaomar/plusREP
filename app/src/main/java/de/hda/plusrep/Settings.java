@@ -3,8 +3,6 @@ package de.hda.plusrep;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,13 +27,5 @@ public class Settings extends AppCompatActivity {
 
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
-
-        Button gerLangButton = findViewById(R.id.gerLangButton);
-        gerLangButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                languageHelper.setAppLocale("de", Settings.this);
-            }
-        });
     }
 }

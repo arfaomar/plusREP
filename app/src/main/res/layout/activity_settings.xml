@@ -126,15 +126,6 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/gerLangButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/plusRepPurple"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:text="GER/DE" />
-
-        <Button
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
