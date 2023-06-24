@@ -235,7 +235,7 @@ public class DataHandler {
 
     public ArrayList<ForumPostModel> getPostsFromDB() {
 
-        String sql = "SELECT * FROM forum ;";
+        String sql = "SELECT * FROM forum;";
 
         Long steamID;
         String title;
