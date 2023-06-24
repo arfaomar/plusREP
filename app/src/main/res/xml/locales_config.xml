@@ -3,4 +3,5 @@
     //add all the supported lanaguges here
     <locale android:name="de"/>
     <locale android:name="sv"/>
+    <locale android:name="fr"/>
 </locale-config>
