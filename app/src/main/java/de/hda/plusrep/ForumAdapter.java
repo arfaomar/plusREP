@@ -15,6 +15,11 @@ import java.util.ArrayList;
 public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.ForumViewHolder> {
     private final ForumRecViewInterface forumRecViewInterface;
     Context context;
+
+    public void setForumPostModels(ArrayList<ForumPostModel> forumPostModels) {
+        this.forumPostModels = forumPostModels;
+    }
+
     ArrayList<ForumPostModel> forumPostModels;
     public ForumAdapter(Context context, ArrayList<ForumPostModel> forumPostModels, ForumRecViewInterface forumRecViewInterface){
         this.context = context;

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 
@@ -73,15 +72,13 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                DataHandler dataHandler = DataHandler.getDataHandlerInstance();
                 if(isChecked) {
                     String selectedChip = buttonView.getText().toString();
-                    DataHandler dataHandler = DataHandler.getDataHandlerInstance();
-                    Log.d("test", selectedChip);
-                    forumPostModels = dataHandler.getForumPostbyGameName(selectedChip);
+                    adapter.setForumPostModels(dataHandler.getForumPostbyGameName(selectedChip));
                     adapter.notifyDataSetChanged();
                 } else {
-                    setUpForumPostModels();
-                    Log.d("test","else");
+                    adapter.setForumPostModels(dataHandler.getPostsFromDB());
                     adapter.notifyDataSetChanged();
                 }
             }
