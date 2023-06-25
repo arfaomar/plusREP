@@ -1,7 +1,7 @@
 package de.hda.plusrep;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.CompoundButtonCompat;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
+
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -102,6 +102,10 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
     public void onItemClick(int position) {
         //Change Activity Here
         //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
+        activeIntent.putExtra("postid", forumPostModels.get(position).getPostID().toString());
+        activeIntent.setIdentifier("openPost");
+        activeIntent.setClass(this, ForumPost.class);
+        startActivity(activeIntent);
     }
 
     private void setUpForumPostModels(){

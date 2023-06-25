@@ -243,7 +243,7 @@ public class DataHandler {
         String content;
         Integer gameID;
         String gameName = "";
-
+        Integer postID;
         ResultSet result;
         ResultSet gametag;
         Statement temp;
@@ -261,6 +261,7 @@ public class DataHandler {
                 userName = result.getString("username");
                 content = result.getString("posttext");
                 gameID = result.getInt("gameid");
+                postID = result.getInt("postid");
 
 
                 try {
@@ -275,7 +276,7 @@ public class DataHandler {
                     return null;
                 }
 
-                forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
+                forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID,postID));
 
             }
 
@@ -370,6 +371,19 @@ public class DataHandler {
         }
 
         return true;
+    }
+
+
+    public ForumPostModel getForumPostById(Integer postID) {
+        ArrayList<ForumPostModel> forumposts = getPostsFromDB();
+
+        for (ForumPostModel item : forumposts) {
+            if (item.getPostID() == postID) {
+                return item;
+            }
+        }
+
+        return null;
     }
 
 
