@@ -26,7 +26,7 @@ public class DataHandler {
 
     private static final String gametagsColumns = "(gamename) ";
 
-    private static final String friendrequest = "(pendingfriendsteamid, steamid, personaname) ";
+    private static final String friendrequest = "(pendingfriendsteamid, steamid) ";
     private static final String dataHandlerOperationInsert = "DataHandler(INSERT)";
     private static final String dataHandlerOperationUpdate = "DataHandler(UPDATE)";
     private static final String dataHandlerOperationDelete = "DataHandler(DELETE)";
