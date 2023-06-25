@@ -275,16 +275,20 @@ public class DataHandler {
         if(liked) {
             sql = "UPDATE rated SET liked = true, disliked = false WHERE friendshipid =" + friendshipID + ";";
         }
+
         if(disliked) {
             sql = "UPDATE rated SET liked = false, disliked = true WHERE friendshipid =" + friendshipID + ";";
         }
+
+        if(!liked && !disliked) {
+            sql = "UPDATE rated SET liked = false, disliked = false WHERE friendshipid =" + friendshipID + ";";
+        }
+
 
         if(liked && disliked) {
             Log.e(dataHandlerOperationInsert + " (setRatedBools)", "falsche eingabe");
             return false;
         }
-
-
 
 
         try {
