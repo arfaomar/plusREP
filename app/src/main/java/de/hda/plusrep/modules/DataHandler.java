@@ -271,7 +271,16 @@ public class DataHandler {
 
     public Boolean setRatedForUserInDB(Long userSteamID, Long friendSteamID, Boolean liked, Boolean disliked) {
         Integer friendshipID = getFriendshipIDfromDB(userSteamID,friendSteamID);
-        String sql = "UPDATE rated SET liked =" + liked.toString() + ", disliked =" + disliked.toString() + "WHERE friendshipid =" + friendshipID + ";";
+        String sql;
+        if(liked) {
+            sql = "UPDATE rated SET liked = true, disliked = false WHERE friendshipid =" + friendshipID + ";";
+        }
+        if(disliked) {
+            sql = "UPDATE rated SET liked = false, disliked = true WHERE friendshipid =" + friendshipID + ";";
+        }
+
+
+
 
         try {
 
@@ -286,7 +295,6 @@ public class DataHandler {
 
         return true;
     }
-
 
     public Boolean removeFriendFromDB(Long userSteamID, Long friendSteamID){
 
