@@ -23,8 +23,10 @@ public class DataHandler {
     private static final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
     private static final String friendlistColumns = "(steamid,friendsteamid) ";
     private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
+
     private static final String gametagsColumns = "(gamename) ";
 
+    private static final String friendrequest = "(pendingfriendsteamid, steamid, personaname) ";
     private static final String dataHandlerOperationInsert = "DataHandler(INSERT)";
     private static final String dataHandlerOperationUpdate = "DataHandler(UPDATE)";
     private static final String dataHandlerOperationDelete = "DataHandler(DELETE)";
@@ -504,6 +506,19 @@ public class DataHandler {
         return null;
     }
 
+    public Boolean sendFriendRequest(Long userSteamID, Long pendingFriendSteamID, String personaName) {
+        String sql = "INSERT INTO friendrequest " + friendrequest + "VALUES ( " + pendingFriendSteamID + ", " + userSteamID + ", '" + personaName + "');";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            return false;
+
+        }
+
+        return true;
+    }
 
     @Override
     protected void finalize() {
