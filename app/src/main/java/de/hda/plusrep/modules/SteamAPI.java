@@ -57,7 +57,7 @@ public class SteamAPI {
 
                     // Starte neuen Screen und übergebe die SteamID
                     login.activeIntent.putExtra("Login.steamID", userId);
-                    login.activeIntent.putExtra("Profile.loaded", "FALSE");
+                    login.activeIntent.putExtra("Profile." + userId + ".loaded", "FALSE");
                     login.activeIntent.setIdentifier("SteamAPI");
                     login.startActivity(login.activeIntent);
                     login.overridePendingTransition(0, 0);

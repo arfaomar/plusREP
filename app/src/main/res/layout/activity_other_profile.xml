@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/plusRepBackground"
+    android:outlineProvider="none"
     tools:context=".Profile">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -49,6 +50,41 @@
             android:minWidth="128dp"
             android:minHeight="128dp"
             tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:outlineSpotShadowColor="#00FFFFFF"
+        app:cardBackgroundColor="@color/plusRepPurple"
+        app:cardCornerRadius="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/otherAvatarRounded"
+        app:layout_constraintEnd_toEndOf="@+id/otherAvatarRounded"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/otherAvatarRounded"
+        app:layout_constraintTop_toTopOf="@+id/otherAvatarRounded"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:outlineSpotShadowColor="#00FFFFFF"
+            android:translationX="2dp"
+            android:translationY="2dp"
+            app:cardBackgroundColor="@color/plusRepBackground"
+            app:cardCornerRadius="32dp" >
+
+            <TextView
+                android:id="@+id/repScore"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:translationY="4dp" />
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
     <ImageButton
@@ -56,9 +92,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/plusRepBackground"
-        android:src="@drawable/ic_thumb_down"
         android:scaleX="1.5"
         android:scaleY="1.5"
+        android:src="@drawable/ic_thumb_down"
         app:layout_constraintBottom_toBottomOf="@+id/otherAvatarRounded"
         app:layout_constraintEnd_toStartOf="@+id/otherAvatarRounded"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,14 +106,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/plusRepBackground"
-        android:src="@drawable/ic_thumb_up"
         android:scaleX="1.5"
         android:scaleY="1.5"
+        android:src="@drawable/ic_thumb_up"
         app:layout_constraintBottom_toBottomOf="@+id/otherAvatarRounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/otherAvatarRounded"
         app:layout_constraintTop_toTopOf="@+id/otherAvatarRounded"
-        app:tint="@color/white"/>
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/otherUsername"
@@ -105,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:text="title"
+            android:text="@string/Profile_title"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="24sp"
@@ -130,24 +166,12 @@
         app:layout_constraintTop_toBottomOf="@+id/otherUsername">
 
         <Button
-            android:id="@+id/otherYoutubeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
-            android:padding="0dp"
-            android:text="YOUTUBE"
-            android:textAlignment="center"
-            android:textColor="@color/plusRepBackground"
-            android:textSize="10sp" />
-
-        <Button
             android:id="@+id/otherSteamButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
             android:padding="0dp"
+            android:scaleX=".9"
             android:text="STEAM"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
@@ -158,8 +182,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
             android:padding="0dp"
+            android:scaleX=".9"
             android:text="TWITCH"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
@@ -170,8 +194,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
             android:padding="0dp"
+            android:scaleX=".9"
             android:text="DISCORD"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
@@ -182,8 +206,8 @@
         android:id="@+id/otherBiographyCardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         app:cardBackgroundColor="@color/plusRepButtonBackground"
@@ -214,7 +238,7 @@
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
                     android:text="Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen."
-                    android:textColor="@color/plusRepPurple"/>
+                    android:textColor="@color/plusRepPurple" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

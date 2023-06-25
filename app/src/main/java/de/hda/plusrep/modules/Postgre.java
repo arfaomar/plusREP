@@ -8,11 +8,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Postgre {
-    private static final String ip = "postgres.fbi.h-da.de";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
+    private static final String ip = "plusrep.crpm56ilivoe.eu-central-1.rds.amazonaws.com";// this is the host ip that your data base exists on you can use 10.0.2.2 for local host                                                    found on your pc. use if config for windows to find the ip if the database exists on                                                    your pc
     private static final String port = "5432";// the port sql server runs on
-    private static final String username = "plusrep";// the user name
-    private static final String password = "plusR3p";// the password
-    private static final String database = "stomarfaa";// the data base name
+    private static final String username = "postgres";// the user name
+    private static final String password = "postR3pdata";// the password
+    private static final String database = "postgres";// the data base name
     private static final String Classes = "org.postgresql.Driver"; // driver for PostgreSQL
     private static final String url = "jdbc:postgresql://"+ip+":"+port+"/"+database;
     private Connection connection = null;

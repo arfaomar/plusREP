@@ -2,6 +2,7 @@
     <string name="app_name">plusRep</string>
     <string name="myProfile_title">My Profile</string>
     <string name="newPost_title">New Post</string>
+    <string name="Profile_title">Profile</string>
     <string name="settings_screen_name">Settings</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="notifications">Notifications</string>

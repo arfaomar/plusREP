@@ -27,12 +27,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
 
 
 public class Profile extends AppCompatActivity {
 
-    Intent activeIntent;
+    private Intent activeIntent;
+    private String steamID;
+    private UserData userData;
+    private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +47,10 @@ public class Profile extends AppCompatActivity {
         getWindow().setStatusBarColor(getColor(R.color.black));
 
 
-        this.setupButtons();
         setupEditButton();
 
         activeIntent = getIntent();
-        String steamID = activeIntent.getStringExtra("Login.steamID");
+        steamID = activeIntent.getStringExtra("Login.steamID");
 
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -58,7 +61,8 @@ public class Profile extends AppCompatActivity {
         TextView biography = findViewById(R.id.biographyText);
         biography.setText(bio);
 
-        getUserData(steamID);
+        getUserData();
+        update();
 
 
         Navbar navbar = new Navbar(this, activeIntent);
@@ -66,61 +70,11 @@ public class Profile extends AppCompatActivity {
     }
 
 
-    private void setupButtons() {
 
-        ImageButton likeButton = findViewById(R.id.likeButton);
-        ImageButton dislikeButton = findViewById(R.id.dislikeButton);
-
-        // on setup => rating buttons have opacity of 30%
-        findViewById(R.id.likeButton).setAlpha((float)0.3);
-        findViewById(R.id.dislikeButton).setAlpha((float)0.3);
-
-        final boolean[] disliked = {false};
-        final boolean[] liked = {false};
-
-        likeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                liked[0] = !liked[0];
-                if (liked[0]) {
-                    v.setAlpha((float) 1);
-                    findViewById(R.id.dislikeButton).setAlpha((float)0.3);
-                    disliked[0] = false;
-                }
-                else v.setAlpha((float)0.5);
-            }
-        });
-        dislikeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                disliked[0] = !disliked[0];
-                if (disliked[0]) {
-                    v.setAlpha((float) 1);
-                    findViewById(R.id.likeButton).setAlpha((float)0.3);
-                    liked[0] = false;
-                }
-                else v.setAlpha((float)0.5);
-            }
-        });
-    }
-
-    private void getUserData(String steamID) {
+    private void getUserData() {
 
         // Falls schon geladen überspringe
-        if (activeIntent.getStringExtra("Profile.loaded").equals("TRUE")) {
-
-            try {
-
-                update(steamID);
-                return;
-
-            } catch (JSONException e) {
-
-                throw new RuntimeException(e);
-            }
-        }
+        if (activeIntent.getStringExtra("Profile." + steamID + ".loaded").equals("TRUE")) return;
 
         ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Loading....");
@@ -138,11 +92,37 @@ public class Profile extends AppCompatActivity {
                     if (jsonArray.length() > 0) {
 
                         JSONObject user = jsonArray.getJSONObject(0);
-                        activeIntent.putExtra("User." + steamID + ".name", user.get("personaname").toString());
-                        activeIntent.putExtra("User." + steamID + ".url", user.get("avatarfull").toString());
 
-                        activeIntent.putExtra("Profile.loaded", "TRUE");
-                        update(steamID);
+                        // Save in intent
+                        activeIntent.putExtra("User." + steamID + ".personaName", user.get("personaname").toString());
+                        activeIntent.putExtra("User." + steamID + ".profileURL", user.get("profileurl").toString());
+                        activeIntent.putExtra("User." + steamID + ".avatarURL", user.get("avatarfull").toString());
+
+                        // Save in database
+
+                        if (dataHandler.getUserFromDB(Long.parseLong(steamID)) == null) {
+
+                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), "", 0, 0, null);
+                            dataHandler.addUserToDB(userData);
+
+                            Toast.makeText(getApplicationContext(), "User added to database", Toast.LENGTH_SHORT).show(); // DEBUG
+                            Log.i("MyProfile", "User added to database");
+                        }
+                        else {
+
+                            String userBiography = dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography();
+                            int likes =  dataHandler.getUserFromDB(Long.parseLong(steamID)).getLikeCount();
+                            int dislikes = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDislikeCount();
+                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), userBiography, likes, dislikes, null);
+                            dataHandler.updateUserInDB(userData);
+
+                            Toast.makeText(getApplicationContext(), "User updated to database", Toast.LENGTH_SHORT).show(); // DEBUG
+                            Log.i("MyProfile", "User updated to database");
+                        }
+
+                        activeIntent.putExtra("Profile." + steamID + ".loaded", "TRUE");
+                        updateRepScore();
+                        update();
                     }
 
                 } catch (JSONException e) {
@@ -167,13 +147,16 @@ public class Profile extends AppCompatActivity {
         rQueue.add(request);
     }
 
-    private void update(String steamID) throws JSONException {
+    private void update() {
 
         TextView username = findViewById(R.id.username);
-        username.setText(activeIntent.getStringExtra("User." + steamID + ".name"));
+        username.setText(activeIntent.getStringExtra("User." + steamID + ".personaName"));
+
+        TextView biographyText = findViewById(R.id.biographyText);
+        if (dataHandler.getUserFromDB(Long.parseLong(steamID)) != null) biographyText.setText(dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography());
 
         ImageView userAvatar = findViewById(R.id.userAvatar);
-        Glide.with(getApplicationContext()).load(activeIntent.getStringExtra("User." + steamID + ".url"))
+        Glide.with(getApplicationContext()).load(activeIntent.getStringExtra("User." + steamID + ".avatarURL"))
                 .placeholder(R.drawable.ic_person)
                 .error(R.drawable.ic_launcher_foreground)
                 .override(240, 240)
@@ -198,6 +181,12 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void updateRepScore() {
+
+        TextView repScore = findViewById(R.id.repScore);
+        repScore.setText(""+Math.round(userData.calculateRepScore()));
     }
 
 }
