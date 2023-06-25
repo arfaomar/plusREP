@@ -8,9 +8,16 @@ public class ForumPostModel {
     String content;
     String gameTag;
     Integer gameTagID;
-    public ForumPostModel(String title, String userName) {
+    Integer postID;
+
+    public ForumPostModel(Long steamID, String title, String userName, String content, String gameTag, Integer gameTagID, Integer postID) {
         this.title = title;
         this.userName = userName;
+        this.content = content;
+        this.gameTag = gameTag;
+        this.steamID = steamID;
+        this.gameTagID = gameTagID;
+        this.postID = postID;
     }
 
     public ForumPostModel(Long steamID, String title, String userName, String content, String gameTag, Integer gameTagID) {
@@ -48,5 +55,8 @@ public class ForumPostModel {
 
     public String getGameTag() {
         return gameTag;
+    }
+    public Integer getPostID() {
+        return postID;
     }
 }
