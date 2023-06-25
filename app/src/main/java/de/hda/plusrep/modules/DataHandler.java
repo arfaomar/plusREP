@@ -194,8 +194,21 @@ public class DataHandler {
 
         String sql = "INSERT INTO friendlist " + friendlistColumns + "VALUES " + "(" + userSteamID + ", " + friendSteamID + ");";
 
+
+
         try {
             statement.executeUpdate(sql);
+             String friendshipIdQuery = "SELECT friendshipid FROM friendlist WHERE steamid = "+ userSteamID + "AND friendsteamid =" + friendSteamID + ";";
+
+            ResultSet result = statement.executeQuery(friendshipIdQuery);
+            Integer friendshipid = null;
+            while (result.next()) {
+                friendshipid = result.getInt("friendshipid");
+            }
+            result.close();
+            String ratedSQL  = "INSERT INTO rated (friendshipid,liked,disliked) VALUES (" + friendshipid + ", false, false);";
+            statement.executeUpdate(ratedSQL);
+
         } catch (SQLException e) {
             Log.e(dataHandlerOperationInsert + " (FRIEND)USER", e.getMessage());
             return false;
@@ -203,6 +216,77 @@ public class DataHandler {
         }
         return true;
     }
+
+    private Integer getFriendshipIDfromDB(Long userSteamID, Long friendSteamID){
+
+        String friendshipIdQuery = "SELECT friendshipid FROM friendlist WHERE steamid = "+ userSteamID + "AND friendsteamid =" + friendSteamID + ";";
+
+        Integer friendshipid = null;
+
+        ResultSet result;
+
+        try {
+
+           result = statement.executeQuery(friendshipIdQuery);
+
+            while (result.next()) {
+                friendshipid = result.getInt("friendshipid");
+            }
+            result.close();
+
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " (getFriendshipID)", e.getMessage());
+            return null;
+
+        }
+        return friendshipid;
+    }
+
+    public ArrayList<Boolean> getRatedFromDBforUser(Long userSteamID, Long friendSteamID) {
+       Integer friendshipID = getFriendshipIDfromDB(userSteamID,friendSteamID);
+       String sql = "SELECT * FROM rated WHERE friendshipid =" + friendshipID + ";";
+       ResultSet result;
+       ArrayList<Boolean> rating = new ArrayList<>();
+
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while (result.next()) {
+                rating.add(result.getBoolean("liked"));
+                rating.add(result.getBoolean("disliked"));
+            }
+            result.close();
+
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + "(getRatedBools)", e.getMessage());
+            return null;
+
+        }
+        return rating;
+
+    }
+
+    public Boolean setRatedForUserInDB(Long userSteamID, Long friendSteamID, Boolean liked, Boolean disliked) {
+        Integer friendshipID = getFriendshipIDfromDB(userSteamID,friendSteamID);
+        String sql = "UPDATE rated SET liked =" + liked.toString() + ", disliked =" + disliked.toString() + "WHERE friendshipid =" + friendshipID + ";";
+
+        try {
+
+            statement.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " (setRatedBools)", e.getMessage());
+            return false;
+
+        }
+
+
+        return true;
+    }
+
 
     public Boolean removeFriendFromDB(Long userSteamID, Long friendSteamID){
 
