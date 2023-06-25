@@ -506,8 +506,8 @@ public class DataHandler {
         return null;
     }
 
-    public Boolean sendFriendRequest(Long userSteamID, Long pendingFriendSteamID, String personaName) {
-        String sql = "INSERT INTO friendrequest " + friendrequest + "VALUES ( " + pendingFriendSteamID + ", " + userSteamID + ", '" + personaName + "');";
+    public Boolean sendFriendRequest(Long friendSteamID, Long userSteamID) {
+        String sql = "INSERT INTO friendrequest " + friendrequest + "VALUES ( " + userSteamID + ", " + friendSteamID + ");";
 
         try {
             statement.executeUpdate(sql);
@@ -532,6 +532,35 @@ public class DataHandler {
         }
 
         return true;
+    }
+
+    public void getFriendRequest(Long steamID) {
+        String sql = "SELECT * FROM friendrequest WHERE steamid = " + steamID + ";";
+
+        Long pendingFriendSteamID = null;
+        String personaName = null;
+
+        ResultSet result;
+
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while(result.next()) {
+
+                pendingFriendSteamID = result.getLong("pendingfriendsteamid");
+                personaName = result.getString("personaname");
+
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+            //return null;
+        }
+
+        //return forumPosts;
     }
 
     @Override
