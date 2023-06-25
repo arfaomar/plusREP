@@ -22,7 +22,7 @@ public class DataHandler {
 
     private static final String usersColumns = "(steamid, personaname, profileurl, avatarurl, likecount, dislikecount, biography, discordid) ";
     private static final String friendlistColumns = "(steamid,friendsteamid) ";
-    private static final String forumColumns = "(steamid,postitle,posttext,gameid,username) ";
+    private static final String forumColumns = "(steamid,posttitle,posttext,gameid,username) ";
 
     private static final String gametagsColumns = "(gamename) ";
 
