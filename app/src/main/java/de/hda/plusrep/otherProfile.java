@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import de.hda.plusrep.modules.DataHandler;
 import de.hda.plusrep.modules.Navbar;
 
@@ -33,6 +36,7 @@ public class otherProfile extends AppCompatActivity {
     private String steamID;
     private UserData userData;
     private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
+    ArrayList<Boolean> likeState = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,49 +49,46 @@ public class otherProfile extends AppCompatActivity {
 
         activeIntent = getIntent();
         steamID = activeIntent.getStringExtra("Profile.steamID");
+        likeState = dataHandler.getRatedFromDBforUser(Long.parseLong(Profile.steamID), Long.parseLong(steamID));
         this.setupButtons();
 
-
-
         getUserData();
-        update();
 
 
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
     }
 
-    public void updateRepScore() {
-
-        TextView repScore = findViewById(R.id.repScore);
-        repScore.setText(""+Math.round(userData.calculateRepScore()));
-    }
-
     private void setupButtons() {
 
+        // Get buttons
         ImageButton likeButton = findViewById(R.id.otherLikeButton);
         ImageButton dislikeButton = findViewById(R.id.otherDislikeButton);
+        ImageButton addFriendButton = findViewById(R.id.addFriendButton);
 
         // on setup => rating buttons have opacity of 30%
         findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
         findViewById(R.id.otherDislikeButton).setAlpha((float)0.3);
+        findViewById(R.id.addFriendButton).setAlpha((float)0.3);
 
         final boolean[] disliked = {false};
         final boolean[] liked = {false};
+        final boolean[] added = {false};
 
-        if (activeIntent.getStringExtra("Profile." + steamID + ".loaded").equals("TRUE")) {
+        // If friend...
+        // [...]
 
-            if (activeIntent.getStringExtra("Profile." + steamID + ".liked").equals("TRUE")) {
+        // Get like state from database
+        if (likeState.get(0)) {
 
-                liked[0] = true;
-                findViewById(R.id.otherLikeButton).setAlpha((float)1);
-            }
+            liked[0] = true;
+            findViewById(R.id.otherLikeButton).setAlpha((float)1);
+        }
 
-            if (activeIntent.getStringExtra("Profile." + steamID + ".disliked").equals("TRUE")) {
+        if (likeState.get(1)) {
 
-                disliked[0] = true;
-                findViewById(R.id.otherDislikeButton).setAlpha((float)1);
-            }
+            disliked[0] = true;
+            findViewById(R.id.otherDislikeButton).setAlpha((float)1);
         }
 
         likeButton.setOnClickListener(new View.OnClickListener() {
@@ -98,18 +99,21 @@ public class otherProfile extends AppCompatActivity {
                 if (liked[0]) {
                     v.setAlpha((float) 1);
                     findViewById(R.id.otherDislikeButton).setAlpha((float)0.3);
-                    disliked[0] = false;
+                    if (disliked[0]) {
+                        userData.removeDislike();
+                        disliked[0] = false;
+                    }
 
                     userData.addLike();
-                    activeIntent.putExtra("Profile." + steamID + ".liked", "TRUE");
+                    dataHandler.setRatedForUserInDB(Long.parseLong(Profile.steamID), Long.parseLong(steamID), true, false);
                 }
                 else {
                     userData.removeLike();
-                    activeIntent.putExtra("Profile." + steamID + ".liked", "FALSE");
+                    dataHandler.setRatedForUserInDB(Long.parseLong(Profile.steamID), Long.parseLong(steamID), false, false);
                     v.setAlpha((float)0.3);
                 }
                 Log.i("OtherProfile", "Like (" + userData.getLikeCount() + ")");
-                updateRepScore();
+                update();
                 dataHandler.updateUserInDB(userData);
             }
         });
@@ -121,113 +125,97 @@ public class otherProfile extends AppCompatActivity {
                 if (disliked[0]) {
                     v.setAlpha((float) 1);
                     findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
-                    liked[0] = false;
+                    if (liked[0]) {
+                        userData.removeLike();
+                        liked[0] = false;
+                    }
 
                     userData.addDislike();
-                    activeIntent.putExtra("Profile." + steamID + ".disliked", "TRUE");
+                    dataHandler.setRatedForUserInDB(Long.parseLong(Profile.steamID), Long.parseLong(steamID), false, true);
                 }
                 else {
                     userData.removeDislike();
-                    activeIntent.putExtra("Profile." + steamID + ".disliked", "FALSE");
+                    dataHandler.setRatedForUserInDB(Long.parseLong(Profile.steamID), Long.parseLong(steamID), false, false);
                     v.setAlpha((float) 0.3);
                 }
                 Log.i("OtherProfile", "Dislike (" + userData.getDislikeCount() + ")");
-                updateRepScore();
+                update();
                 dataHandler.updateUserInDB(userData);
+            }
+        });
+        addFriendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                added[0] = !added[0];
+                if (added[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
+
+                    if (dataHandler.sendFriendRequest(Long.parseLong(steamID), Long.parseLong(Profile.steamID)));
+                    else {
+
+                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                        Log.e("OtherProfile", "An error occurred");
+                    }
+                }
+                else {
+                    v.setAlpha((float) 0.3);
+
+                    if (dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), Long.parseLong(steamID)));
+                    else {
+
+                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                        Log.e("OtherProfile", "An error occurred");
+                    }
+                }
+
+                update();
             }
         });
     }
 
     protected void update() {
 
+        // Get view items
         TextView username = findViewById(R.id.otherUsername);
-        username.setText(activeIntent.getStringExtra("User." + steamID + ".personaName"));
-
         TextView biographyText = findViewById(R.id.otherBiographyText);
-        if (dataHandler.getUserFromDB(Long.parseLong(steamID)) != null) biographyText.setText(dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography());
-
         ImageView userAvatar = findViewById(R.id.otherUserAvatar);
-        Glide.with(getApplicationContext()).load(activeIntent.getStringExtra("User." + steamID + ".avatarURL"))
+        TextView repScore = findViewById(R.id.repScore);
+
+        // Set username
+        username.setText(userData.getPersonaName());
+
+        // Set biography
+        biographyText.setText(userData.getBiography());
+
+        // Set avatar
+        Glide.with(getApplicationContext()).load(userData.getAvatarURL())
                 .placeholder(R.drawable.ic_person)
                 .error(R.drawable.ic_launcher_foreground)
                 .override(240, 240)
                 .centerCrop()
                 .into(userAvatar);
+
+        // Set score (if no (dis)likes the string is "-")
+        if (userData.getLikeCount() == 0 && userData.getDislikeCount() == 0) repScore.setText("-");
+        else repScore.setText(""+Math.round(userData.calculateRepScore()));
     }
 
-    protected void getUserData() {
+    protected void getUserData() { // Get data from database
 
-        // Falls schon geladen überspringe
-        if (activeIntent.getStringExtra("Profile." + steamID + ".loaded").equals("TRUE")) return;
+        userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
+        if (userData == null) {
 
-        ProgressDialog dialog = new ProgressDialog(this);
-        dialog.setMessage("Loading....");
-        dialog.show();
-        StringRequest request = new StringRequest("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=973AE865DE90E85B6BEB1B3C792BCF58&steamids="+steamID, new Response.Listener<String>() {
+            // Not found
+            Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
+            Log.e("OtherProfile", "User does not exist");
+        }
+        else {
 
-            @Override
-            public void onResponse(String string) {
-
-                try {
-
-                    JSONObject json = new JSONObject(string);
-                    JSONArray jsonArray = json.getJSONObject("response").getJSONArray("players");
-
-                    if (jsonArray.length() > 0) {
-
-                        JSONObject user = jsonArray.getJSONObject(0);
-
-                        // Save in intent
-                        activeIntent.putExtra("User." + steamID + ".personaName", user.get("personaname").toString());
-                        activeIntent.putExtra("User." + steamID + ".profileURL", user.get("profileurl").toString());
-                        activeIntent.putExtra("User." + steamID + ".avatarURL", user.get("avatarfull").toString());
-
-                        // Save in database
-
-                        if (dataHandler.getUserFromDB(Long.parseLong(steamID)) == null) {
-
-                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), "", 0, 0, null);
-                            dataHandler.addUserToDB(userData);
-
-                            Toast.makeText(getApplicationContext(), "User added to database", Toast.LENGTH_SHORT).show(); // DEBUG
-                            Log.i("OtherProfile", "User added to database");
-                        }
-                        else {
-
-                            String userBiography = dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography();
-                            int likes =  dataHandler.getUserFromDB(Long.parseLong(steamID)).getLikeCount();
-                            int dislikes = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDislikeCount();
-                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), userBiography, likes, dislikes, null);
-                            dataHandler.updateUserInDB(userData);
-
-                            Toast.makeText(getApplicationContext(), "User updated to database", Toast.LENGTH_SHORT).show(); // DEBUG
-                            Log.i("OtherProfile", "User updated to database");
-                        }
-
-                        activeIntent.putExtra("Profile." + steamID + ".loaded", "TRUE");
-                        updateRepScore();
-                        update();
-                    }
-
-                } catch (JSONException e) {
-
-                    throw new RuntimeException(e);
-                }
-
-                dialog.dismiss();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-
-                Toast.makeText(getApplicationContext(), "User konnte nicht geladen werden", Toast.LENGTH_SHORT).show();
-
-                Log.e("OtherProfile", "Error: " + volleyError.toString());
-                dialog.dismiss();
-            }
-        });
-
-        RequestQueue rQueue = Volley.newRequestQueue(getApplicationContext());
-        rQueue.add(request);
+            // Found
+            update();
+            Log.i("OtherProfile", "Successfully loaded user from database");
+        }
     }
 }
