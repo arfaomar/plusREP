@@ -229,9 +229,9 @@ public class DataHandler {
 
            result = statement.executeQuery(friendshipIdQuery);
 
-            while (result.next()) {
-                friendshipid = result.getInt("friendshipid");
-            }
+
+           friendshipid = result.getInt("friendshipid");
+
             result.close();
 
 
