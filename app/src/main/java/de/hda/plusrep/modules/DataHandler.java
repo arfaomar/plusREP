@@ -534,10 +534,10 @@ public class DataHandler {
         return true;
     }
 
-    public void getFriendRequest(Long steamID) {
-        String sql = "SELECT * FROM friendrequest WHERE steamid = " + steamID + ";";
+    public ArrayList<Long> getFriendRequest(Long steamID) {
+        String sql = "SELECT pendingfriendsteamid FROM friendrequest WHERE steamid = " + steamID + ";";
 
-        Long pendingFriendSteamID = null;
+        ArrayList<Long> longs = new ArrayList<>();
         String personaName = null;
 
         ResultSet result;
@@ -548,8 +548,7 @@ public class DataHandler {
 
             while(result.next()) {
 
-                pendingFriendSteamID = result.getLong("pendingfriendsteamid");
-                personaName = result.getString("personaname");
+                longs.add(result.getLong("pendingfriendsteamid"));
 
             }
 
@@ -557,10 +556,10 @@ public class DataHandler {
 
         } catch (SQLException e) {
             Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
-            //return null;
+            return null;
         }
 
-        //return forumPosts;
+        return longs;
     }
 
     @Override
