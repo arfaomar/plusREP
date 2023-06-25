@@ -506,7 +506,7 @@ public class DataHandler {
         return null;
     }
 
-    public Boolean sendFriendRequest(Long friendSteamID, Long userSteamID) {
+    public Boolean sendFriendRequest(Long userSteamID, Long friendSteamID) {
         String sql = "INSERT INTO friendrequest " + friendrequest + "VALUES ( " + userSteamID + ", " + friendSteamID + ");";
 
         try {
