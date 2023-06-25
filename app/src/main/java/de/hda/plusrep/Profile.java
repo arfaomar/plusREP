@@ -34,11 +34,10 @@ import de.hda.plusrep.modules.Navbar;
 public class Profile extends AppCompatActivity {
 
     private Intent activeIntent;
-    private String steamID;
+    public static String steamID;
     private UserData userData;
     private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
-    public static Long steamID = 76561198106115768L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
