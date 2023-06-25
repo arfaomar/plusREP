@@ -13,24 +13,24 @@
     <string name="cancelPostButton">Cancel</string>
     <string name="donePostButton">Post</string>
     <string name="editUserName">Username</string>
-    <string name="YOUTUBE">YOUTUBE</string>
-    <string name="STEAM">STEAM</string>
-    <string name="TWITCH">TWITCH</string>
-    <string name="DISCORD">DISCORD</string>
+    <string name="YOUTUBE" translatable="false">YOUTUBE</string>
+    <string name="STEAM" translatable="false">STEAM</string>
+    <string name="TWITCH" translatable="false">TWITCH</string>
+    <string name="DISCORD" translatable="false">DISCORD</string>
     <string name="getDiscordID">Your discord ID</string>
     <string name="getUserBio">Your bio</string>
     <string name="CSGO" translatable="false">CS:GO</string>
-    <string name="COD">Call of Duty</string>
+    <string name="COD" translatable="false">Call of Duty</string>
     <string name="GTAV" translatable="false">GTA V</string>
     <string name="Kindergarten2" translatable="false">Kindergarten 2</string>
-    <string name="Destiny2">Destiny 2</string>
+    <string name="Destiny2" translatable="false">Destiny 2</string>
     <string name="BigThinkersKindergarten" translatable="false">Big Thinkers  Kindergarten</string>
     <string name="ChildrenOfMorta" translatable="false">Children of Morta</string>
     <string name="newPostGetTitle">Title</string>
     <string name="placeholderText1" translatable="false">lol was ist den hier los</string>
     <string name="newPostGameButton">game</string>
     <string name="showPostOPUsername">Username</string>
-    <string name="SteamLogin">Steam Login</string>
+    <string name="SteamLogin" translatable="false">Steam Login</string>
     <string name="emptySpace" translatable="false"> </string>
     <string name="yourProfileUsername">Username</string>
     <string name="placeholderText2" translatable="false">Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen.</string>
