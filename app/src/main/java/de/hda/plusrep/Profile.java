@@ -38,6 +38,8 @@ public class Profile extends AppCompatActivity {
     private UserData userData;
     private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
+    public static Long steamID = 76561198106115768L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,6 +53,8 @@ public class Profile extends AppCompatActivity {
 
         activeIntent = getIntent();
         steamID = activeIntent.getStringExtra("Login.steamID");
+
+
 
         SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

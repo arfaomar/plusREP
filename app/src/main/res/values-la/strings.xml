@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myProfile_title">Mea Imago obliqua</string>
+    <string name="newPost_title">Nova Proscriptio</string>
+    <string name="settings_screen_name">Instituta</string>
+    <string name="dark_mode">Modus noctis</string>
+    <string name="notifications">Epistulae</string>
+    <string name="hide_profile">Imaginem obliquam occultare</string>
+    <string name="del_account">Depositionem notitiae delere</string>
+    <string name="createPostTitleHint">Titulus</string>
+    <string name="createPostTextHint">Scribere nuntium</string>
+    <string name="cancelPostButton">Desinere</string>
+    <string name="donePostButton">Mittere</string>
+    <string name="editUserName">Nomen utentis</string>
+    <string name="getDiscordID">Tua ID Discordiae</string>
+    <string name="getUserBio">Tua Vita</string>
+    <string name="newPostGetTitle">Titulus</string>
+    <string name="newPostGameButton">ludus</string>
+    <string name="showPostOPUsername">Nomen utentis</string>
+    <string name="yourProfileUsername">Nomen utentis</string>
+    <string name="forumViewPostTitle">Titulus</string>
+    <string name="readMoreButton">MAGIS LEGERE</string>
+    <string name="navbarProfile">Mea Imago obliqua</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Ratione</string>
+    <string name="navbarSettings">Instituta</string>
+</resources>

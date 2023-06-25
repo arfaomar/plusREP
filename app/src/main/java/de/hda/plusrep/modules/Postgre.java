@@ -33,7 +33,7 @@ public class Postgre {
         StrictMode.setThreadPolicy(policy);
         try {
             Class.forName(Classes);
-            connection = DriverManager.getConnection(url, username,password);
+            connection = DriverManager.getConnection(url,username,password);
             Log.i(logTag,"Connected");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

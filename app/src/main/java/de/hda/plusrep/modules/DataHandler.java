@@ -165,7 +165,30 @@ public class DataHandler {
         return user;
     }
 
+    public Integer getGameTagIDbyNamefromDB(String gameTagName) {
 
+        String sql = "SELECT gameid FROM gametags WHERE gamename = '" + gameTagName + "';";
+
+        Integer gameID = null;
+        ResultSet result;
+
+        try {
+            result = statement.executeQuery(sql);
+
+            while(result.next()){
+                gameID = result.getInt("gameid");
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            return null;
+
+        }
+
+        return gameID;
+    }
 
     public Boolean addFriendToDB(Long userSteamID, Long friendSteamID){
 
@@ -212,7 +235,7 @@ public class DataHandler {
 
     public ArrayList<ForumPostModel> getPostsFromDB() {
 
-        String sql = "SELECT * FROM forum ;";
+        String sql = "SELECT * FROM forum;";
 
         Long steamID;
         String title;
@@ -287,6 +310,52 @@ public class DataHandler {
         }
 
         return true;
+    }
+
+    public ArrayList<ForumPostModel> getForumPostbyGameName(String gameName) {
+
+        ResultSet result;
+        Integer gameID = getGameTagIDbyNamefromDB(gameName);
+
+
+        if (gameID == null) {
+            return null;
+        }
+
+        Long steamID;
+        String title;
+        String userName;
+        String content;
+
+        ArrayList<ForumPostModel> forumPosts = new ArrayList<>();
+
+        String sql = "SELECT * FROM forum WHERE gameid = " + gameID + ";";
+
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while(result.next()) {
+
+                steamID = result.getLong("steamid");
+                title = result.getString("posttitle");
+                userName = result.getString("username");
+                content = result.getString("posttext");
+                gameID = result.getInt("gameid");
+
+
+                forumPosts.add(new ForumPostModel(steamID,title,userName,content,gameName,gameID));
+
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+            return null;
+        }
+
+        return forumPosts;
     }
 
     public Boolean deleteUserPostFromDB(@NonNull Long steamID) {

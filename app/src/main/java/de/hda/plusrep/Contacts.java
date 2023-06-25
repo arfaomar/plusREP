@@ -51,8 +51,7 @@ public class Contacts extends AppCompatActivity implements ContactsRecViewInterf
     public void onItemClick(int position) {
         //Change Activity Here
         //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
-
-        String steamID = "76561198042568456";
+        Long steamID = contactModels.get(position).getSteamID();
         activeIntent.putExtra("Profile.steamID", steamID);
         activeIntent.putExtra("Profile." + steamID + ".loaded", "FALSE");
         activeIntent.setClass(getApplicationContext(), otherProfile.class);
@@ -60,7 +59,7 @@ public class Contacts extends AppCompatActivity implements ContactsRecViewInterf
     }
 
     private void setUpContacts() {
-        Long steamID = 76561198106115768L; //TODO: MAKE PUBLIC STATIC steamID variable
+        Long steamID = Profile.steamID; //TODO: MAKE PUBLIC STATIC steamID variable
         DataHandler dataHandler = DataHandler.getDataHandlerInstance();
         UserData currentUser = dataHandler.getUserFromDB(steamID);
         ArrayList<ContactModel> contacts = new ArrayList<>();

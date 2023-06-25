@@ -1,0 +1,34 @@
+<resources>
+    <string name="myProfile_title">Mein Profil</string>
+    <string name="newPost_title">Neuer Pfosten</string>
+    <string name="settings_screen_name">Einstellungen</string>
+    <string name="dark_mode">Dunkle Mode</string>
+    <string name="notifications">Notifikationen</string>
+    <string name="hide_profile">Profil verstecken</string>
+    <string name="del_account">Account löschen</string>
+    <string name="createPostTitleHint">Titel</string>
+    <string name="createPostTextHint">Gib eine Nachricht ein…</string>
+    <string name="cancelPostButton">Abbrechen</string>
+    <string name="donePostButton">Abschicken</string>
+    <string name="editUserName">Nutzername</string>
+    <string name="YOUTUBE">DURÖHRE</string>
+    <string name="STEAM">DAMPF</string>
+    <string name="TWITCH">ZUCK</string>
+    <string name="DISCORD">ZWIETRACHT</string>
+    <string name="getDiscordID">Deine Discord ID</string>
+    <string name="getUserBio">Deine bio</string>
+    <string name="COD">Ruf der Pflicht</string>
+    <string name="Destiny2">Schicksal 2</string>
+    <string name="newPostGetTitle">Titel</string>
+    <string name="newPostGameButton">spiel</string>
+    <string name="showPostOPUsername">Nutzername</string>
+    <string name="SteamLogin">Dampf Einlog</string>
+    <string name="yourProfileUsername">Nutzername</string>
+    <string name="forumViewPostTitle">Titel</string>
+    <string name="readMoreButton">MEHR LESEN</string>
+    <string name="navbarProfile">Mein Profil</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Kontakte</string>
+    <string name="navbarSettings">Einstellungen</string>
+
+</resources>

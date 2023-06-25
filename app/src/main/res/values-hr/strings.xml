@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myProfile_title">Moj Profil</string>
+    <string name="newPost_title">Nova Poruka</string>
+    <string name="settings_screen_name">Opcije</string>
+    <string name="dark_mode">Tamni Način Rada</string>
+    <string name="notifications">Obavijesti</string>
+    <string name="hide_profile">Profil Sakriti</string>
+    <string name="del_account">Račun Izbrisati</string>
+    <string name="createPostTitleHint">Titula</string>
+    <string name="createPostTextHint">Napiši Poruku</string>
+    <string name="cancelPostButton">Otkazati</string>
+    <string name="donePostButton">Poslati</string>
+    <string name="editUserName">Korisničko Ime</string>
+    <string name="getDiscordID">Tvoj Discord ID</string>
+    <string name="getUserBio">Tvoja bio</string>
+    <string name="newPostGetTitle">Titula</string>
+    <string name="newPostGameButton">igra</string>
+    <string name="showPostOPUsername">Korisničko Ime</string>
+    <string name="yourProfileUsername">Korisničko Ime</string>
+    <string name="forumViewPostTitle">Titula</string>
+    <string name="readMoreButton">ČITAJ VIŠE</string>
+    <string name="navbarProfile">Moj Profil</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Kontakti</string>
+    <string name="navbarSettings">Opcije</string>
+</resources>
