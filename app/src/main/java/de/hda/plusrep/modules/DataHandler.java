@@ -271,7 +271,7 @@ public class DataHandler {
 
     public Boolean setRatedForUserInDB(Long userSteamID, Long friendSteamID, Boolean liked, Boolean disliked) {
         Integer friendshipID = getFriendshipIDfromDB(userSteamID,friendSteamID);
-        String sql;
+        String sql = "";
         if(liked) {
             sql = "UPDATE rated SET liked = true, disliked = false WHERE friendshipid =" + friendshipID + ";";
         }
