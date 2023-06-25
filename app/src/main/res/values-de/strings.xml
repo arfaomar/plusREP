@@ -1,6 +1,7 @@
 <resources>
     <string name="myProfile_title">Mein Profil</string>
     <string name="newPost_title">Neuer Pfosten</string>
+    <string name="Profile_title">Profil</string>
     <string name="settings_screen_name">Einstellungen</string>
     <string name="dark_mode">Dunkle Mode</string>
     <string name="notifications">Notifikationen</string>
