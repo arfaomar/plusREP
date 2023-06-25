@@ -12,8 +12,11 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import de.hda.plusrep.modules.DataHandler;
+
 public class EditProfile extends AppCompatActivity {
 
+    DataHandler dataHandler = DataHandler.getDataHandlerInstance();
     Intent activeIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +55,7 @@ public class EditProfile extends AppCompatActivity {
     private void updateUserData(){
         EditText editText = findViewById(R.id.editBiographyText);
         Button editDiscordButton = findViewById(R.id.editDiscordButton);
-
-        activeIntent.putExtra("updated Bio", editText.getText().toString());
-        activeIntent.putExtra("updated Discord", editDiscordButton.getText().toString());
+        UserData userData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
+        dataHandler.updateUserInDB(new UserData(userData.getSteamID(), userData.getPersonaName(), userData.getProfileURL(), userData.getAvatarURL(), editText.getText().toString(), userData.getLikeCount(), userData.getDislikeCount(), Long.parseLong(editDiscordButton.getText().toString())));
     }
 }

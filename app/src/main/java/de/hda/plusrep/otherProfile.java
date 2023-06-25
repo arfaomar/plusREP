@@ -178,7 +178,7 @@ public class otherProfile extends AppCompatActivity {
                 copyToClipboard(userData.getProfileURL());
             }
         });
-        steamButton.setOnClickListener(new View.OnClickListener() {
+        discordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
