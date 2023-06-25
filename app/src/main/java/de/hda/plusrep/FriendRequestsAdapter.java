@@ -1,6 +1,9 @@
 package de.hda.plusrep;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,7 @@ import de.hda.plusrep.modules.DataHandler;
 
 public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAdapter.FriendRequestsHolder> {
 
+    Intent activeIntent;
     Context context;
     ArrayList<FriendRequestsModel> friendRequestsModels;
     DataHandler dataHandler = DataHandler.getDataHandlerInstance();
@@ -39,6 +44,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
     public void onBindViewHolder(@NonNull FriendRequestsAdapter.FriendRequestsHolder holder, int position) {
 
         holder.personaName.setText(friendRequestsModels.get(position).getPersonaName());
+
         Glide.with(context).load(friendRequestsModels.get(position).getAvatarURL())
                 .placeholder(R.drawable.ic_fail_image)
                 .error(R.drawable.ic_fail_image)
@@ -87,6 +93,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
         }
     }
 
+    public void setFriendRequestsModels(ArrayList<FriendRequestsModel> friendRequestsModels) {
+        this.friendRequestsModels = friendRequestsModels;
+    }
 }
-
-

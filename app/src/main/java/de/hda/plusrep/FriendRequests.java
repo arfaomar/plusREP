@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import java.util.ArrayList;
 
 import de.hda.plusrep.modules.DataHandler;
+import de.hda.plusrep.modules.Navbar;
 
 public class FriendRequests extends AppCompatActivity {
 
+    Intent activeIntent;
     ArrayList<FriendRequestsModel> friendRequestsModels;
     DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
@@ -20,11 +23,15 @@ public class FriendRequests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_requests);
+        activeIntent = getIntent();
         RecyclerView recyclerView = findViewById(R.id.friendReqRecView);
         setup();
         FriendRequestsAdapter adapter = new FriendRequestsAdapter(this, friendRequestsModels);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Navbar navbar = new Navbar(this, activeIntent);
+        navbar.createNavbar();
     }
 
     private void setup() {
@@ -43,4 +50,7 @@ public class FriendRequests extends AppCompatActivity {
         this.friendRequestsModels = friendRequests;
     }
 
+    public Intent getActiveIntent() {
+        return activeIntent;
+    }
 }
