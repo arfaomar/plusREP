@@ -146,18 +146,6 @@
         app:layout_constraintTop_toBottomOf="@+id/username">
 
         <Button
-            android:id="@+id/youtubeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
-            android:padding="0dp"
-            android:text="@string/YOUTUBE"
-            android:textAlignment="center"
-            android:textColor="@color/plusRepBackground"
-            android:textSize="10sp" />
-
-        <Button
             android:id="@+id/steamButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,18 +153,6 @@
             android:scaleX=".9"
             android:padding="0dp"
             android:text="@string/STEAM"
-            android:textAlignment="center"
-            android:textColor="@color/plusRepBackground"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/twitchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/plusRepPurple"
-            android:scaleX=".9"
-            android:padding="0dp"
-            android:text="@string/TWITCH"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />

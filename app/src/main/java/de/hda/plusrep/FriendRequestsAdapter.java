@@ -1,6 +1,9 @@
 package de.hda.plusrep;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
+import de.hda.plusrep.modules.DataHandler;
+
 public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAdapter.FriendRequestsHolder> {
 
+    Intent activeIntent;
     Context context;
     ArrayList<FriendRequestsModel> friendRequestsModels;
+    DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
     public FriendRequestsAdapter(Context context, ArrayList<FriendRequestsModel> friendRequestsModels) {
         this.context = context;
@@ -36,6 +44,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
     public void onBindViewHolder(@NonNull FriendRequestsAdapter.FriendRequestsHolder holder, int position) {
 
         holder.personaName.setText(friendRequestsModels.get(position).getPersonaName());
+
         Glide.with(context).load(friendRequestsModels.get(position).getAvatarURL())
                 .placeholder(R.drawable.ic_fail_image)
                 .error(R.drawable.ic_fail_image)
@@ -46,14 +55,18 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Long steamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
+                Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
+                dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
+                dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));
+                dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
             }
         });
 
         holder.declineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Long steamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
+                Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
+                dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
             }
         });
 
@@ -80,6 +93,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
         }
     }
 
+    public void setFriendRequestsModels(ArrayList<FriendRequestsModel> friendRequestsModels) {
+        this.friendRequestsModels = friendRequestsModels;
+    }
 }
-
-

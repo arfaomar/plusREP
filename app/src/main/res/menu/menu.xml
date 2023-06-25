@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_contacts"
         android:title="@string/navbarContacts" />
     <item
-        android:id="@+id/settingsButton"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/navbarSettings" />
+        android:id="@+id/requestButton"
+        android:icon="@drawable/ic_nevbaradd"
+        android:title="@string/FriendRequest" />
 </menu>
