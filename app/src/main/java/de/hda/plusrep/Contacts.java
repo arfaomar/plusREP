@@ -59,7 +59,7 @@ public class Contacts extends AppCompatActivity implements ContactsRecViewInterf
     }
 
     private void setUpContacts() {
-        Long steamID = Profile.steamID; //TODO: MAKE PUBLIC STATIC steamID variable
+        Long steamID = Long.parseLong(Profile.steamID); //TODO: MAKE PUBLIC STATIC steamID variable
         DataHandler dataHandler = DataHandler.getDataHandlerInstance();
         UserData currentUser = dataHandler.getUserFromDB(steamID);
         ArrayList<ContactModel> contacts = new ArrayList<>();

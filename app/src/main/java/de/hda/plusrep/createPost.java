@@ -23,7 +23,7 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
             "GTA V", "Kindergarten 2",
             "Destiny 2", "Big Thinkers Kindergarten", "Children of Morta" };
     DataHandler dataHandler = DataHandler.getDataHandlerInstance();
-    UserData user = dataHandler.getUserFromDB(Profile.steamID);
+    UserData user = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
     Intent activeIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
                 editText.setText(user.getPersonaName());
                 Integer gameTagID = dataHandler.getGameTagIDbyNamefromDB(chosenGame);
 
-                dataHandler.addPostToDB(new ForumPostModel(Profile.steamID, title, userName, content, chosenGame, gameTagID));
+                dataHandler.addPostToDB(new ForumPostModel(Long.parseLong(Profile.steamID), title, userName, content, chosenGame, gameTagID));
 
                 activeIntent.setIdentifier("createPost");
                 activeIntent.setClass(createPostButton.getContext(), Forum.class);
