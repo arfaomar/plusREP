@@ -52,7 +52,7 @@ public class Contacts extends AppCompatActivity implements ContactsRecViewInterf
         //Change Activity Here
         //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
         Long steamID = contactModels.get(position).getSteamID();
-        activeIntent.putExtra("Profile.steamID", steamID);
+        activeIntent.putExtra("Profile.steamID", steamID.toString());
         activeIntent.putExtra("Profile." + steamID + ".loaded", "FALSE");
         activeIntent.setClass(getApplicationContext(), otherProfile.class);
         startActivity(activeIntent);

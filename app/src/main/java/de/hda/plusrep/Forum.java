@@ -103,6 +103,7 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         //Change Activity Here
         //Use intent.putExtra("name",contactModels.get(position).getSomething); to pass data to new Activity
         activeIntent.putExtra("postid", forumPostModels.get(position).getPostID().toString());
+        activeIntent.putExtra("steamid", forumPostModels.get(position).getSteamID().toString());
         activeIntent.setIdentifier("openPost");
         activeIntent.setClass(this, ForumPost.class);
         startActivity(activeIntent);
