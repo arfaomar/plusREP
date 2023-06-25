@@ -14,10 +14,13 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import de.hda.plusrep.modules.DataHandler;
+
 public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAdapter.FriendRequestsHolder> {
 
     Context context;
     ArrayList<FriendRequestsModel> friendRequestsModels;
+    DataHandler dataHandler = DataHandler.getDataHandlerInstance();
 
     public FriendRequestsAdapter(Context context, ArrayList<FriendRequestsModel> friendRequestsModels) {
         this.context = context;
@@ -46,14 +49,18 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
         holder.acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Long steamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
+                Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
+                dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
+                dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));
+                dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
             }
         });
 
         holder.declineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Long steamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
+                Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
+                dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
             }
         });
 
