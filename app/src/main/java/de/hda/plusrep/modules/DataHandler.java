@@ -219,6 +219,23 @@ public class DataHandler {
         return true;
     }
 
+    public UserData getFriendbyStringFromDB(Long SteamID, String partOfName) {
+        String sql = "SELECT * FROM users WHERE personaname LIKE '%" + partOfName + "%';";
+        UserData userData;
+        ResultSet result;
+
+        try {
+            result = statement.executeQuery(sql);
+
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            return null;
+        }
+
+        return null; //temp
+    }
+
     public Boolean deleteUserFromDB(@NonNull Long steamID) {
         String sql = "DELETE from users WHERE steamid = " + steamID + ";";
 
