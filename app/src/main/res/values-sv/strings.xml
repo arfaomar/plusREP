@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="myProfile_title">Min Profil</string>
+    <string name="newPost_title">Ny Post</string>
+    <string name="settings_screen_name">Inställningar</string>
+    <string name="dark_mode">Mörkt Läge</string>
+    <string name="notifications">Meddelanden</string>
+    <string name="hide_profile">Dölja Profil</string>
+    <string name="del_account">Radera Konto</string>
+    <string name="createPostTitleHint">Titel</string>
+    <string name="createPostTextHint">Skriva i ett meddelande</string>
+    <string name="cancelPostButton">Avbryta</string>
+    <string name="donePostButton">Posta</string>
+    <string name="editUserName">Användarnamn</string>
+    <string name="getDiscordID">Ditt Discord ID</string>
+    <string name="getUserBio">Din bio</string>
+    <string name="newPostGetTitle">Titel</string>
+    <string name="newPostGameButton">spel</string>
+    <string name="showPostOPUsername">Användarnamn</string>
+    <string name="yourProfileUsername">Användarnamn</string>
+    <string name="forumViewPostTitle">Titel</string>
+    <string name="readMoreButton">LÄS MER</string>
+    <string name="navbarProfile">Min Profil</string>
+    <string name="navbarForum">Forum</string>
+    <string name="navbarContacts">Kontakter</string>
+    <string name="navbarSettings">Inställningar</string>
+</resources>
