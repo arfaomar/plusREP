@@ -2,28 +2,24 @@ package de.hda.plusrep;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ClipboardManager;
+import android.content.ClipData;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -37,6 +33,7 @@ public class otherProfile extends AppCompatActivity {
     private UserData userData;
     private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
     ArrayList<Boolean> likeState = new ArrayList<>();
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +62,10 @@ public class otherProfile extends AppCompatActivity {
         ImageButton likeButton = findViewById(R.id.otherLikeButton);
         ImageButton dislikeButton = findViewById(R.id.otherDislikeButton);
         ImageButton addFriendButton = findViewById(R.id.addFriendButton);
+        Button steamButton = findViewById(R.id.otherSteamButton);
+        Button discordButton = findViewById(R.id.otherDiscordButton);
 
-        // on setup => rating buttons have opacity of 30%
+        // on setup => all switch buttons have opacity of 30%
         findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
         findViewById(R.id.otherDislikeButton).setAlpha((float)0.3);
         findViewById(R.id.addFriendButton).setAlpha((float)0.3);
@@ -169,8 +168,22 @@ public class otherProfile extends AppCompatActivity {
                         Log.e("OtherProfile", "An error occurred");
                     }
                 }
-
                 update();
+            }
+        });
+        steamButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                copyToClipboard(userData.getProfileURL());
+            }
+        });
+        steamButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                copyToClipboard("discordapp.com/users/" + userData.getDiscordID());
             }
         });
     }
@@ -217,5 +230,14 @@ public class otherProfile extends AppCompatActivity {
             update();
             Log.i("OtherProfile", "Successfully loaded user from database");
         }
+    }
+
+    private void copyToClipboard(String url) {
+
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Copy", url);
+        clipboard.setPrimaryClip(clip);
+
+        Toast.makeText(getApplicationContext(), "Copied URL to clip board", Toast.LENGTH_LONG).show();
     }
 }
