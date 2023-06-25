@@ -8,5 +8,6 @@
     <color name="plusRepContainer">#66000000</color>
 
     <color name="plusRepButtonBackground">#FF101216</color>
+    <color name="plusRepDecline">#FF803E3E</color>
 
 </resources>

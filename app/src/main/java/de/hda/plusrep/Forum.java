@@ -43,7 +43,7 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         navbar.createNavbar();
 
 
-        RecyclerView recyclerView = findViewById(R.id.forumRecView);
+        RecyclerView recyclerView = findViewById(R.id.friendReqRecView);
         //forumPostModels.add(new ForumPostModel("Looking for friends :(","UserX"));
         //call setUpForumPostModels here
         setUpForumPostModels();

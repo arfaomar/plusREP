@@ -19,6 +19,9 @@
         android:theme="@style/Theme.PlusRep"
         tools:targetApi="31">
         <activity
+            android:name=".FriendRequests"
+            android:exported="false" />
+        <activity
             android:name=".otherProfile"
             android:exported="false" />
         <activity
@@ -52,4 +55,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
