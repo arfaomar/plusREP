@@ -512,7 +512,21 @@ public class DataHandler {
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-            Log.e(dataHandlerOperationInsert + " POST", e.getMessage());
+            Log.e(dataHandlerOperationInsert + " friendrequest", e.getMessage());
+            return false;
+
+        }
+
+        return true;
+    }
+
+    public Boolean removeFriendRequest(Long userSteamID, Long pendingFriendSteamID) {
+        String sql = "DELETE FROM friendrequest WHERE steamID = " + userSteamID + " AND pendingfriendsteamid = " + pendingFriendSteamID + ";";
+
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationInsert + " friendrequest", e.getMessage());
             return false;
 
         }
