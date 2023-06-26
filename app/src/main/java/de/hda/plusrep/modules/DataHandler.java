@@ -571,6 +571,7 @@ public class DataHandler {
     public Boolean checkifFriendrequest(Long userSteamID, Long otherUser) {
         String sql = "SELECT * FROM friendrequest WHERE steamid = " + otherUser + " AND pendingfriendsteamid = " + userSteamID + ";";
 
+        Long test;
         ResultSet result;
 
         try {
@@ -579,7 +580,7 @@ public class DataHandler {
 
             while(result.next()) {
 
-                longs.add(result.getLong("steamid"));
+                test = result.getLong("steamid");
 
             }
 
