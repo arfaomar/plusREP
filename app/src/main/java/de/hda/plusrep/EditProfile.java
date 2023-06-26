@@ -23,6 +23,11 @@ public class EditProfile extends AppCompatActivity {
 
     DataHandler dataHandler = DataHandler.getDataHandlerInstance();
     Intent activeIntent;
+
+    EditText editText;
+    EditText editDiscordText;
+    Button editDiscordButton;
+    UserData currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,45 +38,57 @@ public class EditProfile extends AppCompatActivity {
         activeIntent = getIntent();
         ImageView avatar = findViewById(R.id.editUserAvatar);
         TextView username = findViewById(R.id.editUsername);
-        DataHandler dataHandler = DataHandler.getDataHandlerInstance();
-        UserData userData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
-        Glide.with(this).load(userData.getAvatarURL())
+
+        currentUser = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
+
+        Glide.with(this).load(currentUser.getAvatarURL())
                 .placeholder(R.drawable.ic_person)
                 .error(R.drawable.ic_launcher_foreground)
                 .override(240, 240)
                 .centerCrop()
                 .into(avatar);
-        username.setText(userData.getPersonaName());
+        username.setText(currentUser.getPersonaName());
+
+        editText = findViewById(R.id.editBiographyText);
+        editDiscordText = findViewById(R.id.editDiscordButtonText);
+        editDiscordButton = findViewById(R.id.editDiscordButton);
+        ImageButton exitBtn = findViewById(R.id.editProfileExitButton);
 
         readUserData();
         ImageButton saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editText = findViewById(R.id.editBiographyText);
+                editDiscordText = findViewById(R.id.editDiscordButtonText);
                 updateUserData();
                 activeIntent.setIdentifier("editProfile");
                 activeIntent.setClass(saveButton.getContext(), Profile.class);
                 startActivity(activeIntent);
             }
         });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeIntent.setIdentifier("editProfile");
+                activeIntent.setClass(exitBtn.getContext(), Profile.class);
+                startActivity(activeIntent);
+            }
+        });
+
     }
 
     private void readUserData(){
-        EditText editText = findViewById(R.id.editBiographyText);
-        String currentBio = activeIntent.getStringExtra("Current Bio");
-        editText.setText(currentBio, EDITABLE);
 
-        EditText editDiscordText = findViewById(R.id.editDiscordButtonText);
-        String currentDiscord = activeIntent.getStringExtra("Current Discord");
-        if(!"DISCORD".equals(currentDiscord)) {
-            editDiscordText.setText(currentDiscord, EDITABLE);
-        }
+       String currentBio = currentUser.getBiography();
+       editText.setText(currentBio, EDITABLE);
+       String currentDiscord = String.valueOf(currentUser.getDiscordID());
+       editDiscordText.setText(currentDiscord, EDITABLE);
+
     }
 
     private void updateUserData(){
-        EditText editText = findViewById(R.id.editBiographyText);
-        Button editDiscordButton = findViewById(R.id.editDiscordButton);
-        UserData userData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
-        dataHandler.updateUserInDB(new UserData(userData.getSteamID(), userData.getPersonaName(), userData.getProfileURL(), userData.getAvatarURL(), editText.getText().toString(), userData.getLikeCount(), userData.getDislikeCount(), Long.parseLong(editDiscordButton.getText().toString())));
+        dataHandler.updateUserInDB(new UserData(currentUser.getSteamID(), currentUser.getPersonaName(), currentUser.getProfileURL(), currentUser.getAvatarURL(), editText.getText().toString(), currentUser.getLikeCount(), currentUser.getDislikeCount(), Long.parseLong(editDiscordButton.getText().toString())));
     }
 }
