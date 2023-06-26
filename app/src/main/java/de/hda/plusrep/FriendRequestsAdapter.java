@@ -60,19 +60,19 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
 
                 if (!dataHandler.checkifFriendrequest(friendsteamID, Long.parseLong(Profile.steamID))) {
                     Log.i("friendrequest", "already declined");
-                    Toast.makeText(context, "Already Friend Accepted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Already Friend Declined", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(dataHandler.checkFriendshipofUser(Long.parseLong(Profile.steamID), friendsteamID)) {
                     Log.i("friendrequest", "already friends");
-                    Toast.makeText(context, "Already Friends", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Already Friends", Toast.LENGTH_SHORT).show();
                     return;
                 };
 
                 dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
                 dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));
-                dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
+                dataHandler.removeFriendRequest(friendsteamID, Long.parseLong(Profile.steamID));
                 Toast.makeText(context, "Friend Request Accepted", Toast.LENGTH_LONG).show();
 
             }
@@ -84,9 +84,14 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
                 Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
                 if(dataHandler.checkFriendshipofUser(Long.parseLong(Profile.steamID), friendsteamID)) {
                     Log.i("friendrequest", "cant decline already friends");
-                    Toast.makeText(context, "Already Friends", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Already Friends", Toast.LENGTH_SHORT).show();
                     return;
                 };
+                if (!dataHandler.checkifFriendrequest(friendsteamID, Long.parseLong(Profile.steamID))) {
+                    Log.i("friendrequest", "already declined");
+                    Toast.makeText(context, "Already Friend Declined", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 dataHandler.removeFriendRequest(friendsteamID, Long.parseLong(Profile.steamID));
                 Toast.makeText(context, "Friend Request Declined", Toast.LENGTH_LONG).show();
             }
