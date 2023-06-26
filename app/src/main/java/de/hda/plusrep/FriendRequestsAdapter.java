@@ -74,6 +74,10 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
             @Override
             public void onClick(View v) {
                 Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
+                if(dataHandler.checkFriendshipofUser(Long.parseLong(Profile.steamID), friendsteamID)) {
+                    Log.i("friendrequest", "cant decline already friends");
+                    return;
+                };
                 dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
                 Toast.makeText(context, "Friend Request Declined", Toast.LENGTH_LONG).show();
             }
