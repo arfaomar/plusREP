@@ -4,6 +4,7 @@ package de.hda.plusrep;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,14 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
             @Override
             public void onClick(View v) {
                 Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
+
+                UserData frienduserData = dataHandler.getUserFromDB(friendsteamID);
+                UserData userData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
+                if (frienduserData.getFriendsList().contains(Profile.steamID) && userData.getFriendsList().contains(friendsteamID)) {
+                    Log.i("friendrequest", "already friends");
+                    return;
+                }
+
                 dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
                 dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));
                 dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
