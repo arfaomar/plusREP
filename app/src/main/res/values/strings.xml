@@ -44,5 +44,6 @@
     <string name="navbarContacts">Contacts</string>
     <string name="navbarSettings">Settings</string>
     <string name="FriendRequest" translatable="false">Friend Requests</string>
+    <string name="dashSymbol" translatable="false">-</string>
 
 </resources>

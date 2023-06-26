@@ -77,7 +77,7 @@
                 android:id="@+id/repScore"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="-"
+                android:text="@string/dashSymbol"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"

@@ -80,7 +80,7 @@
                 android:id="@+id/repScore"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="-"
+                android:text="@string/dashSymbol"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
@@ -120,7 +120,7 @@
         android:id="@+id/otherUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="@string/yourProfileUsername"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:translationY="18sp"
@@ -174,7 +174,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:padding="0dp"
             android:scaleX=".9"
-            android:text="STEAM"
+            android:text="@string/STEAM"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -186,7 +186,7 @@
             android:backgroundTint="@color/plusRepPurple"
             android:padding="0dp"
             android:scaleX=".9"
-            android:text="DISCORD"
+            android:text="@string/DISCORD"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
             android:textSize="10sp" />
@@ -242,7 +242,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
-                    android:text="Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen. Hier könnte Ihre Werbung stehen.Hier könnte Ihre Werbung stehen."
+                    android:text="@string/placeholderText2"
                     android:textColor="@color/plusRepPurple" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
