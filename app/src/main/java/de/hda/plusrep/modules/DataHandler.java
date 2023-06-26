@@ -578,10 +578,14 @@ public class DataHandler {
 
             result = statement.executeQuery(sql);
 
-            while(result.next()) {
+            if (result.next()) {
 
+                return false;
+
+            }
+
+            while (result.next() ){
                 test = result.getLong("steamid");
-
             }
 
             result.close();
