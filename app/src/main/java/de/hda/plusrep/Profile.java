@@ -64,12 +64,20 @@ public class Profile extends AppCompatActivity {
         TextView biography = findViewById(R.id.biographyText);
         biography.setText(bio);
 
+
         getUserData();
         update();
 
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
+
+        updateRepScore();
+
     }
+
+
+
+
 
 
 
@@ -107,24 +115,24 @@ public class Profile extends AppCompatActivity {
                             userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), "", 0, 0, null);
                             dataHandler.addUserToDB(userData);
 
-                            Toast.makeText(getApplicationContext(), "User added to database", Toast.LENGTH_SHORT).show(); // DEBUG
+                            Toast.makeText(getApplicationContext(), "Welcome to +REP", Toast.LENGTH_SHORT).show(); // DEBUG
                             Log.i("MyProfile", "User added to database");
                         }
                         else {
-
-                            String userBiography = dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography();
-                            int likes =  dataHandler.getUserFromDB(Long.parseLong(steamID)).getLikeCount();
-                            int dislikes = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDislikeCount();
-                            Long discordID = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDiscordID();
+                            UserData savedData = dataHandler.getUserFromDB(Long.parseLong(steamID));
+                            String userBiography = savedData.getBiography();
+                            Integer likes =  savedData.getLikeCount();
+                            Integer dislikes = savedData.getDislikeCount();
+                            Long discordID = savedData.getDiscordID();
                             userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), userBiography, likes, dislikes, discordID);
                             dataHandler.updateUserInDB(userData);
 
-                            Toast.makeText(getApplicationContext(), "User updated to database", Toast.LENGTH_SHORT).show(); // DEBUG
+                            Toast.makeText(getApplicationContext(), "Welcome Back!", Toast.LENGTH_SHORT).show(); // DEBUG
                             Log.i("MyProfile", "User updated to database");
                         }
 
                         activeIntent.putExtra("Profile." + steamID + ".loaded", "TRUE");
-                        updateRepScore();
+                        //updateRepScore(); DO NOT PUT IT BACK OR APP CRASHES
                         update();
                     }
 
@@ -139,7 +147,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
 
-                Toast.makeText(getApplicationContext(), "User konnte nicht geladen werden", Toast.LENGTH_SHORT).show();
+                Log.e("MyProfile", "User konnte nicht geladen werden");
 
                 Log.e("SteamAPI", "Error: " + volleyError.toString());
                 dialog.dismiss();
@@ -189,6 +197,7 @@ public class Profile extends AppCompatActivity {
     public void updateRepScore() {
 
         TextView repScore = findViewById(R.id.repScore);
+        userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
         repScore.setText(""+Math.round(userData.calculateRepScore()));
     }
 

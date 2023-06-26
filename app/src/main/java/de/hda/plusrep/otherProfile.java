@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -151,7 +151,9 @@ public class otherProfile extends AppCompatActivity {
                     v.setAlpha((float) 1);
                     findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
 
-                    if (dataHandler.sendFriendRequest(Long.parseLong(steamID), Long.parseLong(Profile.steamID)));
+                    if (dataHandler.sendFriendRequest(Long.parseLong(steamID), Long.parseLong(Profile.steamID))) {
+                        Toast.makeText(getApplicationContext(), "Friend Request Sent", Toast.LENGTH_SHORT).show();
+                    }
                     else {
 
                         Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
@@ -161,7 +163,9 @@ public class otherProfile extends AppCompatActivity {
                 else {
                     v.setAlpha((float) 0.3);
 
-                    if (dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), Long.parseLong(steamID)));
+                    if (dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), Long.parseLong(steamID))) {
+                        Toast.makeText(getApplicationContext(), "Friend Request Cancelled", Toast.LENGTH_SHORT).show();
+                    }
                     else {
 
                         Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();

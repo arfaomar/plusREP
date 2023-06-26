@@ -1,6 +1,6 @@
 package de.hda.plusrep;
 
-import static androidx.core.content.ContextCompat.startActivity;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -59,6 +59,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
                 dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
                 dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));
                 dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
+                Toast.makeText(context, "Friend Request Accepted", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -67,6 +68,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
             public void onClick(View v) {
                 Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID();
                 dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), friendsteamID);
+                Toast.makeText(context, "Friend Request Declined", Toast.LENGTH_LONG).show();
             }
         });
 
