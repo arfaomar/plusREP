@@ -67,7 +67,6 @@ public class Profile extends AppCompatActivity {
         getUserData();
         update();
 
-
         Navbar navbar = new Navbar(this, activeIntent);
         navbar.createNavbar();
     }
@@ -116,7 +115,8 @@ public class Profile extends AppCompatActivity {
                             String userBiography = dataHandler.getUserFromDB(Long.parseLong(steamID)).getBiography();
                             int likes =  dataHandler.getUserFromDB(Long.parseLong(steamID)).getLikeCount();
                             int dislikes = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDislikeCount();
-                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), userBiography, likes, dislikes, null);
+                            Long discordID = dataHandler.getUserFromDB(Long.parseLong(steamID)).getDiscordID();
+                            userData = new UserData(Long.parseLong(steamID), user.get("personaname").toString(), user.get("profileurl").toString(), user.get("avatarfull").toString(), userBiography, likes, dislikes, discordID);
                             dataHandler.updateUserInDB(userData);
 
                             Toast.makeText(getApplicationContext(), "User updated to database", Toast.LENGTH_SHORT).show(); // DEBUG
