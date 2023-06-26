@@ -527,7 +527,7 @@ public class DataHandler {
     }
 
     public Boolean removeFriendRequest(Long userSteamID, Long pendingFriendSteamID) {
-        String sql = "DELETE FROM friendrequest WHERE steamID = " + userSteamID + " AND pendingfriendsteamid = " + pendingFriendSteamID + ";";
+        String sql = "DELETE FROM friendrequest WHERE steamID = " + pendingFriendSteamID + " AND pendingfriendsteamid = " + userSteamID + ";";
 
         try {
             statement.executeUpdate(sql);
@@ -578,7 +578,7 @@ public class DataHandler {
 
             result = statement.executeQuery(sql);
 
-            if (result.next()) {
+            if (!result.next()) {
 
                 return false;
 
