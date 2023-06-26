@@ -59,8 +59,7 @@ public class EditProfile extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editText = findViewById(R.id.editBiographyText);
-                editDiscordText = findViewById(R.id.editDiscordButtonText);
+
                 updateUserData();
                 activeIntent.setIdentifier("editProfile");
                 activeIntent.setClass(saveButton.getContext(), Profile.class);
@@ -89,6 +88,8 @@ public class EditProfile extends AppCompatActivity {
     }
 
     private void updateUserData(){
-        dataHandler.updateUserInDB(new UserData(currentUser.getSteamID(), currentUser.getPersonaName(), currentUser.getProfileURL(), currentUser.getAvatarURL(), editText.getText().toString(), currentUser.getLikeCount(), currentUser.getDislikeCount(), Long.parseLong(editDiscordButton.getText().toString())));
+        editText = findViewById(R.id.editBiographyText);
+        editDiscordText = findViewById(R.id.editDiscordButtonText);
+        dataHandler.updateUserInDB(new UserData(currentUser.getSteamID(), currentUser.getPersonaName(), currentUser.getProfileURL(), currentUser.getAvatarURL(), editText.getText().toString(), currentUser.getLikeCount(), currentUser.getDislikeCount(), Long.parseLong(editDiscordText.getText().toString())));
     }
 }
