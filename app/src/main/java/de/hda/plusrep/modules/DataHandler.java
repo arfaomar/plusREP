@@ -568,6 +568,31 @@ public class DataHandler {
         return longs;
     }
 
+    public Boolean checkifFriendrequest(Long userSteamID, Long otherUser) {
+        String sql = "SELECT * FROM friendrequest WHERE steamid = " + otherUser + " AND pendingfriendsteamid = " + userSteamID + ";";
+
+        ResultSet result;
+
+        try {
+
+            result = statement.executeQuery(sql);
+
+            while(result.next()) {
+
+                longs.add(result.getLong("steamid"));
+
+            }
+
+            result.close();
+
+        } catch (SQLException e) {
+            Log.e(dataHandlerOperationSelect + " FORUM POSTS", e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     protected void finalize() {
         try {
