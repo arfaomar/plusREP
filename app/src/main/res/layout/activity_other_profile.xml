@@ -156,57 +156,73 @@
 
     <LinearLayout
         android:id="@+id/otherSocial_area"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginRight="24dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/addFriendButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otherUsername">
 
         <Button
             android:id="@+id/otherSteamButton"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/plusRepPurple"
-            android:minHeight="36dip"
             android:padding="0dp"
             android:scaleX=".9"
             android:text="@string/STEAM"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
-            android:textSize="10sp"
-            android:textStyle="bold" />
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/otherDiscordButton"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:height="36dp"
             android:backgroundTint="@color/plusRepPurple"
-            android:minHeight="36dip"
             android:padding="0dp"
             android:scaleX=".9"
             android:text="@string/DISCORD"
             android:textAlignment="center"
             android:textColor="@color/plusRepBackground"
-            android:textSize="10sp"
-            android:textStyle="bold" />
+            android:textSize="10sp" />
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/addFriendButton"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/otherBiographyCardView"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toBottomOf="@+id/otherSocial_area"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_add_friend" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/otherSocial_area"
+        app:layout_constraintTop_toTopOf="@+id/otherSocial_area"
+        app:srcCompat="@drawable/ic_add_friend"
+        tools:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/removeFriendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="#00FFFFFF"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toBottomOf="@+id/otherSocial_area"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/otherSocial_area"
+        app:layout_constraintTop_toTopOf="@+id/otherSocial_area"
+        app:srcCompat="@drawable/ic_add_contacts"
+        tools:visibility="gone" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/otherBiographyCardView"

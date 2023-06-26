@@ -33,7 +33,8 @@ public class otherProfile extends AppCompatActivity {
     private UserData userData;
     private DataHandler dataHandler = DataHandler.getDataHandlerInstance();
     ArrayList<Boolean> likeState = new ArrayList<>();
-    WebView webView;
+
+    private UserData myUserData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +47,18 @@ public class otherProfile extends AppCompatActivity {
 
         activeIntent = getIntent();
         steamID = activeIntent.getStringExtra("Profile.steamID");
-        likeState = dataHandler.getRatedFromDBforUser(Long.parseLong(Profile.steamID), Long.parseLong(steamID));
-        this.setupButtons();
+
+        userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
+        myUserData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
+
+
+        if (myUserData.checkFriendship(userData)) likeState = dataHandler.getRatedFromDBforUser(Long.parseLong(Profile.steamID), Long.parseLong(steamID));
+        else likeState = null;
 
         getUserData();
+        this.setupButtons();
+
+
 
 
         Navbar navbar = new Navbar(this, activeIntent);
@@ -59,36 +68,55 @@ public class otherProfile extends AppCompatActivity {
     private void setupButtons() {
 
         // Get buttons
-        ImageButton likeButton = findViewById(R.id.otherLikeButton);
-        ImageButton dislikeButton = findViewById(R.id.otherDislikeButton);
-        ImageButton addFriendButton = findViewById(R.id.addFriendButton);
-        Button steamButton = findViewById(R.id.otherSteamButton);
-        Button discordButton = findViewById(R.id.otherDiscordButton);
+        ImageButton likeButton = findViewById(R.id.otherLikeButton);            // Rating
+        ImageButton dislikeButton = findViewById(R.id.otherDislikeButton);      //
+        ImageButton addFriendButton = findViewById(R.id.addFriendButton);       // Friend
+        ImageButton removeFriendButton = findViewById(R.id.removeFriendButton);    //
+        Button steamButton = findViewById(R.id.otherSteamButton);               // Social
+        Button discordButton = findViewById(R.id.otherDiscordButton);           //
 
         // on setup => all switch buttons have opacity of 30%
-        findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
-        findViewById(R.id.otherDislikeButton).setAlpha((float)0.3);
-        findViewById(R.id.addFriendButton).setAlpha((float)0.3);
+        likeButton.setAlpha((float)0.3);
+        dislikeButton.setAlpha((float)0.3);
+        addFriendButton.setAlpha((float)0.3);
+        removeFriendButton.setAlpha((float)0.3);
 
         final boolean[] disliked = {false};
         final boolean[] liked = {false};
         final boolean[] added = {false};
 
-        // If friend...
-        // [...]
 
         // Get like state from database
-        if (likeState.get(0)) {
+        if (likeState != null) {
 
-            liked[0] = true;
-            findViewById(R.id.otherLikeButton).setAlpha((float)1);
+            if (likeState.get(0)) {
+
+                liked[0] = true;
+                likeButton.setAlpha((float)1);
+            }
+
+            if (likeState.get(1)) {
+
+                disliked[0] = true;
+                dislikeButton.setAlpha((float)1);
+            }
+
+            addFriendButton.setVisibility(View.GONE);
+        }
+        else {
+
+            likeButton.setVisibility(View.GONE);
+            dislikeButton.setVisibility(View.GONE);
+
+            removeFriendButton.setVisibility(View.GONE);
+
+            if(dataHandler.checkifFriendrequest(Long.parseLong(Profile.steamID), Long.parseLong(steamID))) {
+
+                added[0] = true;
+                addFriendButton.setAlpha((float)1);
+            }
         }
 
-        if (likeState.get(1)) {
-
-            disliked[0] = true;
-            findViewById(R.id.otherDislikeButton).setAlpha((float)1);
-        }
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,39 +170,7 @@ public class otherProfile extends AppCompatActivity {
                 dataHandler.updateUserInDB(userData);
             }
         });
-        addFriendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                added[0] = !added[0];
-                if (added[0]) {
-                    v.setAlpha((float) 1);
-                    findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
-
-                    if (dataHandler.sendFriendRequest(Long.parseLong(steamID), Long.parseLong(Profile.steamID))) {
-                        Toast.makeText(getApplicationContext(), "Friend Request Sent", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-
-                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
-                        Log.e("OtherProfile", "An error occurred");
-                    }
-                }
-                else {
-                    v.setAlpha((float) 0.3);
-
-                    if (dataHandler.removeFriendRequest(Long.parseLong(Profile.steamID), Long.parseLong(steamID))) {
-                        Toast.makeText(getApplicationContext(), "Friend Request Cancelled", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-
-                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
-                        Log.e("OtherProfile", "An error occurred");
-                    }
-                }
-                update();
-            }
-        });
         steamButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,6 +184,53 @@ public class otherProfile extends AppCompatActivity {
 
 
                 copyToClipboard("discordapp.com/users/" + userData.getDiscordID());
+            }
+        });
+
+        addFriendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                added[0] = !added[0];
+                if (added[0]) {
+                    v.setAlpha((float) 1);
+                    findViewById(R.id.otherLikeButton).setAlpha((float)0.3);
+
+                    if (dataHandler.sendFriendRequest( Long.parseLong(Profile.steamID), Long.parseLong(steamID) )) {
+
+                        Toast.makeText(getApplicationContext(), "Friend Request Sent", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+
+                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                        Log.e("OtherProfile", "An error occurred");
+                    }
+                }
+                else {
+                    v.setAlpha((float) 0.3);
+
+                    if (dataHandler.removeFriendRequest( Long.parseLong(Profile.steamID), Long.parseLong(steamID) )) {
+
+                        Toast.makeText(getApplicationContext(), "Friend Request Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+
+                        Toast.makeText(getApplicationContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+                        Log.e("OtherProfile", "An error occurred");
+                    }
+                }
+                update();
+            }
+        });
+        removeFriendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "User has been unfriended", Toast.LENGTH_SHORT).show();
+                dataHandler.removeFriendFromDB( Long.parseLong(Profile.steamID), Long.parseLong(steamID) );
+
+                getUserData();
+                setupButtons();
             }
         });
     }
@@ -222,14 +265,14 @@ public class otherProfile extends AppCompatActivity {
     protected void getUserData() { // Get data from database
 
         userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
-        if (userData == null) {
+        myUserData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
+        if (userData == null || myUserData == null) {
 
             // Not found
             Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
             Log.e("OtherProfile", "User does not exist");
         }
         else {
-
             // Found
             update();
             Log.i("OtherProfile", "Successfully loaded user from database");
