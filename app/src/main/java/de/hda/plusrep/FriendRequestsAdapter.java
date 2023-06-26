@@ -58,12 +58,10 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
             public void onClick(View v) {
                 Long friendsteamID = friendRequestsModels.get(holder.getAdapterPosition()).getSteamID(); //steamID of person who requested friendship
 
-                UserData frienduserData = dataHandler.getUserFromDB(friendsteamID);
-                UserData userData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));
-                if (frienduserData.getFriendsList().contains(Profile.steamID) && userData.getFriendsList().contains(friendsteamID)) {
+                if(dataHandler.checkFriendshipofUser(Long.parseLong(Profile.steamID), friendsteamID)) {
                     Log.i("friendrequest", "already friends");
                     return;
-                }
+                };
 
                 dataHandler.addFriendToDB(Long.parseLong(Profile.steamID), friendsteamID);
                 dataHandler.addFriendToDB(friendsteamID, Long.parseLong(Profile.steamID));

@@ -167,6 +167,12 @@ public class DataHandler {
         return user;
     }
 
+    public Boolean checkFriendshipofUser(Long userSteamID, Long otherSteamID) {
+        UserData user = getUserFromDB(userSteamID);
+        UserData otheruser = getUserFromDB(otherSteamID);
+        return user.getFriendsList().contains(otherSteamID) && otheruser.getFriendsList().contains(userSteamID);
+    }
+
     public Integer getGameTagIDbyNamefromDB(String gameTagName) {
 
         String sql = "SELECT gameid FROM gametags WHERE gamename = '" + gameTagName + "';";
