@@ -14,6 +14,7 @@ Zuletzt wird dann das eigentliche Profil aufgerufen, dabei werden alle Steam bez
 
 <img src=".docs/m5/loginScreen.jpg" alt= “” width="" height="320">
 
+
 <br>
 
 #### 2 - My Profile
@@ -30,6 +31,7 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 
 <img src=".docs/m5/myProfile.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/editProfile.jpg" alt= “” width="" height="320">
+
 
 <br>
 
@@ -53,29 +55,31 @@ Daraufklickend gelangen wir auf das jeweilige Profil.<br>
 
 <img src="./m5/contacts.jpg" alt= “” width="" height="320">
 
+
 <br>
 
 #### 4 - Fremdes Profil
 Nun sehen wir ein schönes Benutzerprofil mit einem Profilbild, Benutzernamen und Score (ähnlich wie "My Profile"). Zusätzlich haben wir links und rechts vom Profilbild jeweils einen Button zum Liken oder Disliken.<br>
 
-Durch das drücken dieser wird automatisch der Score berechnet und in die Datenbank eingetragen. Da die Buttons beim inaktiven Zustand ausgegraut werden, ist es gut kenntlich, wie wir den User bewertet haben.<br>
+Durch das Drücken dieser wird automatisch der Score berechnet und in die Datenbank eingetragen. Da die Buttons beim inaktiven Zustand ausgegraut werden, ist es gut kenntlich, wie wir den User bewertet haben.<br>
 
-Auf der linken seite, unter dem Bild finden wir die Social-Media-Buttons, die uns die Links der entsprechenden Seiten geben. Rechts davon ist ein Knopf, womit wir dem User eine Freundschaftsanfrage senden können, bei Annahme wird er in der Kontaktliste eingefügt. Falls der User bereits ein Freund ist, ist an dieser Stelle ein Knopf welcher die Freundschaft beendet. <br>
+Auf der linken Seite, unter dem Bild finden wir die Social-Media-Buttons, die uns die Links der entsprechenden Seiten geben. Rechts davon ist ein Knopf, womit wir dem User eine Freundschaftsanfrage senden können, bei Annahme wird er in der Kontaktliste eingefügt. Falls der User bereits ein Freund ist, ist an dieser Stelle ein Knopf welcher die Freundschaft beendet. <br>
 
 <img src=".docs/m5/otherProfile.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/otherProfileClipBoard.jpg" alt= “” width="" height="320">
 
+
 <br>
 
 #### 5 - Friend requests
-Wir entschieden uns in der BottomNavigation Bar den Settings-Screen, in die Gerät-Einstellungen auszulagern. Es ist uns nämlich im späteren Verlauf aufgefallen, dass man öfter auf den Freundschaftsanfragen-Screen gehen muss, um diese zu verwalten, als auf Einstellungen<br>
+Wir entschieden uns in der BottomNavigationBar den Settings-Screen, in die Gerät-Einstellungen auszulagern. Es ist uns nämlich im späteren Verlauf aufgefallen, dass man öfter auf den Freundschaftsanfragen-Screen gehen muss, um diese zu verwalten, als auf Einstellungen<br>
 
 Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passende Auswahl von Farben und Symbolen, kenntlich gemacht.<br>
 
 <img src=".docs/m5/FriendRequest.jpg" alt= “” width="" height="320">
 
 
-
+<br>
 
 #### 6 - Sprachen!
 Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Übersetzung ins Deutsche, Französische, Lateinische, Kroatische & Schwedische anzubieten. Die jeweilige Sprache wird automatisch anhand der Smartphone-Einstellung für die App ausgewählt. 
@@ -85,25 +89,26 @@ Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Überse
 ![](./m5/translation.png)
 
 
-
-#### Beispiel Video
-Im Folgenden sehen sie eine Beispielhafte Benutzung der App <br>
-![](.docs/m5/video.mp4)
-
-
-<br>
-<br>
 <br>
 
-#### Datenbankanbindung
+####  7 - Datenbankanbindung
 Unsere App interargiert bei jedem Screenaufruf sowohl als auch beim Starten mit der Datenbank um die neusten Daten zu haben. <br>
 Bei jeder Creaton / Bearbeitung oder beim Löschen wird immer die Datenbank geupdaten so das alle immer auf dem neusten Stand sein können. <br>
 Als Datenbank haben wir uns für die AWS-Datenbank welche über den HDA-Login auf Rosettahub zugreifbar ist, entschieden. <br>
 Ursprünglich hatten wir unsere Datenbank auf dem HDA eigenen Server. Da dieser aber zwischen dem 24.06 und 25.06 nicht mehr erreichbar war, waren wir leider dazu gezwungen auf eine kostenpflichtige Datenbank zu wechseln um die persistenz userer Daten zu gewähren. <br>
 
 ![](./m5/pdm.png)
+
+
+<br>
+<br>
 <br>
 
+#### Beispiel Video
+Im Folgenden sehen sie eine Beispielhafte Benutzung der App <br>
+
+![](.docs/m5/video.mp4)
 
 
+<br>
 
