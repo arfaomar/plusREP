@@ -38,7 +38,7 @@ public class createPost extends AppCompatActivity implements AdapterView.OnItemS
         ArrayAdapter ad
                 = new ArrayAdapter(
                 this,
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_text,
                 courses);
         // Specify the layout to use when the list of choices appears
         ad.setDropDownViewResource(
