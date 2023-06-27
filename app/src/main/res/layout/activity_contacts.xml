@@ -32,5 +32,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/nothingContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nothing to see here\n         (ಥ﹏ಥ)"
+        android:textColor="@color/plusRepBackgroundbrigther"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
+        app:layout_constraintEnd_toEndOf="@+id/contactRecView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

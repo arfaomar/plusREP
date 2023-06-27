@@ -156,4 +156,16 @@
         android:backgroundTint="@color/plusRepPurple"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/nothingForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nothing to see here\n         (ಥ﹏ಥ)"
+        android:textColor="@color/plusRepBackgroundbrigther"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/friendReqRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/friendReqRecView"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
