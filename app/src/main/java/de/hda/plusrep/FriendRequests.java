@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -24,6 +25,8 @@ public class FriendRequests extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_requests);
         activeIntent = getIntent();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().setStatusBarColor(getColor(R.color.black));
         RecyclerView recyclerView = findViewById(R.id.friendReqRecView);
         setup();
         FriendRequestsAdapter adapter = new FriendRequestsAdapter(this, friendRequestsModels);

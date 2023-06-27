@@ -230,8 +230,11 @@ public class otherProfile extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User has been unfriended", Toast.LENGTH_SHORT).show();
                 dataHandler.removeFriendFromDB( Long.parseLong(Profile.steamID), Long.parseLong(steamID) );
 
-                getUserData();
-                setupButtons();
+
+                likeButton.setVisibility(View.GONE);
+                dislikeButton.setVisibility(View.GONE);
+                addFriendButton.setVisibility(View.VISIBLE);
+                removeFriendButton.setVisibility(View.GONE);
             }
         });
     }

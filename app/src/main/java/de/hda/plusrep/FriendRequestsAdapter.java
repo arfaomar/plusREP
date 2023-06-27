@@ -75,6 +75,7 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
                 dataHandler.removeFriendRequest(friendsteamID, Long.parseLong(Profile.steamID));
                 Toast.makeText(context, "Friend Request Accepted", Toast.LENGTH_LONG).show();
 
+                holder.itemView.setVisibility(View.GONE);
             }
         });
 
@@ -94,6 +95,8 @@ public class FriendRequestsAdapter extends RecyclerView.Adapter<FriendRequestsAd
                 }
                 dataHandler.removeFriendRequest(friendsteamID, Long.parseLong(Profile.steamID));
                 Toast.makeText(context, "Friend Request Declined", Toast.LENGTH_LONG).show();
+
+                holder.itemView.setVisibility(View.GONE);
             }
         });
 
