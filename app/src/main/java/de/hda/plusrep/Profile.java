@@ -198,7 +198,8 @@ public class Profile extends AppCompatActivity {
 
         TextView repScore = findViewById(R.id.repScore);
         userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
-        repScore.setText(""+Math.round(userData.calculateRepScore()));
+        if (userData == null || userData.getLikeCount() == 0 && userData.getDislikeCount() == 0) repScore.setText("-");
+        else repScore.setText(""+Math.round(userData.calculateRepScore()));
     }
 
 }
