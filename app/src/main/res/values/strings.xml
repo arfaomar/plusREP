@@ -43,7 +43,7 @@
     <string name="navbarForum">Forum</string>
     <string name="navbarContacts">Contacts</string>
     <string name="navbarSettings">Settings</string>
-    <string name="NothingToSeeHere" translatable="false">nothing to see here\n\t\t\t\t\t\t\t(ಥ﹏ಥ)</string>
+    <string name="NothingToSeeHere" translatable="false">nothing to see here\n(ಥ﹏ಥ)</string>
     <string name="FriendRequest" translatable="false">Friend Requests</string>
     <string name="dashSymbol" translatable="false">-</string>
 
