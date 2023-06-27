@@ -12,7 +12,7 @@ Durch die SteamID können wir eine andere Schnittstelle von Steam ansprechen, wo
 
 Zuletzt wird dann das eigentliche Profil aufgerufen, dabei werden alle Steam bezogene Daten in die Datenbank eingetragen.<br>
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235519_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/loginScreen.jpg" alt= “” width="" height="320">
 
 <br>
 
@@ -28,7 +28,7 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 **Tl;dr: [10 Likes : 1 Dislike] > [1 Like : 0 Dislike]**
 
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235524_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/myProfile.jpg" alt= “” width="" height="320">
 TODO: Bild von EDIT + Profile von video nehmen
 
 <br>
@@ -38,10 +38,10 @@ Falls wir nun jetzt neue Bekanntschaften schließen möchten, können wir eine d
 
 Wenn wir für ein bestimmtes Spiel Beiträge suchen können wir diese über die Tags gefiltert anzeigen lassen. <br>
 Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-Button selbst einen Forumsbeitrag verfassen. <br> <br>
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235544_de.hda.plusrep.jpg" alt= “” width="" height="320">
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235558_de.hda.plusrep.jpg" alt= “” width="" height="320">
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230626_003932_de.hda.plusrep.jpg" alt= “” width="" height="320">
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235549_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/forum.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/forumFiltered.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/post.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/createForumPost.jpg" alt= “” width="" height="320">
 TODO: Bild von CREATE NEW POST
 
 <br>
@@ -51,7 +51,7 @@ In der Kontaktliste werden alle befreundeten User in einer RecyclerView aufgelis
 Die Profilbilder, Benutzernamen und die Scores werden mit jedem Zugriff frisch von der Datenbank gezogen.<br>
 Daraufklickend gelangen wir auf das jeweilige Profil.<br>
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230626_010340_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src="./m5/contacts.jpg" alt= “” width="" height="320">
 
 <br>
 
@@ -62,7 +62,8 @@ Durch das drücken dieser wird automatisch der Score berechnet und in die Datenb
 
 Auf der linken seite, unter dem Bild finden wir die Social-Media-Buttons, die uns die Links der entsprechenden Seiten geben. Rechts davon ist ein Knopf, womit wir dem User eine Freundschaftsanfrage senden können, bei Annahme wird er in der Kontaktliste eingefügt. Falls der User bereits ein Freund ist, ist an dieser Stelle ein Knopf welcher die Freundschaft beendet. <br>
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230625_235615_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/otherProfile.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/otherProfileClipBoard.jpg" alt= “” width="" height="320">
 
 <br>
 
@@ -71,7 +72,7 @@ Wir entschieden uns in der BottomNavigation Bar den Settings-Screen, in die Ger�
 
 Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passende Auswahl von Farben und Symbolen, kenntlich gemacht.<br>
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Screenshot_20230626_010447_de.hda.plusrep.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/xx.jpg" alt= “” width="" height="320">
 TODO: Bild von friend requests von video nehmen
 
 
@@ -81,7 +82,7 @@ Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Überse
 <br>
 **Disclaimer:** Sprachen können teilweise falsch oder in einem anderem Sinne übersetzt worden sein. Außerdem könnten übersetzungen unvollständing sein <br>
 
-<img src="https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe5-Arfa_Knupfer_Pototzki_Uhrig/-/raw/main/.docs/m5/Untitled.png" alt= “” width="" height="320">
+![](./m5/translation.png)
 
 
 
