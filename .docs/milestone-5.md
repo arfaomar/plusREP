@@ -42,7 +42,7 @@ Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-B
 <img src=".docs/m5/forumFiltered.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/post.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/createForumPost.jpg" alt= “” width="" height="320">
-TODO: Bild von CREATE NEW POST
+
 
 <br>
 
