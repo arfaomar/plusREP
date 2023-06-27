@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">plusRep</string>
+    <string name="app_name" translatable="false">+REP</string>
     <string name="myProfile_title">My Profile</string>
     <string name="newPost_title">New Post</string>
     <string name="Profile_title">Profile</string>
@@ -43,6 +43,7 @@
     <string name="navbarForum">Forum</string>
     <string name="navbarContacts">Contacts</string>
     <string name="navbarSettings">Settings</string>
+    <string name="NothingToSeeHere" translatable="false">nothing to see here\n         (ಥ﹏ಥ)</string>
     <string name="FriendRequest" translatable="false">Friend Requests</string>
     <string name="dashSymbol" translatable="false">-</string>
 
