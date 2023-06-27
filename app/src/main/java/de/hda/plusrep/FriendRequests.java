@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,8 @@ public class FriendRequests extends AppCompatActivity {
             friendRequests.add(new FriendRequestsModel(userData.getSteamID(), userData.getPersonaName(), userData.getAvatarURL()));
         }
         this.friendRequestsModels = friendRequests;
+        if (friends.isEmpty()) findViewById(R.id.nothingRequests).setVisibility(View.VISIBLE);
+        else findViewById(R.id.nothingRequests).setVisibility(View.GONE);
     }
 
     public Intent getActiveIntent() {

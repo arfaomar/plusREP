@@ -111,6 +111,8 @@ public class Forum extends AppCompatActivity implements ForumRecViewInterface{
         DataHandler dataHandler = DataHandler.getDataHandlerInstance();
         forumPostModels = dataHandler.getPostsFromDB();
 
+        if (forumPostModels.isEmpty()) findViewById(R.id.nothingForum).setVisibility(View.VISIBLE);
+        else findViewById(R.id.nothingForum).setVisibility(View.GONE);
     }
 
 }

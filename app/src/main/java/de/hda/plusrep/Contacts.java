@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -82,6 +83,9 @@ public class Contacts extends AppCompatActivity implements ContactsRecViewInterf
 
         }
         contactModels = contacts;
+
+        if (currentUser.getFriendsList().isEmpty()) findViewById(R.id.nothingContacts).setVisibility(View.VISIBLE);
+        else findViewById(R.id.nothingContacts).setVisibility(View.GONE);
 
     }
 

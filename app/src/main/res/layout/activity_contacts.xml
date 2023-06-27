@@ -41,7 +41,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
         app:layout_constraintEnd_toEndOf="@+id/contactRecView"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/contactRecView"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
