@@ -38,7 +38,7 @@
         android:id="@+id/nothingRequests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nothing to see here\n         (ಥ﹏ಥ)"
+        android:text="@string/NothingToSeeHere"
         android:textColor="@color/plusRepBackgroundbrigther"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
