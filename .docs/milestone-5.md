@@ -1,7 +1,4 @@
 # 5. Meilenstein
-
-Um unsere App zu testen, muss sie von der Beta Branch gepullt werden.
-
 Falls Sie sich nicht mit Ihrem (falls vorhanden) eigenen Steam-Account einlogen wollen, können wir auf Anfrage einen solchen zur Verfügung stellen.
 
 <br>
