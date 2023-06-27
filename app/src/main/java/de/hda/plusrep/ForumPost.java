@@ -63,11 +63,22 @@ public class ForumPost extends AppCompatActivity {
         userNameTextHolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //TODO
-                activeIntent.setIdentifier("otherProfile");
-                activeIntent.putExtra("Profile.steamID", steamid);
-                activeIntent.putExtra("Profile." + steamid + ".loaded", "FALSE");
-                activeIntent.setClass(getApplicationContext(), otherProfile.class);
-                startActivity(activeIntent);
+
+                if (steamid.equals(Profile.steamID)) {
+
+                    activeIntent.setIdentifier("Profile");
+                    activeIntent.putExtra("Profile." + Profile.steamID + ".loaded", "FALSE");
+                    activeIntent.setClass(getApplicationContext(), Profile.class);
+                    startActivity(activeIntent);
+                }
+                else {
+
+                    activeIntent.setIdentifier("otherProfile");
+                    activeIntent.putExtra("Profile.steamID", steamid);
+                    activeIntent.putExtra("Profile." + steamid + ".loaded", "FALSE");
+                    activeIntent.setClass(getApplicationContext(), otherProfile.class);
+                    startActivity(activeIntent);
+                }
             }
         });
 

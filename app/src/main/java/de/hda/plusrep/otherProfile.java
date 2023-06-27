@@ -46,7 +46,6 @@ public class otherProfile extends AppCompatActivity {
 
 
         activeIntent = getIntent();
-        activeIntent.setIdentifier("otherProfile");
         steamID = activeIntent.getStringExtra("Profile.steamID");
 
 
