@@ -29,6 +29,7 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 
 
 <img src=".docs/m5/myProfile.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/editProfile.jpg" alt= “” width="" height="320">
 
 <br>
 
