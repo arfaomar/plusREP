@@ -46,7 +46,9 @@ public class otherProfile extends AppCompatActivity {
 
 
         activeIntent = getIntent();
+        activeIntent.setIdentifier("otherProfile");
         steamID = activeIntent.getStringExtra("Profile.steamID");
+
 
         userData = dataHandler.getUserFromDB(Long.parseLong(steamID));
         myUserData = dataHandler.getUserFromDB(Long.parseLong(Profile.steamID));

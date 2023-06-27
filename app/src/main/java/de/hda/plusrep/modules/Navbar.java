@@ -29,6 +29,7 @@ public class Navbar {
         if (activeIntent.getIdentifier().equals("Forum")) navbar.setSelectedItemId(R.id.forumButton);
         if (activeIntent.getIdentifier().equals("Contacts")) navbar.setSelectedItemId(R.id.contactsButton);
         if (activeIntent.getIdentifier().equals("FriendRequest")) navbar.setSelectedItemId(R.id.requestButton);
+        if (activeIntent.getIdentifier().equals("otherProfile")) navbar.setSelectedItemId(R.id.unselectedButton);
 
 
         navbar.setOnItemSelectedListener(item -> {

@@ -17,4 +17,9 @@
         android:id="@+id/requestButton"
         android:icon="@drawable/ic_nevbaradd"
         android:title="@string/FriendRequest" />
+    <item
+        android:id="@+id/unselectedButton"
+        android:icon="@drawable/ic_nevbaradd"
+        android:visible="false"
+        android:title="@string/FriendRequest" />
 </menu>
