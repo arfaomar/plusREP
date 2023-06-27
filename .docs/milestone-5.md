@@ -43,8 +43,8 @@ Falls wir nun jetzt neue Bekanntschaften schließen möchten, können wir eine d
 Wenn wir für ein bestimmtes Spiel Beiträge suchen können wir diese über die Tags gefiltert anzeigen lassen. <br>
 Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-Button selbst einen Forumsbeitrag verfassen. <br> 
 
-<img src=".docs/m5/forum.jpg" alt= “” width="" height="320">
-<img src=".docs/m5/forumFiltered.jpg" alt= “” width="" height="320">
+<img src=".docs/m5/forum.png" alt= “” width="" height="320">
+<img src=".docs/m5/forumFiltered.png" alt= “” width="" height="320">
 <img src=".docs/m5/post.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/createForumPost.jpg" alt= “” width="" height="320">
 
