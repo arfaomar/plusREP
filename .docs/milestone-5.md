@@ -2,6 +2,11 @@
 
 Um unsere App zu testen, muss sie von der Beta Branch gepullt werden.
 
+Falls Sie sich nicht mit Ihrem (falls vorhanden) eigenen Steam-Account einlogen wollen, können wir auf Anfrage einen solchen zur Verfügung stellen.
+
+<br>
+<br>
+
 #### 1 - Login
 
 Beim Start der App begrüßt uns ein simpler Screen mit einem schönen Logo und einem Login-Button um sich per [Steam](https://store.steampowered.com/?l=german) anzumelden.<br>
