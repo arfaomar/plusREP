@@ -39,7 +39,7 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 Falls wir nun jetzt neue Bekanntschaften schließen möchten, können wir eine der gelisteten Beiträge öffnen und durchlesen. Bei enstprechendem interesse, kann man durch anklicken auf den angezeigten Benutzernamen, das Profil des anderen Users öffnen.<br>
 
 Wenn wir für ein bestimmtes Spiel Beiträge suchen können wir diese über die Tags gefiltert anzeigen lassen. <br>
-Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-Button selbst einen Forumsbeitrag verfassen. <br> <br>
+Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-Button selbst einen Forumsbeitrag verfassen. <br> 
 <img src=".docs/m5/forum.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/forumFiltered.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/post.jpg" alt= “” width="" height="320">
@@ -48,7 +48,7 @@ Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-B
 
 <br>
 
-#### 3 - Contacts
+#### 4 - Contacts
 In der Kontaktliste werden alle befreundeten User in einer RecyclerView aufgelistet.<br>
 Die Profilbilder, Benutzernamen und die Scores werden mit jedem Zugriff frisch von der Datenbank gezogen.<br>
 Daraufklickend gelangen wir auf das jeweilige Profil.<br>
@@ -58,7 +58,7 @@ Daraufklickend gelangen wir auf das jeweilige Profil.<br>
 
 <br>
 
-#### 4 - Fremdes Profil
+#### 5 - Fremdes Profil
 Nun sehen wir ein schönes Benutzerprofil mit einem Profilbild, Benutzernamen und Score (ähnlich wie "My Profile"). Zusätzlich haben wir links und rechts vom Profilbild jeweils einen Button zum Liken oder Disliken.<br>
 
 Durch das Drücken dieser wird automatisch der Score berechnet und in die Datenbank eingetragen. Da die Buttons beim inaktiven Zustand ausgegraut werden, ist es gut kenntlich, wie wir den User bewertet haben.<br>
@@ -71,7 +71,7 @@ Auf der linken Seite, unter dem Bild finden wir die Social-Media-Buttons, die un
 
 <br>
 
-#### 5 - Friend requests
+#### 6 - Friend requests
 Wir entschieden uns in der BottomNavigationBar den Settings-Screen, in die Gerät-Einstellungen auszulagern. Es ist uns nämlich im späteren Verlauf aufgefallen, dass man öfter auf den Freundschaftsanfragen-Screen gehen muss, um diese zu verwalten, als auf Einstellungen<br>
 
 Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passende Auswahl von Farben und Symbolen, kenntlich gemacht.<br>
@@ -81,7 +81,7 @@ Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passend
 
 <br>
 
-#### 6 - Sprachen!
+#### 7 - Sprachen!
 Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Übersetzung ins Deutsche, Französische, Lateinische, Kroatische & Schwedische anzubieten. Die jeweilige Sprache wird automatisch anhand der Smartphone-Einstellung für die App ausgewählt. 
 <br>
 **Disclaimer:** Sprachen können teilweise falsch oder in einem anderem Sinne übersetzt worden sein. Außerdem könnten übersetzungen unvollständing sein <br>
@@ -91,7 +91,7 @@ Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Überse
 
 <br>
 
-####  7 - Datenbankanbindung
+####  8 - Datenbankanbindung
 Unsere App interargiert bei jedem Screenaufruf sowohl als auch beim Starten mit der Datenbank um die neusten Daten zu haben. <br>
 Bei jeder Creaton / Bearbeitung oder beim Löschen wird immer die Datenbank geupdaten so das alle immer auf dem neusten Stand sein können. <br>
 Als Datenbank haben wir uns für die AWS-Datenbank welche über den HDA-Login auf Rosettahub zugreifbar ist, entschieden. <br>
