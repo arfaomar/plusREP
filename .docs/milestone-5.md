@@ -52,7 +52,6 @@ Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-B
 In der Kontaktliste werden alle befreundeten User in einer RecyclerView aufgelistet.<br>
 Die Profilbilder, Benutzernamen und die Scores werden mit jedem Zugriff frisch von der Datenbank gezogen.<br>
 Daraufklickend gelangen wir auf das jeweilige Profil.<br>
-
 <img src="./m5/contacts.jpg" alt= “” width="" height="320">
 
 
