@@ -29,7 +29,6 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 
 
 <img src=".docs/m5/myProfile.jpg" alt= “” width="" height="320">
-TODO: Bild von EDIT + Profile von video nehmen
 
 <br>
 
@@ -72,8 +71,8 @@ Wir entschieden uns in der BottomNavigation Bar den Settings-Screen, in die Ger�
 
 Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passende Auswahl von Farben und Symbolen, kenntlich gemacht.<br>
 
-<img src=".docs/m5/xx.jpg" alt= “” width="" height="320">
-TODO: Bild von friend requests von video nehmen
+<img src=".docs/m5/FriendRequest.jpg" alt= “” width="" height="320">
+
 
 
 
