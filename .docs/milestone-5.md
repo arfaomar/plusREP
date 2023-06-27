@@ -88,7 +88,7 @@ Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Überse
 
 #### Beispiel Video
 Im Folgenden sehen sie eine Beispielhafte Benutzung der App <br>
-![](.docs/m5/UNSER PORJEKT DINGS.mp4)
+![](.docs/m5/video.mp4)
 
 
 <br>
