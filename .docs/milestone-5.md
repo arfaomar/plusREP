@@ -14,7 +14,7 @@ Zuletzt wird dann das eigentliche Profil aufgerufen, dabei werden alle Steam bez
 
 <img src=".docs/m5/loginScreen.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 2 - My Profile
@@ -32,7 +32,7 @@ Anmerkung: Für die Berechnung des Scores haben wir eine logarithmische Formel e
 <img src=".docs/m5/myProfile.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/editProfile.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 3 - Forum
@@ -46,7 +46,7 @@ Falls kein Ansprechender Forumsbeitrag vorhanden ist können wir mit dem Stift-B
 <img src=".docs/m5/post.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/createForumPost.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 4 - Contacts
@@ -56,7 +56,7 @@ Daraufklickend gelangen wir auf das jeweilige Profil.<br>
 
 <img src="./m5/contacts.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 5 - Fremdes Profil
@@ -69,7 +69,7 @@ Auf der linken Seite, unter dem Bild finden wir die Social-Media-Buttons, die un
 <img src=".docs/m5/otherProfile.jpg" alt= “” width="" height="320">
 <img src=".docs/m5/otherProfileClipBoard.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 6 - Friend requests
@@ -79,7 +79,7 @@ Die Funktion der Buttons auf den jeweiligen Anfragen haben wir durch die passend
 
 <img src=".docs/m5/FriendRequest.jpg" alt= “” width="" height="320">
 
-
+<br>
 <br>
 
 #### 7 - Sprachen!
@@ -89,7 +89,7 @@ Da nicht jeder Englisch kann, entschieden wir uns für alle Strings eine Überse
 
 ![](./m5/translation.png)
 
-
+<br>
 <br>
 
 ####  8 - Datenbankanbindung
