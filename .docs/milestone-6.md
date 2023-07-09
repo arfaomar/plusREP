@@ -86,6 +86,11 @@ d. Robustheit:  <br>
 
 #### 5 - Verbesserungen
 
-Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge <br>
-Forumeinträge löschbar / nach eigenen Einträgen suchen können<br>
-Datenbank speichert nicht ob schon geliked / disliked wurde wenn die Freundschaft beendet und wieder neu "begonnen" wird <br>
+- Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge
+- Forumeinträge löschbar / nach eigenen Einträgen suchen können
+- Datenbank speichert nicht ob schon geliked / disliked wurde wenn die Freundschaft beendet und wieder neu "begonnen" wird
+- Startbildschirm nacharbeiten
+- App-Icon hinzufügen
+- Textfelder beim Profil bearbeiten und Post erstellen vergrößern, weil der Benutzer sonst den Eindruck bekommt nur einen kleinen Text verfassen zu können
+- Textfelder sollte man lieber mit Labels versehen, statt nur hints bei einem leeren feld zu zeigen, um dem Benutzer besser zu zeigen wofür jedes Feld gedacht ist
+- Ein anderes Icon für "Freundschaft Beenden" verwenden, um dem Benutzer die Funktion des Buttons besser zu vermitteln
