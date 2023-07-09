@@ -27,3 +27,6 @@
 <br>
 
 #### 4 - Verbesserungen
+
+Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge
+Forumeinträge löschbar / nach eigenen Einträgen suchen können
