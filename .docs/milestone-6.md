@@ -14,7 +14,7 @@
 
 #### 3 - Interview
 
-[](./m6/interview.png)
+![](./m6/interview.png)
 
 #### 4 - Design Review
 
