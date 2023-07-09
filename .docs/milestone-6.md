@@ -9,11 +9,14 @@
 
 #### 2 - Usability Test
 
-
 <br>
 <br>
 
-#### 3 - Design Review
+#### 3 - Interview
+
+[](./m6/interview.png)
+
+#### 4 - Design Review
 
 1. Die **Schrift** ist gut lesbar
 2. **Schrift** ist gut erkennbar und deren **Funktion** ist verständlich
@@ -26,7 +29,7 @@
 <br>
 <br>
 
-#### 4 - Verbesserungen
+#### 5 - Verbesserungen
 
 Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge <br>
 Forumeinträge löschbar / nach eigenen Einträgen suchen können<br>
