@@ -29,4 +29,5 @@
 #### 4 - Verbesserungen
 
 Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge <br>
-Forumeinträge löschbar / nach eigenen Einträgen suchen können
+Forumeinträge löschbar / nach eigenen Einträgen suchen können<br>
+Datenbank speichert nicht ob schon geliked / disliked wurde wenn die Freundschaft beendet und wieder neu "begonnen" wird <br>
