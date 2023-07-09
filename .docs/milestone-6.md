@@ -4,8 +4,7 @@
 
 #### 1 - Thinking Aloud
 
-<br>
-<br>
+![](.docs/m6/ThinkingAloud.mp4)
 
 #### 2 - Usability Test
 
