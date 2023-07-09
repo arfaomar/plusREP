@@ -1,10 +1,9 @@
 # 6. Meilenstein
-<br>
-<br>
 
 #### 1 - Thinking Aloud
 
 ![](.docs/m6/ThinkingAloud.mp4)
+
 
 #### 2 - Usability Test
 
@@ -64,8 +63,6 @@ b. Effizienz:  <br>
 c. Zufriedenheit:  <br>
 d. Robustheit:  <br>
 
-<br>
-<br>
 
 #### 3 - Interview
 
@@ -73,6 +70,7 @@ d. Robustheit:  <br>
 
 Beim Punkt 18 ist die Bewertung eine 5 weil:
 - Es Fehlen die möglichkeiten einen Forum Post zu löschen und nach eigenen Beiträgen zu suchen
+
 
 #### 4 - Design Review
 
@@ -84,8 +82,6 @@ Beim Punkt 18 ist die Bewertung eine 5 weil:
 6. Es gibt **Abstände**
 7. Es **dreht** sich nicht, und das ist auch gut so
 
-<br>
-<br>
 
 #### 5 - Verbesserungen
 
