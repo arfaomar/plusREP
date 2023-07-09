@@ -71,6 +71,9 @@ d. Robustheit:  <br>
 
 ![](./m6/interview.png)
 
+Beim Punkt 18 ist die Bewertung eine 5 weil:
+- Es Fehlen die möglichkeiten einen Forum Post zu löschen und nach eigenen Beiträgen zu suchen
+
 #### 4 - Design Review
 
 1. Die **Schrift** ist gut lesbar
@@ -86,8 +89,8 @@ d. Robustheit:  <br>
 
 #### 5 - Verbesserungen
 
-- Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Einträge
-- Forumeinträge löschbar / nach eigenen Einträgen suchen können
+- Mehr Farbdifferenz zwischen dem Allgemeinen Hintergrund und dem Hintergrund der Beiträge
+- Forumbeiträge löschbar / nach eigenen Beiträgen suchen können
 - Datenbank speichert nicht ob schon geliked / disliked wurde wenn die Freundschaft beendet und wieder neu "begonnen" wird
 - Startbildschirm nacharbeiten
 - App-Icon hinzufügen
