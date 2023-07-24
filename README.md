@@ -13,19 +13,10 @@ Unser Produkt **+REP** beschreibt eine App, die es Spielern ermöglicht andere S
 [Dokumentation](.docs/README.md)
 
 ### Mitwirkende
--   [**Omar Ibrahim Arfa**](@stomarfaa) **1112678**
-    <br>
-    <omaribrahim.arfa@stud.h-da.de>
+-   [**Omar A.**]
 
--   [**Simon Pototzki**](@stsipotot) **1111900**
-    <br>
-    <simon.pototzki@stud.h-da.de>
+-   [Simon P.]
 
--   [**Justin Uhrig**](@stjuuhrig) **1112956**
-    <br>
-    <justin.uhrig@stud.h-da.de>
+-   [Justin U.]
 
--   [**Sebastian Knupfer**](@stseknupf) **1111883**
-    <br>
-    <sebastian.knupfer@stud.h-da.de><br>
-
+-   [Sebastian K.]
