@@ -13,10 +13,12 @@ Unser Produkt **+REP** beschreibt eine App, die es Spielern ermöglicht andere S
 [Dokumentation](.docs/README.md)
 
 ### Mitwirkende
--   [**Omar A.**]
+- Omar A.
 
--   [Simon P.]
+- Simon P.
 
--   [Justin U.]
+- Justin U.
 
--   [Sebastian K.]
+- Sebastian K.
+
+**Diese App wurde im Rahmen der Vorlesung Human Computer Interaction entwickelt. Alle zwei Wochen hatten wir einen neuen Meilenstein, den wir erreichen mussten. Jeder Meilenstein umfasste einen Schritt in der App-Entwicklung und wurde dokumentiert. Für die eigentliche Implementierung der App hatten wir vier Wochen Zeit, obwohl keiner von uns zuvor Erfahrungen mit Android Studio, Java oder Datenbank-Anbindungen hatte.**
