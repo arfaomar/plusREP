@@ -2,7 +2,7 @@
 
 #### 1 - Thinking Aloud
 
-![](.docs/m6/ThinkingAloud.mp4)
+(Video aus Datenschutzgründen entfernt)
 
 
 #### 2 - Usability Test
